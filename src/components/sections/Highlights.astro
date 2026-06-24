@@ -1,0 +1,61 @@
+---
+// "Höjdpunkter" — matchklipp från build-time-datan (src/data/sportdata.json,
+// TheSportsDB strVideo + strThumb). Variant 2: matchbild + play-knapp som
+// öppnar YouTube-klippet i ny flik (ingen iframe förrän man klickar).
+import sportdata from "../../data/sportdata.json";
+import { Icon } from "astro-icon/components";
+
+interface Props { title?: string }
+const { title = "Höjdpunkter" } = Astro.props;
+
+interface Clip { home: string; away: string; score?: string | null; league: string; video: string; thumb?: string | null; date?: string }
+const clips = ((sportdata as any)?.highlights ?? []) as Clip[];
+---
+
+{clips.length > 0 && (
+  <section class="bg-base-100 py-16 md:py-20 border-t border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 reveal">
+      <div class="flex flex-wrap items-end justify-between gap-3 mb-10 border-b border-white/10 pb-5">
+        <div class="flex items-center gap-4">
+          <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em]">{title}</h2>
+        </div>
+        <span class="micro-label">Matchklipp · YouTube</span>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {clips.map((c) => (
+          <a
+            href={c.video}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="group relative block aspect-video overflow-hidden rounded-box bg-base-200 decoration-0!"
+            aria-label={`Se höjdpunkter: ${c.home} ${c.score ?? ""} ${c.away}`}
+          >
+            {c.thumb ? (
+              <img src={c.thumb} alt="" loading="lazy" class="absolute inset-0 w-full h-full object-cover opacity-70 transition-all duration-500 group-hover:opacity-90 group-hover:scale-105" />
+            ) : (
+              <div class="absolute inset-0 flex items-center justify-center text-white/15"><Icon name="heroicons:film" class="w-12 h-12" /></div>
+            )}
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-black/25"></div>
+
+            <span class="absolute top-3 left-3 micro-label text-white/75">Höjdpunkter</span>
+
+            <div class="absolute inset-0 flex items-center justify-center">
+              <span class="w-14 h-14 rounded-full bg-primary flex items-center justify-center shadow-xl shadow-black/40 transition-transform duration-300 group-hover:scale-110">
+                <Icon name="mdi:play" class="w-7 h-7 text-primary-content translate-x-0.5" />
+              </span>
+            </div>
+
+            <div class="absolute inset-x-0 bottom-0 p-4">
+              <span class="micro-label text-primary">{c.league}</span>
+              <div class="font-display text-white text-lg md:text-xl tracking-[-0.02em] leading-tight mt-1">
+                {c.home} <span class="text-primary font-bold tabular-nums">{c.score}</span> {c.away}
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+      <p class="micro-label normal-case tracking-normal text-white/30 mt-6">Klipp öppnas på YouTube. Höjdpunkter via TheSportsDB.</p>
+    </div>
+  </section>
+)}

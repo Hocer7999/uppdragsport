@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-24T12:43:14.473247+00:00",
+  "fetched_at": "2026-06-24T12:59:43.633253+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -142,7 +142,9 @@
           "time": "12:00:00",
           "home": "Häcken",
           "away": "Hammarby",
-          "score": "3–2"
+          "score": "3–2",
+          "video": null,
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/kvcljc1675683785.jpg"
         }
       ],
       "upcoming": [
@@ -294,7 +296,9 @@
           "time": "17:05:00",
           "home": "Örebro",
           "away": "Sandvikens",
-          "score": "1–1"
+          "score": "1–1",
+          "video": null,
+          "thumb": null
         }
       ],
       "upcoming": [
@@ -317,7 +321,9 @@
           "time": "13:15:00",
           "home": "Skellefteå AIK",
           "away": "Rögle BK",
-          "score": "7–3"
+          "score": "7–3",
+          "video": null,
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/7buw071694599324.jpg"
         }
       ],
       "upcoming": [
@@ -340,7 +346,9 @@
           "time": "15:00:00",
           "home": "West Ham United",
           "away": "Leeds United",
-          "score": "3–0"
+          "score": "3–0",
+          "video": "https://www.youtube.com/watch?v=E5y8302KfUw",
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/iejgyx1750321086.jpg"
         }
       ],
       "upcoming": [
@@ -363,7 +371,9 @@
           "time": "16:00:00",
           "home": "Paris SG",
           "away": "Arsenal",
-          "score": "1–1"
+          "score": "1–1",
+          "video": "https://www.youtube.com/watch?v=_QliLmqcyh0",
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/68f48e1778654752.jpg"
         }
       ],
       "upcoming": [
@@ -372,6 +382,92 @@
           "time": "16:00:00",
           "home": "Lincoln Red Imps",
           "away": "Inter Club d'Escaldes"
+        }
+      ]
+    },
+    {
+      "id": "4335",
+      "name": "La Liga",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-24",
+          "time": "19:00:00",
+          "home": "Villarreal",
+          "away": "Atlético Madrid",
+          "score": "5–1",
+          "video": "https://www.youtube.com/watch?v=6nDSrVykH-I",
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/na2zs81751450432.jpg"
+        }
+      ],
+      "upcoming": []
+    },
+    {
+      "id": "4332",
+      "name": "Serie A",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-24",
+          "time": "18:45:00",
+          "home": "Hellas Verona",
+          "away": "Roma",
+          "score": "0–2",
+          "video": "https://www.youtube.com/watch?v=aflJKg6GSl4",
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/atbus91765442677.jpg"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-08-23",
+          "time": "16:30:00",
+          "home": "Udinese",
+          "away": "Como"
+        }
+      ]
+    },
+    {
+      "id": "4331",
+      "name": "Bundesliga",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-25",
+          "time": "18:30:00",
+          "home": "Paderborn",
+          "away": "Wolfsburg",
+          "score": "2–1",
+          "video": "https://www.youtube.com/watch?v=eXa4amTV5_w",
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/0d4n2b1779346198.jpg"
+        }
+      ],
+      "upcoming": []
+    },
+    {
+      "id": "4334",
+      "name": "Ligue 1",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-29",
+          "time": "18:45:00",
+          "home": "Nice",
+          "away": "St Etienne",
+          "score": "4–1",
+          "video": "https://www.youtube.com/watch?v=RlcpnPwWZj0",
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/et32dv1780035576.jpg"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-08-22",
+          "time": "15:00:00",
+          "home": "Angers",
+          "away": "Lille"
         }
       ]
     },
@@ -386,7 +482,9 @@
           "time": "17:30:00",
           "home": "Järfälla",
           "away": "Arlanda",
-          "score": "0–2"
+          "score": "0–2",
+          "video": null,
+          "thumb": null
         }
       ],
       "upcoming": [
@@ -397,6 +495,62 @@
           "away": "Jönköping Södra"
         }
       ]
+    }
+  ],
+  "highlights": [
+    {
+      "home": "West Ham United",
+      "away": "Leeds United",
+      "score": "3–0",
+      "date": "2026-05-24",
+      "league": "Premier League",
+      "video": "https://www.youtube.com/watch?v=E5y8302KfUw",
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/iejgyx1750321086.jpg"
+    },
+    {
+      "home": "Paris SG",
+      "away": "Arsenal",
+      "score": "1–1",
+      "date": "2026-05-30",
+      "league": "Champions League",
+      "video": "https://www.youtube.com/watch?v=_QliLmqcyh0",
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/68f48e1778654752.jpg"
+    },
+    {
+      "home": "Villarreal",
+      "away": "Atlético Madrid",
+      "score": "5–1",
+      "date": "2026-05-24",
+      "league": "La Liga",
+      "video": "https://www.youtube.com/watch?v=6nDSrVykH-I",
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/na2zs81751450432.jpg"
+    },
+    {
+      "home": "Hellas Verona",
+      "away": "Roma",
+      "score": "0–2",
+      "date": "2026-05-24",
+      "league": "Serie A",
+      "video": "https://www.youtube.com/watch?v=aflJKg6GSl4",
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/atbus91765442677.jpg"
+    },
+    {
+      "home": "Paderborn",
+      "away": "Wolfsburg",
+      "score": "2–1",
+      "date": "2026-05-25",
+      "league": "Bundesliga",
+      "video": "https://www.youtube.com/watch?v=eXa4amTV5_w",
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/0d4n2b1779346198.jpg"
+    },
+    {
+      "home": "Nice",
+      "away": "St Etienne",
+      "score": "4–1",
+      "date": "2026-05-29",
+      "league": "Ligue 1",
+      "video": "https://www.youtube.com/watch?v=RlcpnPwWZj0",
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/et32dv1780035576.jpg"
     }
   ]
 }
