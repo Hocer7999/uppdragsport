@@ -9,7 +9,7 @@ avbockade. Metrik (volym/KD) är informativ; verifieras vid nästa Ahrefs-refill
 ## Kö — nästa att skriva
 
 - [x] allsvenskan tabell förklaring
-- [ ] shl slutspel format
+- [x] shl slutspel format
 - [ ] när börjar allsvenskan
 - [ ] innebandy ssl regler
 - [ ] friidrott vm grenar
