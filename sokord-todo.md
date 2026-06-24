@@ -11,7 +11,7 @@ avbockade. Metrik (volym/KD) är informativ; verifieras vid nästa Ahrefs-refill
 - [x] allsvenskan tabell förklaring
 - [x] shl slutspel format
 - [x] när börjar allsvenskan
-- [ ] innebandy ssl regler
+- [x] innebandy ssl regler
 - [ ] friidrott vm grenar
 - [ ] vasaloppet distans och historia
 - [ ] hockeyns regler för nybörjare
