@@ -49,12 +49,13 @@ export const serviceHomepageSections: SectionConfig[] = [
 export const contentHomepageSections: SectionConfig[] = [
     { type: "HeroStadium" },
     { type: "ScoreTicker" },
-    { type: "NewsRail", props: { title: "Senaste nyheterna", limit: 5 } },
+    { type: "AdBanner" },
+    { type: "NewsPortal", props: { title: "Allt just nu" } },
     { type: "CategoryGrid", props: {
         title: "Sporterna",
         description: "Välj din arena. Vi täcker bollsport, is och bana — från elitserien till friidrottens VM-finaler.",
     } },
-    { type: "ArticleList", props: { title: "Senast publicerat", limit: 6, paginate: false, featured: true } },
+    { type: "AdBanner" },
     { type: "MomentsFilmstrip" },
     { type: "EditorialQuote" },
     { type: "Newsletter", props: {

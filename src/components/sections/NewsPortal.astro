@@ -1,0 +1,173 @@
+---
+import { getCollection, getEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+import sportdata from "../../data/sportdata.json";
+import StandingsTable from "./StandingsTable.astro";
+import AdBanner from "./AdBanner.astro";
+
+interface Props {
+  title?: string;
+}
+const { title = "Allt just nu" } = Astro.props;
+
+const byDate = (a: any, b: any) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+const news = (await getCollection("news")).sort(byDate);
+const articles = (await getCollection("articles")).sort(byDate);
+
+// Kategori-titlar för artikel-taggar
+const catTitle: Record<string, string | undefined> = {};
+for (const a of articles) {
+  if (a.data.category) {
+    const c = await getEntry(a.data.category);
+    catTitle[a.id] = c?.data.title;
+  }
+}
+
+type Card = {
+  href: string; title: string; desc: string; image?: string;
+  date: Date; tag: string; kind: "news" | "article"; breaking: boolean;
+};
+const card = (e: any, kind: "news" | "article"): Card => ({
+  href: kind === "news" ? `/nyheter/${e.slug}` : `/artiklar/${e.slug}`,
+  title: e.data.title,
+  desc: e.data.description,
+  image: e.data.image,
+  date: e.data.publishDate,
+  tag: kind === "news" ? e.data.sport : (catTitle[e.id] ?? e.data.tags?.[0] ?? "Analys"),
+  kind,
+  breaking: kind === "news" ? !!e.data.isBreaking : false,
+});
+
+const newsCards = news.map((n) => card(n, "news"));
+const artCards = articles.map((a) => card(a, "article"));
+const all = [...newsCards, ...artCards].sort((a, b) => b.date.valueOf() - a.date.valueOf());
+
+const lead = all[0];
+const grid = all.slice(1, 9);
+
+const breaking = newsCards.slice(0, 5);
+const mostRead = artCards.slice(0, 5);
+const upcoming = ((sportdata?.leagues ?? []) as any[])
+  .flatMap((l) => (l.upcoming ?? []).map((e: any) => ({ ...e, league: l.name })))
+  .filter((e) => e.home && e.away)
+  .slice(0, 4);
+
+const fmtDate = (d: Date) => d.toLocaleDateString("sv-SE", { month: "short", day: "numeric" });
+---
+
+<section class="bg-base-100 py-16 md:py-20 border-t border-white/5">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+    <div class="flex items-center gap-4 mb-10 border-b border-white/10 pb-5">
+      <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+      <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em]">{title}</h2>
+    </div>
+
+    <div class="grid lg:grid-cols-12 gap-10 lg:gap-12">
+      <!-- HUVUDSPALT -->
+      <div class="lg:col-span-8">
+        {lead && (
+          <a href={lead.href} class="group block decoration-0! mb-10">
+            <div class="relative aspect-[16/9] overflow-hidden rounded-box bg-base-200 mb-5">
+              {lead.image ? (
+                <img src={lead.image} alt="" class="absolute inset-0 w-full h-full object-cover opacity-90 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105" />
+              ) : (
+                <div class="absolute inset-0 flex items-center justify-center text-white/15"><Icon name="heroicons:photo" class="w-16 h-16" /></div>
+              )}
+              <div class="absolute top-4 left-4 flex items-center gap-2">
+                {lead.breaking && <span class="px-2 py-0.5 rounded-field bg-primary text-primary-content text-[0.5625rem] font-bold uppercase tracking-[0.18em]">Direkt</span>}
+                <span class="px-2 py-0.5 rounded-field bg-black/70 backdrop-blur micro-label text-white/80">{lead.tag}</span>
+              </div>
+            </div>
+            <h3 class="font-display text-3xl md:text-5xl text-white tracking-[-0.04em] leading-[1.0] mb-3 group-hover:text-white/80 transition-colors">{lead.title}</h3>
+            <p class="text-white/55 text-lg leading-relaxed max-w-2xl">{lead.desc}</p>
+            <time class="micro-label mt-3 inline-block">{fmtDate(lead.date)}</time>
+          </a>
+        )}
+
+        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-9 border-t border-white/10 pt-9">
+          {grid.map((c) => (
+            <a href={c.href} class="group flex flex-col decoration-0!">
+              <div class="relative aspect-video overflow-hidden rounded-field bg-base-200 mb-4">
+                {c.image ? (
+                  <img src={c.image} alt="" class="absolute inset-0 w-full h-full object-cover opacity-85 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105" />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center text-white/15"><Icon name="heroicons:photo" class="w-8 h-8" /></div>
+                )}
+              </div>
+              <div class="flex items-center gap-3 mb-1.5">
+                <span class={`micro-label ${c.kind === "news" ? "text-primary" : ""}`}>{c.tag}</span>
+                <time class="micro-label">{fmtDate(c.date)}</time>
+              </div>
+              <h4 class="font-display text-xl md:text-2xl text-white tracking-[-0.035em] leading-tight group-hover:text-white/70 transition-colors">{c.title}</h4>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="lg:col-span-4 space-y-10">
+        <!-- Just nu -->
+        {breaking.length > 0 && (
+          <div>
+            <div class="flex items-center gap-2 mb-4 border-b border-white/10 pb-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+              <h3 class="font-display text-lg text-white tracking-[-0.02em]">Just nu</h3>
+            </div>
+            <div class="divide-y divide-white/8">
+              {breaking.map((b) => (
+                <a href={b.href} class="group flex flex-col gap-1 py-3 decoration-0!">
+                  <div class="flex items-center gap-2.5">
+                    <span class="micro-label text-primary">{b.tag}</span>
+                    <time class="micro-label">{fmtDate(b.date)}</time>
+                  </div>
+                  <span class="text-white/85 font-medium leading-snug group-hover:text-white transition-colors">{b.title}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <StandingsTable league="Allsvenskan" limit={6} />
+
+        <!-- Kommande matcher -->
+        {upcoming.length > 0 && (
+          <div>
+            <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
+              <h3 class="font-display text-lg text-white tracking-[-0.02em]">Kommande matcher</h3>
+              <span class="micro-label">Sport</span>
+            </div>
+            <div class="divide-y divide-white/8">
+              {upcoming.map((m) => (
+                <div class="flex items-center justify-between py-2.5 gap-3">
+                  <span class="text-white/85 text-sm font-medium truncate">{m.home} <span class="text-white/30">–</span> {m.away}</span>
+                  <span class="micro-label shrink-0">{m.date ? fmtDate(new Date(m.date)) : m.league}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Mest läst -->
+        {mostRead.length > 0 && (
+          <div>
+            <div class="flex items-center gap-2 mb-4 border-b border-white/10 pb-3">
+              <h3 class="font-display text-lg text-white tracking-[-0.02em]">Mest läst</h3>
+            </div>
+            <ol class="space-y-4">
+              {mostRead.map((m, i) => (
+                <li>
+                  <a href={m.href} class="group flex gap-4 items-start decoration-0!">
+                    <span class="font-display text-2xl text-white/20 tabular-nums leading-none w-7 shrink-0">{i + 1}</span>
+                    <span class="text-white/85 font-medium leading-snug group-hover:text-primary transition-colors">{m.title}</span>
+                  </a>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+
+        <AdBanner variant="rectangle" />
+      </aside>
+    </div>
+  </div>
+</section>

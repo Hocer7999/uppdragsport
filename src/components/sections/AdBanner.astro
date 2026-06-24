@@ -1,0 +1,59 @@
+---
+// Annons-/sponsrat-banner. Ger nyhetsportal-känslan och är redo att koppla
+// riktig annonskod (AdSense m.m.) — byt ut platshållaren mot <ins>-taggen.
+// variant: "leaderboard" (bred, egen sektion med container) | "rectangle"
+// (bart block, för sidebar). Om `title` anges renderas en house-promo.
+interface Props {
+  variant?: "leaderboard" | "rectangle";
+  label?: string;
+  title?: string;
+  text?: string;
+  href?: string;
+  cta?: string;
+}
+const {
+  variant = "leaderboard",
+  label = "Annons",
+  title,
+  text,
+  href = "#",
+  cta = "Läs mer",
+} = Astro.props;
+const isLeader = variant === "leaderboard";
+---
+
+{isLeader ? (
+  <section class="bg-base-100 py-6">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      {title ? (
+        <a href={href} class="group relative flex flex-col sm:flex-row sm:items-center gap-4 overflow-hidden rounded-box bg-base-200 border border-white/10 px-6 py-6 sm:py-7 decoration-0!">
+          <span class="absolute top-2.5 left-3 micro-label text-white/30">Sponsrat</span>
+          <div class="flex-1 relative z-10">
+            <h3 class="font-display text-2xl md:text-3xl text-white tracking-[-0.03em] leading-tight">{title}</h3>
+            {text && <p class="text-white/55 mt-2 leading-relaxed max-w-xl">{text}</p>}
+          </div>
+          <span class="shrink-0 relative z-10 inline-flex items-center gap-2 text-sm font-semibold text-white group-hover:text-primary transition-colors">
+            {cta}<span class="group-hover:translate-x-1 transition-transform">→</span>
+          </span>
+          <div class="absolute -right-10 -top-10 w-40 h-40 halo-red opacity-40 pointer-events-none"></div>
+        </a>
+      ) : (
+        <div class="relative flex items-center justify-center rounded-box bg-base-200/60 border border-dashed border-white/10 h-24 md:h-28 text-center" role="complementary" aria-label="Annonsplats">
+          <span class="absolute top-2.5 left-3 micro-label text-white/25">{label}</span>
+          <div class="text-white/20">
+            <p class="micro-label">Annonsplats</p>
+            <p class="text-xs mt-1 tracking-wider">970 × 90</p>
+          </div>
+        </div>
+      )}
+    </div>
+  </section>
+) : (
+  <div class="relative flex items-center justify-center rounded-box bg-base-200/60 border border-dashed border-white/10 aspect-[300/250] text-center" role="complementary" aria-label="Annonsplats">
+    <span class="absolute top-2.5 left-3 micro-label text-white/25">{label}</span>
+    <div class="text-white/20">
+      <p class="micro-label">Annonsplats</p>
+      <p class="text-xs mt-1 tracking-wider">300 × 250</p>
+    </div>
+  </div>
+)}

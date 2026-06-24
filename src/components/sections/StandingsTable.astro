@@ -1,0 +1,50 @@
+---
+// Kompakt ligatabell från build-time-datan (src/data/sportdata.json).
+// Renderas bara om ligan har tabellrader (degraderar tyst annars).
+import sportdata from "../../data/sportdata.json";
+
+interface Props {
+  league?: string;
+  limit?: number;
+  heading?: boolean;
+}
+const { league = "Allsvenskan", limit = 6, heading = true } = Astro.props;
+
+interface Row { pos?: any; team?: string; points?: any; played?: any }
+interface League { name: string; table: Row[] }
+
+const leagues = (sportdata?.leagues ?? []) as League[];
+const l = leagues.find((x) => x.name === league);
+const rows = (l?.table ?? []).filter((r) => r.team).slice(0, limit);
+---
+
+{rows.length > 0 && (
+  <div>
+    {heading && (
+      <div class="flex items-center justify-between mb-4 border-b border-white/10 pb-3">
+        <h3 class="font-display text-lg text-white tracking-[-0.02em]">{league}</h3>
+        <span class="micro-label">Tabell</span>
+      </div>
+    )}
+    <table class="w-full text-sm">
+      <thead>
+        <tr class="micro-label text-white/30">
+          <th class="text-left font-normal pb-2 w-6">#</th>
+          <th class="text-left font-normal pb-2">Lag</th>
+          <th class="text-right font-normal pb-2 w-8">S</th>
+          <th class="text-right font-normal pb-2 w-8">P</th>
+        </tr>
+      </thead>
+      <tbody class="divide-y divide-white/5">
+        {rows.map((r, i) => (
+          <tr class="text-white/75">
+            <td class={`py-2 tabular-nums ${i === 0 ? "text-primary font-bold" : "text-white/40"}`}>{r.pos ?? i + 1}</td>
+            <td class="py-2 font-medium text-white truncate max-w-[140px]">{r.team}</td>
+            <td class="py-2 text-right tabular-nums text-white/45">{r.played ?? "–"}</td>
+            <td class="py-2 text-right tabular-nums font-semibold text-white">{r.points ?? "–"}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+)}

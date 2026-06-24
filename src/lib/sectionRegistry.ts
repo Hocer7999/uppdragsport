@@ -42,6 +42,9 @@ import HeroStadium from "../components/sections/HeroStadium.astro";
 import ScoreTicker from "../components/sections/ScoreTicker.astro";
 import NewsRail from "../components/sections/NewsRail.astro";
 import MomentsFilmstrip from "../components/sections/MomentsFilmstrip.astro";
+import NewsPortal from "../components/sections/NewsPortal.astro";
+import AdBanner from "../components/sections/AdBanner.astro";
+import StandingsTable from "../components/sections/StandingsTable.astro";
 
 export const sectionRegistry = {
     Hero,
@@ -77,6 +80,9 @@ export const sectionRegistry = {
     ScoreTicker,
     NewsRail,
     MomentsFilmstrip,
+    NewsPortal,
+    AdBanner,
+    StandingsTable,
 } as const;
 
 export type SectionType = keyof typeof sectionRegistry;
