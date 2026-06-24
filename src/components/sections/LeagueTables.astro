@@ -21,7 +21,7 @@ const tabled = leagues.filter((l) => (l.table ?? []).some((r: any) => r.team)).m
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
         {tabled.map((name) => (
-          <StandingsTable league={name} limit={8} />
+          <StandingsTable league={name} limit={20} />
         ))}
       </div>
     </div>

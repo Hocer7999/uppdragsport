@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-24T11:37:36.553292+00:00",
+  "fetched_at": "2026-06-24T12:30:03.184798+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -8,44 +8,132 @@
       "sport": "fotboll",
       "table": [
         {
-          "pos": "1",
-          "team": "Sirius",
+          "pos": 1,
+          "team": "IK Sirius",
           "played": "10",
-          "gd": "17",
+          "gd": "+17",
           "points": "28",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/yryyvr1429976751.png/tiny"
+          "badge": null
         },
         {
-          "pos": "2",
-          "team": "Häcken",
+          "pos": 2,
+          "team": "BK Häcken",
           "played": "10",
-          "gd": "6",
+          "gd": "+6",
           "points": "20",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/zyl9m01523905866.png/tiny"
+          "badge": null
         },
         {
-          "pos": "3",
-          "team": "Elfsborg",
+          "pos": 3,
+          "team": "IF Elfsborg",
           "played": "11",
-          "gd": "5",
+          "gd": "+5",
           "points": "18",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/svqvqq1421957626.png/tiny"
+          "badge": null
         },
         {
-          "pos": "4",
-          "team": "Hammarby",
+          "pos": 4,
+          "team": "Hammarby IF",
           "played": "11",
-          "gd": "11",
+          "gd": "+11",
           "points": "17",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/3kgg5b1592144695.png/tiny"
+          "badge": null
         },
         {
-          "pos": "5",
-          "team": "GAIS",
+          "pos": 5,
+          "team": "Gais",
           "played": "11",
-          "gd": "5",
+          "gd": "+5",
           "points": "15",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/3pahks1639779139.png/tiny"
+          "badge": null
+        },
+        {
+          "pos": 6,
+          "team": "Mjällby AIF",
+          "played": "10",
+          "gd": "+3",
+          "points": "15",
+          "badge": null
+        },
+        {
+          "pos": 7,
+          "team": "IF Brommapojkarna",
+          "played": "10",
+          "gd": "0",
+          "points": "15",
+          "badge": null
+        },
+        {
+          "pos": 8,
+          "team": "Djurgårdens IF",
+          "played": "9",
+          "gd": "+6",
+          "points": "13",
+          "badge": null
+        },
+        {
+          "pos": 9,
+          "team": "Malmö FF",
+          "played": "10",
+          "gd": "0",
+          "points": "13",
+          "badge": null
+        },
+        {
+          "pos": 10,
+          "team": "AIK",
+          "played": "10",
+          "gd": "-4",
+          "points": "12",
+          "badge": null
+        },
+        {
+          "pos": 11,
+          "team": "Västerås SK",
+          "played": "10",
+          "gd": "-5",
+          "points": "12",
+          "badge": null
+        },
+        {
+          "pos": 12,
+          "team": "Degerfors IF",
+          "played": "10",
+          "gd": "-4",
+          "points": "10",
+          "badge": null
+        },
+        {
+          "pos": 13,
+          "team": "Kalmar FF",
+          "played": "10",
+          "gd": "-4",
+          "points": "10",
+          "badge": null
+        },
+        {
+          "pos": 14,
+          "team": "IFK Göteborg",
+          "played": "10",
+          "gd": "-9",
+          "points": "10",
+          "badge": null
+        },
+        {
+          "pos": 15,
+          "team": "Halmstads BK",
+          "played": "10",
+          "gd": "-11",
+          "points": "6",
+          "badge": null
+        },
+        {
+          "pos": 16,
+          "team": "Örgryte IS",
+          "played": "10",
+          "gd": "-14",
+          "points": "6",
+          "badge": null
         }
       ],
       "recent": [
@@ -63,6 +151,158 @@
           "time": "17:00:00",
           "home": "Sirius",
           "away": "Mjällby"
+        }
+      ]
+    },
+    {
+      "id": "4403",
+      "name": "Superettan",
+      "sport": "fotboll",
+      "table": [
+        {
+          "pos": 1,
+          "team": "Varbergs BoIS FC",
+          "played": "12",
+          "gd": "+11",
+          "points": "24",
+          "badge": null
+        },
+        {
+          "pos": 2,
+          "team": "IFK Norrköping",
+          "played": "12",
+          "gd": "+12",
+          "points": "23",
+          "badge": null
+        },
+        {
+          "pos": 3,
+          "team": "Falkenbergs FF",
+          "played": "12",
+          "gd": "+4",
+          "points": "22",
+          "badge": null
+        },
+        {
+          "pos": 4,
+          "team": "Nordic United FC",
+          "played": "12",
+          "gd": "+1",
+          "points": "20",
+          "badge": null
+        },
+        {
+          "pos": 5,
+          "team": "Östers IF",
+          "played": "12",
+          "gd": "+1",
+          "points": "20",
+          "badge": null
+        },
+        {
+          "pos": 6,
+          "team": "Landskrona BoIS",
+          "played": "12",
+          "gd": "+6",
+          "points": "19",
+          "badge": null
+        },
+        {
+          "pos": 7,
+          "team": "Östersunds",
+          "played": "12",
+          "gd": "+3",
+          "points": "19",
+          "badge": null
+        },
+        {
+          "pos": 8,
+          "team": "IK Oddevold",
+          "played": "12",
+          "gd": "+5",
+          "points": "18",
+          "badge": null
+        },
+        {
+          "pos": 9,
+          "team": "Helsingborgs IF",
+          "played": "12",
+          "gd": "-4",
+          "points": "17",
+          "badge": null
+        },
+        {
+          "pos": 10,
+          "team": "Sandvikens IF",
+          "played": "12",
+          "gd": "+2",
+          "points": "15",
+          "badge": null
+        },
+        {
+          "pos": 11,
+          "team": "IK Brage",
+          "played": "12",
+          "gd": "-3",
+          "points": "13",
+          "badge": null
+        },
+        {
+          "pos": 12,
+          "team": "Örebro SK",
+          "played": "12",
+          "gd": "-6",
+          "points": "13",
+          "badge": null
+        },
+        {
+          "pos": 13,
+          "team": "Ljungskile SK",
+          "played": "12",
+          "gd": "-1",
+          "points": "12",
+          "badge": null
+        },
+        {
+          "pos": 14,
+          "team": "Norrby IF",
+          "played": "12",
+          "gd": "-5",
+          "points": "10",
+          "badge": null
+        },
+        {
+          "pos": 15,
+          "team": "IFK Värnamo",
+          "played": "12",
+          "gd": "-11",
+          "points": "10",
+          "badge": null
+        },
+        {
+          "pos": 16,
+          "team": "GIF Sundsvall",
+          "played": "12",
+          "gd": "-15",
+          "points": "9",
+          "badge": null
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-06-22",
+          "time": "17:05:00",
+          "home": "Örebro",
+          "away": "Sandvikens",
+          "score": "1–1"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-06-26",
+          "time": "17:00:00",
+          "home": "Brage",
+          "away": "Falkenberg"
         }
       ]
     },
@@ -90,66 +330,71 @@
       ]
     },
     {
-      "id": "4403",
-      "name": "Superettan",
+      "id": "4328",
+      "name": "Premier League",
       "sport": "fotboll",
-      "table": [
-        {
-          "pos": "1",
-          "team": "Varberg",
-          "played": "11",
-          "gd": "13",
-          "points": "24",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qsppwu1429976928.png/tiny"
-        },
-        {
-          "pos": "2",
-          "team": "Falkenberg",
-          "played": "12",
-          "gd": "4",
-          "points": "22",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png/tiny"
-        },
-        {
-          "pos": "3",
-          "team": "Norrköping",
-          "played": "11",
-          "gd": "10",
-          "points": "20",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/87sdp61676027891.png/tiny"
-        },
-        {
-          "pos": "4",
-          "team": "United Nordic",
-          "played": "11",
-          "gd": "3",
-          "points": "20",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/657eym1681540770.png/tiny"
-        },
-        {
-          "pos": "5",
-          "team": "Östersund",
-          "played": "12",
-          "gd": "3",
-          "points": "19",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/6pvzqm1592144722.png/tiny"
-        }
-      ],
+      "table": [],
       "recent": [
         {
-          "date": "2026-06-22",
-          "time": "17:05:00",
-          "home": "Örebro",
-          "away": "Sandvikens",
+          "date": "2026-05-24",
+          "time": "15:00:00",
+          "home": "West Ham United",
+          "away": "Leeds United",
+          "score": "3–0"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-08-21",
+          "time": "19:00:00",
+          "home": "Arsenal",
+          "away": "Coventry City"
+        }
+      ]
+    },
+    {
+      "id": "4480",
+      "name": "Champions League",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-30",
+          "time": "16:00:00",
+          "home": "Paris SG",
+          "away": "Arsenal",
           "score": "1–1"
         }
       ],
       "upcoming": [
         {
-          "date": "2026-06-26",
+          "date": "2026-07-07",
+          "time": "16:00:00",
+          "home": "Lincoln Red Imps",
+          "away": "Inter Club d'Escaldes"
+        }
+      ]
+    },
+    {
+      "id": "4756",
+      "name": "Svenska Cupen",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-06-23",
+          "time": "17:30:00",
+          "home": "Järfälla",
+          "away": "Arlanda",
+          "score": "0–2"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-07-27",
           "time": "17:00:00",
-          "home": "Brage",
-          "away": "Falkenberg"
+          "home": "IFK Skövde",
+          "away": "Jönköping Södra"
         }
       ]
     }
