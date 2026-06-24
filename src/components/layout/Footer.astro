@@ -92,11 +92,10 @@ const footerSections = isTemplateDefault
     <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
       <div class="col-span-1 md:col-span-1">
         <div class="flex items-center gap-2.5 mb-6">
-          <img
-            src={companyConfig.logo}
-            alt={companyConfig.name}
-            class="h-8 w-auto"
-          />
+          <img src={companyConfig.logo} alt="" class="h-8 w-auto" />
+          <span class="font-display text-xl font-semibold uppercase tracking-[-0.02em] leading-none text-base-content">
+            Uppdrag<span class="text-primary">sport</span>
+          </span>
         </div>
         <p class="text-sm text-base-content/60 leading-relaxed mb-6">
           {companyConfig.description}
