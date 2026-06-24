@@ -178,3 +178,69 @@
     transition: none;
   }
 }
+
+/* --- Hero-titel: cinematisk maskad "word-rise"-reveal (spelas på load) ----
+   Varje ord stiger upp bakom en mask i tur och ordning; "Sport" glöder rött
+   och en röd accentlinje ritas in under titeln. */
+.hero-title {
+  line-height: 0.98;
+}
+.hero-title .word-mask {
+  display: block;
+  overflow: hidden;
+  padding-bottom: 0.08em; /* rum för nedstaplar (p, g) */
+}
+.hero-title .word {
+  display: inline-block;
+  transform: translateY(115%);
+  animation: heroWordRise 1.05s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+.hero-title .word-mask:nth-child(1) .word {
+  animation-delay: 0.12s;
+}
+.hero-title .word-mask:nth-child(2) .word {
+  animation-delay: 0.28s;
+}
+.hero-title .word-accent {
+  color: var(--color-primary, #f33736);
+  text-shadow: 0 0 38px rgba(243, 55, 54, 0.45);
+}
+@keyframes heroWordRise {
+  from {
+    transform: translateY(115%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+.hero-underline {
+  display: block;
+  height: 3px;
+  width: 0;
+  margin-top: clamp(0.6rem, 1.4vw, 1.1rem);
+  background: var(--color-primary, #f33736);
+  border-radius: 999px;
+  box-shadow: 0 0 22px rgba(243, 55, 54, 0.55);
+  animation: heroLineDraw 0.9s cubic-bezier(0.16, 1, 0.3, 1) 0.5s both;
+}
+@keyframes heroLineDraw {
+  from {
+    width: 0;
+    opacity: 0;
+  }
+  to {
+    width: min(42%, 340px);
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hero-title .word {
+    transform: none;
+    animation: none;
+  }
+  .hero-underline {
+    animation: none;
+    width: min(42%, 340px);
+    opacity: 1;
+  }
+}
