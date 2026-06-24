@@ -10,6 +10,7 @@ interface Props {
   title?: string;
   subtitle?: string;
   image?: string;
+  videoSrc?: string;
   primaryCta?: Cta;
   secondaryCta?: Cta;
 }
@@ -18,18 +19,31 @@ const {
   title = "Svensk sport på djupet",
   subtitle = "Nyheter, analyser och reportage om fotboll, hockey och allt däremellan. Färska resultat, riktiga historier.",
   image = "/images/hero.webp",
+  videoSrc = "/hero.mp4",
   primaryCta = { text: "Läs senaste nyheterna", href: "/nyheter" },
   secondaryCta = { text: "Utforska artiklar", href: "/artiklar" },
 } = Astro.props;
 ---
 
 <section class="relative min-h-[100svh] flex flex-col overflow-hidden bg-base-100">
-  <!-- Helbleed actionfoto + fade nedåt i svart -->
+  <!-- Helbleed hero-video (faller tillbaka på posterbild). photo-fade nedåt i svart. -->
+  <video
+    class="absolute inset-0 w-full h-full object-cover object-center opacity-95 photo-fade motion-reduce:hidden"
+    src={videoSrc}
+    poster={image}
+    autoplay
+    muted
+    loop
+    playsinline
+    preload="metadata"
+    aria-hidden="true"
+  ></video>
+  <!-- Statisk fallback för prefers-reduced-motion -->
   <img
     src={image}
     alt=""
     aria-hidden="true"
-    class="absolute inset-0 w-full h-full object-cover object-center opacity-95 photo-fade"
+    class="absolute inset-0 w-full h-full object-cover object-center opacity-95 photo-fade hidden motion-reduce:block"
   />
   <!-- Läsbarhetsgradient (stark nedtill för rubriken, ljus upptill) + röd halo -->
   <div class="absolute inset-0 bg-gradient-to-t from-base-100 via-base-100/15 to-base-100/5"></div>

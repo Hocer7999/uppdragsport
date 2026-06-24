@@ -39,10 +39,11 @@ OUTPUT = ROOT / "public" / "hero.mp4"
 #   Finans       → abstract data flow, blurred bokeh of city at night
 # ----------------------------------------------------------------------
 PROMPT = (
-    "[SCENE DESCRIPTION — e.g. calm scandinavian dental clinic interior, "
-    "soft natural daylight from large windows, gentle slow camera pan from "
-    "left to right, dental chair partially visible, warm wood and white "
-    "tones, no people, no text, no logos, cinematic editorial photography]"
+    "a slow cinematic camera push across a vibrant green floodlit football "
+    "stadium at dusk, bright stadium lights glowing warmly, lush bright grass, "
+    "faint mist drifting across the empty pitch, subtle gentle light flares, "
+    "vivid and bright colours, continuous smooth slow motion, no people, "
+    "no faces, no text, no logos, cinematic editorial, high energy yet calm"
 )
 
 # Video parameters — adjust if needed. 720p is the sweet spot for web hero;
