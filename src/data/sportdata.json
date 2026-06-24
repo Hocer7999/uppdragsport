@@ -1,0 +1,157 @@
+{
+  "ok": true,
+  "fetched_at": "2026-06-24T09:11:14.782411+00:00",
+  "leagues": [
+    {
+      "id": "4347",
+      "name": "Allsvenskan",
+      "sport": "fotboll",
+      "table": [
+        {
+          "pos": "1",
+          "team": "Sirius",
+          "played": "10",
+          "gd": "17",
+          "points": "28",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/yryyvr1429976751.png/tiny"
+        },
+        {
+          "pos": "2",
+          "team": "Häcken",
+          "played": "10",
+          "gd": "6",
+          "points": "20",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/zyl9m01523905866.png/tiny"
+        },
+        {
+          "pos": "3",
+          "team": "Elfsborg",
+          "played": "11",
+          "gd": "5",
+          "points": "18",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/svqvqq1421957626.png/tiny"
+        },
+        {
+          "pos": "4",
+          "team": "Hammarby",
+          "played": "11",
+          "gd": "11",
+          "points": "17",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/3kgg5b1592144695.png/tiny"
+        },
+        {
+          "pos": "5",
+          "team": "GAIS",
+          "played": "11",
+          "gd": "5",
+          "points": "15",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/3pahks1639779139.png/tiny"
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-05-31",
+          "time": "12:00:00",
+          "home": "Häcken",
+          "away": "Hammarby",
+          "score": "3–2"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-07-03",
+          "time": "17:00:00",
+          "home": "Sirius",
+          "away": "Mjällby"
+        }
+      ]
+    },
+    {
+      "id": "4419",
+      "name": "SHL",
+      "sport": "hockey",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-02",
+          "time": "13:15:00",
+          "home": "Skellefteå AIK",
+          "away": "Rögle BK",
+          "score": "7–3"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-09-19",
+          "time": "13:15:00",
+          "home": "Frölunda HC",
+          "away": "Växjö Lakers"
+        }
+      ]
+    },
+    {
+      "id": "4403",
+      "name": "Superettan",
+      "sport": "fotboll",
+      "table": [
+        {
+          "pos": "1",
+          "team": "Varberg",
+          "played": "11",
+          "gd": "13",
+          "points": "24",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qsppwu1429976928.png/tiny"
+        },
+        {
+          "pos": "2",
+          "team": "Falkenberg",
+          "played": "12",
+          "gd": "4",
+          "points": "22",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png/tiny"
+        },
+        {
+          "pos": "3",
+          "team": "Norrköping",
+          "played": "11",
+          "gd": "10",
+          "points": "20",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/87sdp61676027891.png/tiny"
+        },
+        {
+          "pos": "4",
+          "team": "United Nordic",
+          "played": "11",
+          "gd": "3",
+          "points": "20",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/657eym1681540770.png/tiny"
+        },
+        {
+          "pos": "5",
+          "team": "Östersund",
+          "played": "12",
+          "gd": "3",
+          "points": "19",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/6pvzqm1592144722.png/tiny"
+        }
+      ],
+      "recent": [
+        {
+          "date": "2026-06-22",
+          "time": "17:05:00",
+          "home": "Örebro",
+          "away": "Sandvikens",
+          "score": "1–1"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-06-26",
+          "time": "17:00:00",
+          "home": "Brage",
+          "away": "Falkenberg"
+        }
+      ]
+    }
+  ]
+}

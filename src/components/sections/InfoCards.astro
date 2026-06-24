@@ -1,0 +1,96 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Highlight {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface FeatureBox {
+  icon: string;
+  title: string;
+  description: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+interface Props {
+  highlights?: Highlight[];
+  featureBox?: FeatureBox;
+}
+
+const {
+  highlights = [
+    {
+      icon: "heroicons:shield-check",
+      title: "Pålitlig erfarenhet",
+      description:
+        "Vi har lång erfarenhet inom vårt område och hjälper dig hela vägen.",
+    },
+    {
+      icon: "heroicons:document-text",
+      title: "Tydlig kommunikation",
+      description:
+        "Vi håller dig informerad genom hela processen och svarar snabbt på frågor.",
+    },
+  ],
+  featureBox = {
+    icon: "heroicons:book-open",
+    title: "Personligt bemötande",
+    description:
+      "Vi tar oss tid att förstå dina behov och anpassar våra lösningar därefter. Du får en kontakt som följer dig hela vägen.",
+    ctaText: "Läs mer",
+    ctaLink: "#",
+  },
+} = Astro.props;
+---
+
+<section class="py-20 bg-base-100">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+    <!-- Top Grid -->
+    <div class="grid md:grid-cols-2 gap-12 md:gap-16 mb-16">
+      {
+        highlights.map((item) => (
+          <div class="flex gap-6">
+            <div class="flex-shrink-0 w-14 h-14 bg-base-200 rounded-xl flex items-center justify-center text-primary">
+              <Icon name={item.icon} class="w-7 h-7" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold text-base-content mb-3">
+                {item.title}
+              </h3>
+              <p class="text-base text-base-content/70 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+
+    <!-- Highlight Box -->
+    <div
+      class="bg-base-200 rounded-xl p-8 md:p-10 flex flex-col md:flex-row gap-8 items-start"
+    >
+      <div
+        class="flex-shrink-0 w-14 h-14 bg-base-100 rounded-xl flex items-center justify-center text-primary"
+      >
+        <Icon name={featureBox.icon} class="w-7 h-7" />
+      </div>
+      <div>
+        <h3 class="text-xl font-bold text-base-content mb-3">
+          {featureBox.title}
+        </h3>
+        <p class="text-base text-base-content/70 leading-relaxed mb-6">
+          {featureBox.description}
+        </p>
+        {featureBox.ctaText && (
+          <a href={featureBox.ctaLink ?? "#"} class="btn btn-primary btn-sm md:btn-md decoration-0!">
+            {featureBox.ctaText}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

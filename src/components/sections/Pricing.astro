@@ -1,0 +1,93 @@
+---
+import { defaultPackages, pricingComparisonRows } from "../../config/pricing";
+
+interface Props {
+  title?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  title = "Jämför våra paket",
+  ctaText = "Kom igång",
+  ctaLink = "#kontakt",
+} = Astro.props;
+
+const packages = defaultPackages;
+const rows = pricingComparisonRows;
+---
+
+<section class="py-20 bg-base-100">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+    <h2
+      class="text-3xl font-bold text-base-content mb-10 text-center tracking-tight"
+    >
+      {title}
+    </h2>
+
+    <div class="overflow-x-auto rounded-xl border border-base-200">
+      <table class="table w-full bg-base-100">
+        <!-- head -->
+        <thead>
+          <tr class="bg-base-200 text-base-content text-[15px]">
+            <th class="p-5 font-semibold">Tjänst</th>
+            {
+              packages.map((pkg) => (
+                <th class="p-5 font-semibold text-center">{pkg.name}</th>
+              ))
+            }
+          </tr>
+        </thead>
+        <tbody class="text-xs md:text-sm">
+          {
+            rows.map((row) => (
+              <tr class="border-b border-base-200">
+                <td class="p-5 font-medium text-base-content">{row.feature}</td>
+                {packages.map((pkg) => {
+                  const value = row.keys[pkg.id];
+                  return (
+                    <td class="p-5 text-center">
+                      {typeof value === "boolean" ? (
+                        value ? (
+                          <span class="text-success text-lg">✓</span>
+                        ) : (
+                          <span class="text-base-content/30">—</span>
+                        )
+                      ) : (
+                        <span
+                          class={
+                            value === "Dedikerad" || value === "Obegränsat"
+                              ? "text-success font-medium"
+                              : "text-base-content/70"
+                          }
+                        >
+                          {value}
+                        </span>
+                      )}
+                    </td>
+                  );
+                })}
+              </tr>
+            ))
+          }
+          <tr class="border-b border-base-200 bg-base-200/50">
+            <td class="p-5 font-bold text-base-content">Pris/månad</td>
+            {
+              packages.map((pkg) => (
+                <td class="p-5 text-center font-bold text-base-content">
+                  {pkg.price}
+                </td>
+              ))
+            }
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="text-center mt-10">
+      <a href={ctaLink} class="btn btn-accent px-8 decoration-0!"
+        >{ctaText}</a
+      >
+    </div>
+  </div>
+</section>

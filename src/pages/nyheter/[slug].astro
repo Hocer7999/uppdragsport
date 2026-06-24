@@ -1,0 +1,137 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+import { siteConfig } from "../../config/site";
+import { companyConfig } from "../../config/company";
+import {
+  generateGraph,
+  getBlogPosting,
+  getBreadcrumbs,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+export async function getStaticPaths() {
+  const news = await getCollection("news");
+  return news.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+function fmtDateTime(d: Date): string {
+  return d.toLocaleDateString("sv-SE", { dateStyle: "long" });
+}
+
+const newsSchema = getBlogPosting(
+  Astro.url.pathname,
+  entry.data.title,
+  entry.data.publishDate,
+  entry.data.authorName,
+  entry.data.image,
+  entry.data.description,
+  entry.data.updatedDate,
+);
+
+const breadcrumbs = getBreadcrumbs([
+  { name: "Hem", pathname: "/" },
+  { name: "Nyheter", pathname: "/nyheter" },
+  { name: entry.data.title, pathname: Astro.url.pathname },
+]);
+
+const schema = generateGraph([newsSchema as Thing, breadcrumbs]);
+---
+
+<Layout
+  title={`${entry.data.metaTitle || entry.data.title} | ${companyConfig.name}`}
+  description={entry.data.metaDescription || entry.data.description}
+  image={entry.data.image}
+  type="article"
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100 pb-24">
+    <!-- Nyhetshuvud -->
+    <header class="relative border-b border-white/10">
+      <div class="max-w-[1100px] mx-auto px-6 md:px-10 pt-28 pb-14 md:pt-36 md:pb-16">
+        <nav class="flex items-center gap-3 mb-8">
+          {entry.data.isBreaking && (
+            <span class="inline-flex items-center gap-2 px-2.5 py-1 rounded-field bg-primary text-primary-content text-[0.625rem] font-bold uppercase tracking-[0.2em]">
+              <span class="w-1.5 h-1.5 rounded-full bg-primary-content animate-pulse"></span>
+              Direkt
+            </span>
+          )}
+          <span class="micro-label text-primary">Nyhet</span>
+          <span class="micro-label">{entry.data.sport}</span>
+          <time datetime={entry.data.publishDate.toISOString()} class="micro-label">
+            {fmtDateTime(entry.data.publishDate)}
+          </time>
+        </nav>
+
+        <h1 class="font-display text-white text-4xl md:text-6xl lg:text-7xl tracking-[-0.045em] leading-[0.95] mb-6">
+          {entry.data.title}
+        </h1>
+
+        <p class="text-white/60 text-xl leading-relaxed max-w-2xl">
+          {entry.data.description}
+        </p>
+
+        <div class="mt-8 flex items-center gap-3">
+          <span class="w-9 h-9 rounded-full bg-primary/15 text-primary flex items-center justify-center font-bold">
+            {entry.data.authorName.charAt(0)}
+          </span>
+          <span class="text-white/70 text-sm font-medium">{entry.data.authorName}</span>
+        </div>
+      </div>
+    </header>
+
+    {entry.data.image && (
+      <figure class="max-w-[1100px] mx-auto px-6 md:px-10 -mt-2 mb-4">
+        <div class="relative overflow-hidden rounded-box bg-base-200 aspect-[16/9]">
+          <img
+            src={entry.data.image}
+            alt={entry.data.imageAlt || entry.data.title}
+            class="absolute inset-0 w-full h-full object-cover"
+          />
+        </div>
+        {entry.data.imageCredit && (
+          <figcaption class="micro-label mt-3 normal-case tracking-normal text-white/35">
+            {entry.data.imageSource ? (
+              <a href={entry.data.imageSource} rel="nofollow noopener" class="hover:text-white/60 decoration-0!">
+                {entry.data.imageCredit}
+              </a>
+            ) : (
+              entry.data.imageCredit
+            )}
+          </figcaption>
+        )}
+      </figure>
+    )}
+
+    <!-- Brödtext (prose-invert för läsbarhet på mörkt tema) -->
+    <article class="max-w-[760px] mx-auto px-6 md:px-10 py-10">
+      <div
+        class="prose prose-lg prose-invert max-w-none prose-headings:font-display prose-headings:tracking-[-0.03em] prose-a:text-primary prose-a:decoration-primary/40 hover:prose-a:decoration-primary prose-strong:text-white"
+      >
+        <Content />
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-white/10">
+        <a href="/nyheter" class="inline-flex items-center gap-2 micro-label hover:text-white transition-colors decoration-0!">
+          <Icon name="heroicons:arrow-left" class="w-4 h-4" />
+          Alla nyheter
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

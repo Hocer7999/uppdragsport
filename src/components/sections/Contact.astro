@@ -1,0 +1,94 @@
+---
+import { companyConfig } from "../../config/company";
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Hör av dig till oss",
+  description = "Vi svarar normalt inom ett dygn. Skicka ett meddelande så återkommer vi.",
+} = Astro.props;
+---
+
+<section id="kontakt" class="py-16 bg-base-200">
+  <div class="max-w-[750px] mx-auto px-4 md:px-10">
+    <h2 class="text-2xl font-bold text-base-content mb-3">
+      {title}
+    </h2>
+    <p class="text-base-content/70 mb-8">
+      {description}
+    </p>
+
+    <form class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
+      <input
+        type="text"
+        placeholder="Namn"
+        class="input input-bordered w-full focus:input-primary bg-base-100"
+      />
+      <input
+        type="email"
+        placeholder="E-post"
+        class="input input-bordered w-full focus:input-primary bg-base-100"
+      />
+      <textarea
+        class="textarea textarea-bordered w-full md:col-span-2 h-32 focus:textarea-primary bg-base-100"
+        placeholder="Meddelande"></textarea>
+      <button
+        class="btn btn-primary md:col-start-1 md:col-end-3 w-fit decoration-0!"
+      >
+        Skicka meddelande
+      </button>
+    </form>
+
+    <div class="bg-base-100 border border-base-300 rounded-xl p-8">
+      <h3 class="text-xl font-bold text-base-content mb-2">
+        Om {companyConfig.name}
+      </h3>
+      <p class="text-base-content/70 text-sm mb-6">
+        Org.nr {companyConfig.orgNumber}
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 text-sm">
+        <div>
+          <span
+            class="block text-xs uppercase tracking-wide text-base-content/50 mb-1"
+          >
+            E-post
+          </span>
+          <a
+            href={`mailto:${companyConfig.email}`}
+            class="text-base-content font-medium hover:text-primary decoration-0!"
+          >
+            {companyConfig.email}
+          </a>
+        </div>
+        <div>
+          <span
+            class="block text-xs uppercase tracking-wide text-base-content/50 mb-1"
+          >
+            Telefon
+          </span>
+          <a
+            href={`tel:${companyConfig.phone}`}
+            class="text-base-content font-medium hover:text-primary decoration-0!"
+          >
+            {companyConfig.phone}
+          </a>
+        </div>
+        <div>
+          <span
+            class="block text-xs uppercase tracking-wide text-base-content/50 mb-1"
+          >
+            Adress
+          </span>
+          <span class="text-base-content font-medium">
+            {companyConfig.address}, {companyConfig.postalCode}
+            {companyConfig.city}
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

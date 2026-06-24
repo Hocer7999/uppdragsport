@@ -1,0 +1,105 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  /** Slug of the article currently being viewed. */
+  currentSlug: string;
+  title?: string;
+  limit?: number;
+}
+
+const { currentSlug, title = "Relaterade artiklar", limit = 3 } = Astro.props;
+
+const all = await getCollection("articles");
+const current = all.find((a) => a.slug === currentSlug);
+
+// Score candidates: same category +2, shared tag +1, exclude current.
+const scored = all
+  .filter((a) => a.slug !== currentSlug)
+  .map((a) => {
+    let score = 0;
+    if (
+      current?.data.category &&
+      (a.data.category?.id ?? a.data.category?.slug) ===
+        (current.data.category.id ?? current.data.category.slug)
+    ) {
+      score += 2;
+    }
+    if (current?.data.tags?.length && a.data.tags?.length) {
+      const shared = a.data.tags.filter((t) => current.data.tags.includes(t));
+      score += shared.length;
+    }
+    return { article: a, score };
+  })
+  .sort((x, y) => {
+    if (y.score !== x.score) return y.score - x.score;
+    return (
+      y.article.data.publishDate.valueOf() -
+      x.article.data.publishDate.valueOf()
+    );
+  })
+  .slice(0, limit)
+  .map((x) => x.article);
+
+const articles: CollectionEntry<"articles">[] = scored;
+
+// Resolve category titles
+const categoryByArticleId: Record<string, string | undefined> = {};
+for (const article of articles) {
+  if (article.data.category) {
+    const cat = await getEntry(article.data.category);
+    categoryByArticleId[article.id] = cat?.data.title;
+  }
+}
+---
+
+{articles.length > 0 && (
+  <section class="py-16 bg-base-200">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      <h2 class="text-2xl md:text-3xl font-bold text-base-content mb-8 tracking-tight">
+        {title}
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {articles.map((article) => {
+          const categoryTitle = categoryByArticleId[article.id];
+          return (
+            <a
+              href={`/artiklar/${article.slug}`}
+              class="group bg-base-100 border border-base-200 rounded-xl overflow-hidden hover:shadow-lg transition-shadow decoration-0! block"
+            >
+              {article.data.image && (
+                <div class="aspect-video overflow-hidden bg-base-200">
+                  <img
+                    src={article.data.image}
+                    alt={article.data.imageAlt || article.data.title}
+                    class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+              )}
+              <div class="p-5">
+                {categoryTitle && (
+                  <div class="mb-2">
+                    <span class="px-2 py-0.5 bg-base-200 text-base-content/70 rounded-full text-[11px] font-semibold uppercase tracking-wider">
+                      {categoryTitle}
+                    </span>
+                  </div>
+                )}
+                <h3 class="font-bold text-base-content mb-2 group-hover:text-primary transition-colors line-clamp-2">
+                  {article.data.title}
+                </h3>
+                <p class="text-sm text-base-content/60 line-clamp-2 mb-3">
+                  {article.data.description}
+                </p>
+                <span class="text-sm font-semibold text-primary inline-flex items-center gap-1">
+                  Läs mer
+                  <Icon name="heroicons:arrow-right" class="w-4 h-4" />
+                </span>
+              </div>
+            </a>
+          );
+        })}
+      </div>
+    </div>
+  </section>
+)}

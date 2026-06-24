@@ -1,0 +1,149 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  badge?: string;
+  bullets?: string[];
+  formTitle?: string;
+  formDescription?: string;
+  submitText?: string;
+}
+
+const {
+  title = "Välkommen",
+  subtitle = "En kort beskrivning av vad ni erbjuder. Fyll i formuläret så återkommer vi.",
+  badge = "Hör av dig",
+  bullets = ["TODO Säljpunkt 1", "TODO Säljpunkt 2", "TODO Säljpunkt 3"],
+  formTitle = "Kom igång",
+  formDescription = "Lämna dina uppgifter så hör vi av oss.",
+  submitText = "Skicka",
+} = Astro.props;
+---
+
+<section class="bg-base-200 py-20 lg:py-28 relative overflow-hidden">
+  <div
+    class="max-w-[1400px] mx-auto px-4 md:px-10 grid lg:grid-cols-12 gap-12 lg:gap-20 items-start"
+  >
+    <!-- Text Content -->
+    <div class="lg:col-span-7 pt-4">
+      {badge && (
+        <div
+          class="inline-flex items-center gap-2 mb-6 bg-base-100 px-3 py-1.5 rounded-full shadow-sm border border-base-300"
+        >
+          <span class="w-2 h-2 rounded-full bg-success"></span>
+          <span
+            class="text-xs font-semibold uppercase tracking-wide text-base-content/70"
+            >{badge}</span
+          >
+        </div>
+      )}
+
+      <h1
+        class="text-4xl lg:text-5xl/tight font-bold text-base-content mb-6 tracking-tight"
+      >
+        {title}
+      </h1>
+
+      <p class="text-lg text-base-content/70 mb-8 leading-relaxed max-w-2xl">
+        {subtitle}
+      </p>
+
+      <div class="flex flex-col gap-3 mt-8">
+        {bullets.map((bullet) => (
+          <div class="flex items-center gap-3 text-base-content/80">
+            <span class="w-2 h-2 rounded-full bg-success"></span>
+            <span class="text-sm font-medium">{bullet}</span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+    <!-- Form Layout -->
+    <div class="lg:col-span-5 w-full">
+      <div class="bg-base-100 rounded-xl p-8 shadow-xl border border-base-200">
+        <h2 class="text-2xl font-bold text-base-content mb-2">
+          {formTitle}
+        </h2>
+        <p class="text-sm text-base-content/60 mb-6">
+          {formDescription}
+        </p>
+
+        <div class="flex flex-wrap gap-3 mb-6">
+          <span
+            class="inline-flex items-center gap-1.5 text-xs font-medium text-base-content/70 bg-base-200 px-2.5 py-1 rounded"
+          >
+            <Icon name="heroicons:check" class="w-3.5 h-3.5 text-success" />
+            Snabbt
+          </span>
+          <span
+            class="inline-flex items-center gap-1.5 text-xs font-medium text-base-content/70 bg-base-200 px-2.5 py-1 rounded"
+          >
+            <Icon
+              name="heroicons:shield-check"
+              class="w-3.5 h-3.5 text-success"
+            />
+            Tryggt
+          </span>
+        </div>
+
+        <form class="space-y-4">
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Namn</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Ditt namn"
+              class="input input-bordered w-full focus:input-primary"
+            />
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium">Telefon</span>
+            </label>
+            <input
+              type="tel"
+              class="input input-bordered w-full focus:input-primary"
+            />
+          </div>
+
+          <div class="form-control">
+            <label class="label">
+              <span class="label-text font-medium"
+                >E-postadress <span class="text-error">*</span></span
+              >
+            </label>
+            <input
+              type="email"
+              class="input input-bordered w-full focus:input-primary"
+            />
+          </div>
+
+          <div class="form-control">
+            <label class="label cursor-pointer justify-start gap-3">
+              <input
+                type="checkbox"
+                checked="checked"
+                class="checkbox checkbox-primary checkbox-sm"
+              />
+              <span class="label-text text-xs text-base-content/70"
+                >Jag godkänner <a href="/integritetspolicy" class="underline"
+                  >integritetspolicyn</a
+                >.</span
+              >
+            </label>
+          </div>
+
+          <button
+            class="btn btn-accent w-full font-bold uppercase tracking-wide mt-2"
+          >
+            {submitText}
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

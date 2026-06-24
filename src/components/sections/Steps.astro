@@ -1,0 +1,82 @@
+---
+interface Step {
+  number: number;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  steps?: Step[];
+}
+
+const {
+  title = "Så här går det till",
+  description = "En enkel process från första kontakt till färdigt resultat. Vi guidar dig hela vägen.",
+  ctaText = "Kom igång",
+  ctaLink = "#kontakt",
+  steps = [
+    {
+      number: 1,
+      title: "Hör av dig",
+      description:
+        "Berätta vad du behöver hjälp med, så återkommer vi med ett första förslag.",
+    },
+    {
+      number: 2,
+      title: "Vi planerar tillsammans",
+      description:
+        "Vi går igenom dina behov, prioriterar och bestämmer hur vi tar oss framåt.",
+    },
+    {
+      number: 3,
+      title: "Färdigt resultat",
+      description:
+        "Vi levererar det vi kommit överens om och följer upp så att allt fungerar.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="py-20 bg-base-100">
+  <div
+    class="max-w-[1400px] mx-auto px-4 md:px-10 grid md:grid-cols-12 gap-12 items-center"
+  >
+    <div class="md:col-span-4">
+      <h2 class="text-3xl font-bold text-base-content mb-4 tracking-tight">
+        {title}
+      </h2>
+      <p class="text-base-content/70 leading-relaxed mb-8">
+        {description}
+      </p>
+      {ctaText && (
+        <a href={ctaLink} class="btn btn-neutral decoration-0!">{ctaText}</a>
+      )}
+    </div>
+
+    <div class="md:col-span-8 md:pl-10">
+      <div class="space-y-8">
+        {
+          steps.map((step) => (
+            <div class="flex gap-6 pb-8 border-b border-base-200 last:border-0 last:pb-0">
+              <div class="flex-shrink-0 w-12 h-12 rounded-full bg-base-200 flex items-center justify-center text-primary font-bold text-lg">
+                {step.number}
+              </div>
+              <div>
+                <h3 class="text-lg font-bold text-base-content mb-2">
+                  {step.title}
+                </h3>
+                <p class="text-base-content/70 leading-relaxed max-w-xl">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

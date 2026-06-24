@@ -1,0 +1,211 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  limit?: number;
+  /** Filter by category slug/id (matches src/content/categories/<slug>.md). */
+  category?: string;
+  /** Filter by tag string. */
+  tag?: string;
+  /** Filter by author slug/id (matches src/content/authors/<slug>.md). */
+  author?: string;
+  paginate?: boolean;
+  /** Layout density (used on category/tag/author routes). */
+  columns?: 2 | 3 | 4;
+  /** Editorial featured layout: stort förstacks-block + lista. Default på startsidan. */
+  featured?: boolean;
+}
+
+const {
+  title,
+  limit,
+  category,
+  tag,
+  author,
+  paginate = false,
+  columns = 3,
+  featured = false,
+} = Astro.props;
+
+let articles: CollectionEntry<"articles">[] = await getCollection("articles");
+
+if (category) {
+  articles = articles.filter((a) => (a.data.category?.id ?? a.data.category?.slug) === category);
+}
+if (tag) {
+  articles = articles.filter((a) => a.data.tags.includes(tag));
+}
+if (author) {
+  articles = articles.filter((a) => (a.data.author?.id ?? a.data.author?.slug) === author);
+}
+
+articles = articles.sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+
+if (limit) {
+  articles = articles.slice(0, limit);
+}
+
+// Resolve category labels (refs → title strings) once per render.
+const categoryByArticleId: Record<string, string | undefined> = {};
+for (const article of articles) {
+  if (article.data.category) {
+    const cat = await getEntry(article.data.category);
+    categoryByArticleId[article.id] = cat?.data.title;
+  }
+}
+
+const gridClass = {
+  2: "grid-cols-1 md:grid-cols-2",
+  3: "grid-cols-1 md:grid-cols-2 lg:grid-cols-3",
+  4: "grid-cols-1 md:grid-cols-2 lg:grid-cols-4",
+}[columns];
+
+function fmtDate(d: Date): string {
+  return d.toLocaleDateString("sv-SE", { year: "numeric", month: "short", day: "numeric" });
+}
+
+void paginate;
+
+const useFeatured = featured && articles.length > 0;
+const lead = useFeatured ? articles[0] : null;
+const rest = useFeatured ? articles.slice(1) : articles;
+---
+
+<section class="section-pad bg-base-100">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+    {title && (
+      <div class="flex items-end justify-between mb-12 border-b border-white/10 pb-6">
+        <h2 class="font-display text-5xl md:text-7xl text-white tracking-[-0.045em]">
+          {title}
+        </h2>
+        <a
+          href="/artiklar"
+          class="micro-label hover:text-white transition-colors decoration-0! hidden sm:inline-flex items-center gap-2 pb-1"
+        >
+          Alla artiklar
+          <Icon name="heroicons:arrow-right" class="w-4 h-4" />
+        </a>
+      </div>
+    )}
+
+    {articles.length === 0 ? (
+      <p class="text-white/40 py-10">Inga artiklar att visa just nu.</p>
+    ) : useFeatured ? (
+      <div class="space-y-14">
+        {lead && (
+          <a href={`/artiklar/${lead.slug}`} class="group grid lg:grid-cols-2 gap-8 lg:gap-12 items-center decoration-0!">
+            <div class="relative aspect-[16/10] overflow-hidden rounded-box bg-base-200">
+              {lead.data.image ? (
+                <img
+                  src={lead.data.image}
+                  alt={lead.data.imageAlt || lead.data.title}
+                  class="absolute inset-0 w-full h-full object-cover opacity-85 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
+                />
+              ) : (
+                <div class="absolute inset-0 flex items-center justify-center text-white/15">
+                  <Icon name="heroicons:photo" class="w-16 h-16" />
+                </div>
+              )}
+            </div>
+            <div>
+              <div class="flex items-center gap-4 mb-5">
+                <span class="micro-label text-primary">Toppnyhet</span>
+                {categoryByArticleId[lead.id] && (
+                  <span class="micro-label">{categoryByArticleId[lead.id]}</span>
+                )}
+              </div>
+              <h3 class="font-display text-4xl md:text-6xl text-white tracking-[-0.04em] leading-[0.98] mb-5 group-hover:text-white/80 transition-colors">
+                {lead.data.title}
+              </h3>
+              <p class="text-white/55 text-lg leading-relaxed mb-6 max-w-xl">
+                {lead.data.description}
+              </p>
+              <time datetime={lead.data.publishDate.toISOString()} class="micro-label">
+                {fmtDate(lead.data.publishDate)}
+              </time>
+            </div>
+          </a>
+        )}
+
+        {rest.length > 0 && (
+          <div class="divide-y divide-white/10 border-t border-white/10">
+            {rest.map((article) => (
+              <a
+                href={`/artiklar/${article.slug}`}
+                class="group grid sm:grid-cols-[180px_1fr] gap-5 sm:gap-8 items-center py-7 decoration-0!"
+              >
+                <div class="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-field bg-base-200">
+                  {article.data.image ? (
+                    <img
+                      src={article.data.image}
+                      alt={article.data.imageAlt || article.data.title}
+                      class="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105"
+                    />
+                  ) : (
+                    <div class="absolute inset-0 flex items-center justify-center text-white/15">
+                      <Icon name="heroicons:photo" class="w-8 h-8" />
+                    </div>
+                  )}
+                </div>
+                <div>
+                  <div class="flex items-center gap-4 mb-2">
+                    {categoryByArticleId[article.id] && (
+                      <span class="micro-label">{categoryByArticleId[article.id]}</span>
+                    )}
+                    <time datetime={article.data.publishDate.toISOString()} class="micro-label">
+                      {fmtDate(article.data.publishDate)}
+                    </time>
+                  </div>
+                  <h3 class="font-display text-2xl md:text-3xl text-white tracking-[-0.035em] leading-tight mb-2 group-hover:text-white/75 transition-colors">
+                    {article.data.title}
+                  </h3>
+                  <p class="text-white/50 leading-relaxed line-clamp-2 max-w-2xl">
+                    {article.data.description}
+                  </p>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    ) : (
+      <div class={`grid ${gridClass} gap-x-8 gap-y-12`}>
+        {articles.map((article) => (
+          <a href={`/artiklar/${article.slug}`} class="group flex flex-col decoration-0!">
+            <div class="relative aspect-video overflow-hidden rounded-box bg-base-200 mb-5">
+              {article.data.image ? (
+                <img
+                  src={article.data.image}
+                  alt={article.data.imageAlt || article.data.title}
+                  class="absolute inset-0 w-full h-full object-cover opacity-85 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105"
+                />
+              ) : (
+                <div class="absolute inset-0 flex items-center justify-center text-white/15">
+                  <Icon name="heroicons:photo" class="w-10 h-10" />
+                </div>
+              )}
+            </div>
+            <div class="flex items-center gap-4 mb-2">
+              {categoryByArticleId[article.id] && (
+                <span class="micro-label">{categoryByArticleId[article.id]}</span>
+              )}
+              <time datetime={article.data.publishDate.toISOString()} class="micro-label">
+                {fmtDate(article.data.publishDate)}
+              </time>
+            </div>
+            <h3 class="font-display text-2xl text-white tracking-[-0.035em] leading-tight mb-2 group-hover:text-white/75 transition-colors">
+              {article.data.title}
+            </h3>
+            <p class="text-white/50 leading-relaxed line-clamp-3">
+              {article.data.description}
+            </p>
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

@@ -1,0 +1,32 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import HeroSubpage from "../components/sections/HeroSubpage.astro";
+import SectionRenderer from "../components/SectionRenderer.astro";
+
+import { aboutPageSections } from "../config/pages";
+import { companyConfig } from "../config/company";
+import { siteConfig } from "../config/site";
+---
+
+<Layout
+  title={`Om oss | ${companyConfig.name}`}
+  description={`Lär känna ${companyConfig.name}. ${companyConfig.description}`}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+>
+  <Header />
+
+  <main class="flex-grow">
+    <HeroSubpage
+      title={`Om ${companyConfig.name}`}
+      description={companyConfig.description}
+      backgroundImage="/images/om-oss.webp"
+    />
+
+    <SectionRenderer sections={aboutPageSections} />
+  </main>
+
+  <Footer />
+</Layout>

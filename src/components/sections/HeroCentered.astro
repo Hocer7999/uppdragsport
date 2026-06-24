@@ -1,0 +1,89 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  backgroundImage?: string;
+  badge?: string;
+  primaryCta?: string;
+  primaryCtaLink?: string;
+  secondaryCta?: string;
+  secondaryCtaLink?: string;
+}
+
+const {
+  title = "Välkommen",
+  description = "En kort, tydlig presentation av vad du erbjuder. Anpassa rubriken efter er verksamhet.",
+  backgroundImage = "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1600&q=80",
+  badge,
+  primaryCta = "Kom igång",
+  primaryCtaLink = "#",
+  secondaryCta = "Läs mer",
+  secondaryCtaLink = "#",
+} = Astro.props;
+---
+
+<section
+  class="relative py-32 md:py-48 flex items-center justify-center text-center px-4 overflow-hidden bg-base-300"
+>
+  <!-- Background Image with Overlay -->
+  <div class="absolute inset-0 z-0">
+    <div
+      class="absolute inset-0 bg-base-900/60 z-10 bg-gradient-to-b from-black/50 to-black/70"
+    >
+    </div>
+    <img
+      src={backgroundImage}
+      alt="Hero background"
+      class="w-full h-full object-cover"
+    />
+  </div>
+
+  <div class="relative z-10 max-w-4xl mx-auto flex flex-col items-center">
+    {
+      badge && (
+        <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/90 backdrop-blur-md text-base-content text-sm font-bold shadow-lg mb-8 animate-fade-in-up">
+          <span class="text-warning">★</span>
+          {badge}
+        </div>
+      )
+    }
+
+    <h1
+      class="text-4xl md:text-6xl lg:text-7xl font-extrabold text-white mb-6 leading-[1.1] tracking-tight text-shadow-lg"
+    >
+      {title}
+    </h1>
+
+    <p
+      class="text-lg md:text-xl text-white/90 mb-10 max-w-2xl leading-relaxed text-shadow-sm font-medium"
+    >
+      {description}
+    </p>
+
+    <div class="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+      <a
+        href={primaryCtaLink}
+        class="btn btn-primary btn-lg rounded-full px-8 shadow-xl hover:scale-105 transition-transform"
+      >
+        {primaryCta}
+      </a>
+      <a
+        href={secondaryCtaLink}
+        class="btn btn-neutral btn-lg rounded-full px-8 bg-white text-base-content border-white hover:bg-base-200 hover:border-base-200 hover:scale-105 transition-transform"
+      >
+        {secondaryCta}
+      </a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .text-shadow-lg {
+    text-shadow:
+      0 4px 20px rgba(0, 0, 0, 0.5),
+      0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  .text-shadow-sm {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+</style>

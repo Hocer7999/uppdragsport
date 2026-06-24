@@ -1,0 +1,37 @@
+[
+  {
+    "slug": "exempel-term-1",
+    "title": "Exempel Term 1",
+    "definition": "En kort definition av den första exempeltermen. Beskriv betydelsen i 1–3 meningar så att rutinen ger en bra startpunkt för att fördjupa sig.",
+    "category": "Allmänt",
+    "related": ["exempel-term-2"]
+  },
+  {
+    "slug": "exempel-term-2",
+    "title": "Exempel Term 2",
+    "definition": "Beskrivning av en andra exempelterm. Anpassa formatet efter ditt dataset — JSON-strukturen kan utvidgas med fler fält.",
+    "category": "Teknik",
+    "related": ["exempel-term-1", "exempel-term-3"]
+  },
+  {
+    "slug": "exempel-term-3",
+    "title": "Exempel Term 3",
+    "definition": "Tredje termen i exempelsamlingen. Förklara på ett tydligt och tillgängligt sätt.",
+    "category": "Teknik",
+    "related": ["exempel-term-2"]
+  },
+  {
+    "slug": "exempel-term-4",
+    "title": "Exempel Term 4",
+    "definition": "Fjärde termen — visar att samma mall fungerar för stora dataset (hundratals eller tusentals rader).",
+    "category": "Ekonomi",
+    "related": []
+  },
+  {
+    "slug": "exempel-term-5",
+    "title": "Exempel Term 5",
+    "definition": "Femte termen. Ändra eller utvidga schemat i src/pages/ord/[slug].astro efter dina behov.",
+    "category": "Ekonomi",
+    "related": ["exempel-term-4"]
+  }
+]

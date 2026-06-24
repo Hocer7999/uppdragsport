@@ -1,0 +1,70 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Cta {
+  text: string;
+  href: string;
+}
+interface Props {
+  eyebrow?: string;
+  title?: string;
+  subtitle?: string;
+  image?: string;
+  primaryCta?: Cta;
+  secondaryCta?: Cta;
+}
+const {
+  eyebrow = "Svensk sport · dygnet runt",
+  title = "Svensk sport på djupet",
+  subtitle = "Nyheter, analyser och reportage om fotboll, hockey och allt däremellan. Färska resultat, riktiga historier.",
+  image = "/images/hero.webp",
+  primaryCta = { text: "Läs senaste nyheterna", href: "/nyheter" },
+  secondaryCta = { text: "Utforska artiklar", href: "/artiklar" },
+} = Astro.props;
+---
+
+<section class="relative min-h-[100svh] flex flex-col overflow-hidden bg-base-100">
+  <!-- Helbleed actionfoto + fade nedåt i svart -->
+  <img
+    src={image}
+    alt=""
+    aria-hidden="true"
+    class="absolute inset-0 w-full h-full object-cover object-center opacity-70 photo-fade"
+  />
+  <!-- Läsbarhetsgradient + röd halo -->
+  <div class="absolute inset-0 bg-gradient-to-t from-base-100 via-base-100/40 to-base-100/30"></div>
+  <div class="absolute inset-0 halo-red opacity-70"></div>
+
+  <!-- Innehåll förankrat nedtill -->
+  <div class="relative z-10 flex-1 flex flex-col justify-end max-w-[1500px] w-full mx-auto px-6 md:px-10 pb-16 md:pb-24 pt-36">
+    <span class="micro-label text-white/55 mb-6 reveal">{eyebrow}</span>
+
+    <h1 class="headline-xl text-white max-w-[15ch] reveal">{title}</h1>
+
+    <p class="text-white/60 text-lg md:text-xl leading-relaxed max-w-xl mt-8 reveal">
+      {subtitle}
+    </p>
+
+    <div class="flex flex-wrap items-center gap-4 mt-10 reveal">
+      <a
+        href={primaryCta.href}
+        class="btn btn-primary border-0 rounded-field px-7 h-12 text-sm font-semibold gap-2 group decoration-0!"
+      >
+        {primaryCta.text}
+        <Icon name="heroicons:arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+      </a>
+      <a
+        href={secondaryCta.href}
+        class="inline-flex items-center gap-2 h-12 px-2 text-white/70 hover:text-white text-sm font-semibold transition-colors decoration-0!"
+      >
+        {secondaryCta.text}
+      </a>
+    </div>
+  </div>
+
+  <!-- Scroll-cue -->
+  <div class="relative z-10 max-w-[1500px] w-full mx-auto px-6 md:px-10 pb-6 flex items-center gap-3">
+    <Icon name="heroicons:chevron-down" class="w-4 h-4 text-white/40 animate-bounce" />
+    <span class="micro-label">Scrolla för dagens sport</span>
+  </div>
+</section>

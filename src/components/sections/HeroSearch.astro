@@ -1,0 +1,99 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  placeholder?: string;
+  action?: string;
+  buttonText?: string;
+  popularSearches?: { text: string; href: string }[];
+  /** Full-bleed actionfoto bakom hero (Stadium Noir). */
+  image?: string;
+  imageAlt?: string;
+}
+
+const {
+  title = "Svensk sport på djupet",
+  subtitle = "Nyheter, analyser och reportage — dygnet runt.",
+  placeholder = "Vad letar du efter?",
+  action = "/sok",
+  buttonText = "Sök",
+  popularSearches = [],
+  image = "/images/hero.webp",
+  imageAlt = "",
+} = Astro.props;
+---
+
+<section
+  class="relative isolate min-h-[100svh] flex items-end overflow-hidden bg-base-100"
+>
+  <!-- Helbleed actionfoto med fade nedåt i svart -->
+  {image && (
+    <img
+      src={image}
+      alt={imageAlt}
+      aria-hidden={imageAlt ? undefined : "true"}
+      class="photo-fade absolute inset-0 w-full h-full object-cover object-center opacity-60"
+    />
+  )}
+  <!-- Röd radial halo-glow -->
+  <div class="halo-red pointer-events-none absolute inset-0 -z-0"></div>
+  <!-- Svart vinjett för läsbarhet -->
+  <div
+    class="pointer-events-none absolute inset-0 bg-gradient-to-t from-base-100 via-base-100/40 to-base-100/70"
+  >
+  </div>
+
+  <div class="relative z-10 w-full max-w-[1400px] mx-auto px-6 md:px-10 pb-16 md:pb-24">
+    <p class="micro-label mb-6">Uppdragsport — sport, dygnet runt</p>
+
+    <h1 class="headline-xl text-white max-w-[14ch] mb-8">
+      {title}
+    </h1>
+
+    <p
+      class="text-lg md:text-2xl text-white/65 mb-10 max-w-2xl leading-relaxed font-light"
+    >
+      {subtitle}
+    </p>
+
+    <form
+      action={action}
+      method="get"
+      class="w-full max-w-xl bg-base-200/80 backdrop-blur rounded-field flex items-center gap-2 p-2 ring-1 ring-white/10 focus-within:ring-2 focus-within:ring-primary transition"
+    >
+      <Icon
+        name="heroicons:magnifying-glass"
+        class="w-5 h-5 text-white/40 ml-3"
+      />
+      <input
+        type="search"
+        name="q"
+        placeholder={placeholder}
+        aria-label="Sök"
+        class="flex-1 bg-transparent outline-none px-2 py-2.5 text-base text-white placeholder:text-white/35"
+      />
+      <button
+        type="submit"
+        class="btn btn-primary rounded-field px-7 decoration-0! border-0"
+      >
+        {buttonText}
+      </button>
+    </form>
+
+    {popularSearches.length > 0 && (
+      <div class="mt-6 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
+        <span class="micro-label">Populärt</span>
+        {popularSearches.map((s) => (
+          <a
+            href={s.href}
+            class="text-white/65 hover:text-white border-b border-transparent hover:border-white/40 pb-0.5 transition-colors decoration-0!"
+          >
+            {s.text}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</section>

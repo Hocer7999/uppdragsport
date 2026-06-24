@@ -1,0 +1,345 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+
+// Original Components
+import Hero from "../components/sections/Hero.astro";
+import ContentBlock from "../components/sections/ContentBlock.astro";
+import Features from "../components/sections/Features.astro";
+import InfoCards from "../components/sections/InfoCards.astro";
+import StatsAlt from "../components/sections/StatsAlt.astro";
+import Services from "../components/sections/Services.astro";
+import Pricing from "../components/sections/Pricing.astro";
+import Stats from "../components/sections/Stats.astro";
+import Steps from "../components/sections/Steps.astro";
+import CTA from "../components/sections/CTA.astro";
+import Articles from "../components/sections/Articles.astro";
+import FAQ from "../components/sections/FAQ.astro";
+import Kommun from "../components/sections/Kommun.astro";
+import Contact from "../components/sections/Contact.astro";
+
+import { companyConfig } from "../config/company";
+
+// New Components
+import HeroCentered from "../components/sections/HeroCentered.astro";
+import HeroVideo from "../components/sections/HeroVideo.astro";
+import HeroWithForm from "../components/sections/HeroWithForm.astro";
+import HeroSearch from "../components/sections/HeroSearch.astro";
+import MultiStepForm from "../components/sections/MultiStepForm.astro";
+import GraphSection from "../components/sections/GraphSection.astro";
+import PricingCards from "../components/sections/PricingCards.astro";
+import FAQWithSidebar from "../components/sections/FAQWithSidebar.astro";
+
+// Content variants
+import ArticleList from "../components/sections/ArticleList.astro";
+import CategoryGrid from "../components/sections/CategoryGrid.astro";
+import AuthorList from "../components/sections/AuthorList.astro";
+import Newsletter from "../components/sections/Newsletter.astro";
+
+import { siteConfig } from "../config/site";
+---
+
+<Layout
+    title={`Komponentbibliotek | ${companyConfig.name}`}
+    theme={siteConfig.theme}
+    font={siteConfig.font}
+>
+    <Header />
+
+    <main class="flex-grow">
+        <!-- HeroCentered -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                HeroCentered.astro
+            </div>
+            <HeroCentered />
+        </div>
+
+        <!-- MultiStepForm -->
+        <div class="border-y border-base-content/10 relative group bg-base-100">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                MultiStepForm.astro
+            </div>
+            <MultiStepForm />
+        </div>
+
+        <!-- GraphSection -->
+        <div class="border-y border-base-content/10 relative group bg-base-100">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                GraphSection.astro
+            </div>
+            <GraphSection />
+        </div>
+
+        <!-- PricingCards -->
+        <div class="border-y border-base-content/10 relative group bg-base-100">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                PricingCards.astro
+            </div>
+            <PricingCards />
+        </div>
+
+        <!-- FAQWithSidebar -->
+        <div class="border-y border-base-content/10 relative group bg-base-100">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                FAQWithSidebar.astro
+            </div>
+            <FAQWithSidebar />
+        </div>
+
+        <!-- Hero (text-only) -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Hero.astro
+            </div>
+            <Hero />
+        </div>
+
+        <!-- HeroWithForm -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                HeroWithForm.astro
+            </div>
+            <HeroWithForm />
+        </div>
+
+        <!-- HeroVideo -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                HeroVideo.astro
+            </div>
+            <HeroVideo />
+        </div>
+
+        <!-- HeroSearch -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                HeroSearch.astro
+            </div>
+            <HeroSearch />
+        </div>
+
+        <!-- ContentBlock 1 -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                ContentBlock.astro (Standard)
+            </div>
+            <ContentBlock
+                title="Maximera er potential med smart data"
+                text={[
+                    `Med ${companyConfig.name} får ni tillgång till avancerade analysverktyg. Exportera rapporter och dela insikter med hela teamet för bättre beslutsfattande.`,
+                    "Vår plattform hjälper er att identifiera möjligheter snabbt, optimera flöden och planera er strategi framåt med datadrivna insikter.",
+                ]}
+                image="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=800&q=80"
+                imageAlt="Team som analyserar data"
+                ctaText="Läs mer om funktionerna"
+                ctaLink="/tjanster"
+            />
+        </div>
+
+        <!-- ContentBlock 2 -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                ContentBlock.astro (Reverse + Gray)
+            </div>
+            <ContentBlock
+                title="Full kontroll och övervakning i realtid"
+                text={[
+                    "Håll koll på era processer och få notifieringar när något avviker. Vårt system övervakar era system dygnet runt, året om.",
+                    "Ni kan skräddarsy larm och rapporter, så att rätt person alltid får rätt information vid rätt tillfälle.",
+                ]}
+                image="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=800&q=80"
+                imageAlt="Person som granskar rapporter"
+                reverse={true}
+                background="gray"
+                ctaText="Kom igång idag"
+                ctaLink="/kontakt"
+            />
+        </div>
+
+        <!-- Features -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Features.astro
+            </div>
+            <Features />
+        </div>
+
+        <!-- InfoCards -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                InfoCards.astro
+            </div>
+            <InfoCards />
+        </div>
+
+        <!-- StatsAlt -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                StatsAlt.astro
+            </div>
+            <StatsAlt />
+        </div>
+
+        <!-- Services -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Services.astro
+            </div>
+            <Services />
+        </div>
+
+        <!-- Pricing (Original) -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Pricing.astro (Original)
+            </div>
+            <Pricing />
+        </div>
+
+        <!-- Stats -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Stats.astro
+            </div>
+            <Stats />
+        </div>
+
+        <!-- Steps -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Steps.astro
+            </div>
+            <Steps />
+        </div>
+
+        <!-- CTA -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                CTA.astro
+            </div>
+            <CTA />
+        </div>
+
+        <!-- Articles -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Articles.astro
+            </div>
+            <Articles />
+        </div>
+
+        <!-- FAQ (Original) -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                FAQ.astro (Original)
+            </div>
+            <FAQ />
+        </div>
+
+        <!-- Kommun -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Kommun.astro
+            </div>
+            <Kommun />
+        </div>
+
+        <!-- Contact -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Contact.astro
+            </div>
+            <Contact />
+        </div>
+
+        <!-- ArticleList (content-sajt) -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                ArticleList.astro
+            </div>
+            <ArticleList title="Senaste artiklarna" limit={6} />
+        </div>
+
+        <!-- CategoryGrid (content-sajt) -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                CategoryGrid.astro
+            </div>
+            <CategoryGrid />
+        </div>
+
+        <!-- AuthorList (content-sajt) -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                AuthorList.astro
+            </div>
+            <AuthorList />
+        </div>
+
+        <!-- Newsletter -->
+        <div class="border-y border-base-content/10 relative group">
+            <div
+                class="absolute top-4 left-4 z-50 bg-black/80 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+            >
+                Newsletter.astro
+            </div>
+            <Newsletter />
+        </div>
+    </main>
+
+    <Footer />
+</Layout>

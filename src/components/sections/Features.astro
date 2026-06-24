@@ -1,0 +1,66 @@
+---
+interface Feature {
+  icon: string;
+  title: string;
+  description: string;
+}
+
+interface Props {
+  title?: string;
+  features?: Feature[];
+}
+
+import { Icon } from "astro-icon/components";
+
+const {
+  title = "Varför välja oss?",
+  features = [
+    {
+      icon: "heroicons:check-circle",
+      title: "Kvalitet i fokus",
+      description:
+        "Vi lägger stor vikt vid kvalitet i allt vi gör — från första kontakt till leverans.",
+    },
+    {
+      icon: "heroicons:bolt",
+      title: "Snabb leverans",
+      description:
+        "Kom igång direkt utan långa ledtider. Vi är tillgängliga och svarar snabbt.",
+    },
+    {
+      icon: "heroicons:shield-check",
+      title: "Trygg och säker",
+      description:
+        "Vi tar hand om dig från start till mål och håller vad vi lovar.",
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="py-20 bg-base-100">
+  <div class="max-w-[1100px] mx-auto px-4 md:px-10 text-center">
+    <h2
+      class="text-3xl md:text-4xl font-bold text-base-content mb-16 tracking-tight"
+    >
+      {title}
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-12">
+      {
+        features.map((feature) => (
+          <div class="flex flex-col items-center">
+            <div class="w-12 h-12 text-primary mb-4 flex items-center justify-center">
+              <Icon name={feature.icon} class="w-full h-full" />
+            </div>
+            <h3 class="text-lg font-semibold text-base-content mb-3">
+              {feature.title}
+            </h3>
+            <p class="text-sm text-base-content/70 leading-relaxed max-w-[300px] mx-auto">
+              {feature.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

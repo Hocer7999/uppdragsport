@@ -1,0 +1,64 @@
+---
+import { type FAQItem, defaultFaqs } from "../../config/faq";
+
+interface Props {
+  title?: string;
+  faqs?: FAQItem[];
+  sidebarTitle?: string;
+  sidebarText?: string;
+  sidebarCtaText?: string;
+  sidebarCtaLink?: string;
+}
+
+const {
+  title = "Vanliga frågor",
+  faqs = defaultFaqs,
+  sidebarTitle = "Har du fler frågor?",
+  sidebarText = "Hör av dig så återkommer vi med svar inom kort.",
+  sidebarCtaText = "Kontakta oss",
+  sidebarCtaLink = "/#kontakt",
+} = Astro.props;
+---
+
+<section class="py-20 bg-base-200">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+    <div class="grid lg:grid-cols-12 gap-12 lg:gap-20">
+      <!-- FAQ Content -->
+      <div class="lg:col-span-8">
+        <h2 class="text-3xl font-bold text-base-content mb-10 tracking-tight">
+          {title}
+        </h2>
+        <div class="space-y-4">
+          {
+            faqs.map((faq) => (
+              <div class="collapse collapse-plus bg-base-100 border border-base-200 rounded-lg">
+                <input type="radio" name="my-accordion-3" />
+                <h3 class="collapse-title text-lg font-medium text-base-content">
+                  {faq.question}
+                </h3>
+                <div class="collapse-content text-base-content/70 text-sm leading-relaxed">
+                  <p>{faq.answer}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Sidebar / Action Box -->
+      <div class="lg:col-span-4">
+        <div
+          class="bg-base-100 p-8 rounded-xl border border-base-200 sticky top-24"
+        >
+          <h2 class="text-lg font-bold text-base-content mb-4">
+            {sidebarTitle}
+          </h2>
+          <p class="text-sm text-base-content/60 mb-6">
+            {sidebarText}
+          </p>
+          <a href={sidebarCtaLink} class="btn btn-primary w-full">{sidebarCtaText}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

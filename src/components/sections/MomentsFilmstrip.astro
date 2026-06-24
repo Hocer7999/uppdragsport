@@ -1,0 +1,67 @@
+---
+import { getCollection, getEntry, type CollectionEntry } from "astro:content";
+
+interface Props {
+  title?: string;
+  eyebrow?: string;
+}
+const { title = "Ögonblicken", eyebrow = "Bildreportage" } = Astro.props;
+
+// Datadriven: plocka artiklar med bild → filmremsa av "ögonblick".
+let articles: CollectionEntry<"articles">[] = (await getCollection("articles"))
+  .filter((a) => a.data.image)
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 8);
+
+const catById: Record<string, string | undefined> = {};
+for (const a of articles) {
+  if (a.data.category) {
+    const c = await getEntry(a.data.category);
+    catById[a.id] = c?.data.title;
+  }
+}
+
+const widths = ["w-72", "w-80", "w-[22rem]"];
+const rotations = ["rotate-[1.2deg]", "-rotate-[1deg]", "rotate-[0.6deg]", "-rotate-[1.4deg]"];
+function fmtDate(d: Date): string {
+  return d.toLocaleDateString("sv-SE", { month: "short", day: "numeric" });
+}
+---
+
+{articles.length >= 4 && (
+  <section class="section-pad bg-base-100 overflow-hidden">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 mb-12 reveal">
+      <span class="micro-label text-primary">{eyebrow}</span>
+      <h2 class="font-display text-5xl md:text-7xl text-white tracking-[-0.045em] mt-3">{title}</h2>
+    </div>
+
+    <div class="hide-scrollbar overflow-x-auto pb-6">
+      <div class="flex gap-6 px-6 md:px-10 w-max">
+        {articles.map((a, i) => (
+          <a
+            href={`/artiklar/${a.slug}`}
+            class={`group shrink-0 ${widths[i % widths.length]} ${i % 2 === 0 ? "mt-0" : "mt-10"} decoration-0!`}
+          >
+            <div class={`relative aspect-[4/5] overflow-hidden rounded-box border border-white/10 shadow-2xl shadow-black/60 ${rotations[i % rotations.length]} transition-transform duration-500 group-hover:rotate-0`}>
+              <img
+                src={a.data.image}
+                alt={a.data.imageAlt || a.data.title}
+                class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 transition-opacity duration-500"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+              <div class="absolute left-4 top-4 flex items-center gap-2">
+                <span class="micro-label text-white/70">{catById[a.id] ?? a.data.tags[0] ?? "Sport"}</span>
+              </div>
+              <div class="absolute left-4 right-4 bottom-4">
+                <span class="micro-label text-white/50 normal-case tracking-normal">({fmtDate(a.data.publishDate)})</span>
+                <h3 class="font-display text-white text-xl tracking-[-0.03em] leading-tight mt-1 line-clamp-2">
+                  {a.data.title}
+                </h3>
+              </div>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

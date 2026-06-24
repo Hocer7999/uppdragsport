@@ -1,0 +1,145 @@
+---
+import "../styles/global.css";
+import Schema from "../components/seo/Schema.astro";
+import CookieConsent from "../components/layout/CookieConsent.astro";
+import type { Graph, Thing } from "schema-dts";
+import { companyConfig } from "../config/company";
+import { siteConfig } from "../config/site";
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getBlog,
+} from "../utils/jsonLD";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: string;
+  robots?: string;
+  font?: "inter" | "dm-sans" | "manrope";
+  theme?: string;
+  schema?: Graph;
+}
+
+const {
+  title = "Uppdragsport",
+  description,
+  image = "/images/hero.webp",
+  type = "website",
+  robots = "index, follow",
+  font = "inter",
+  theme = "stadium-noir",
+  schema,
+} = Astro.props;
+
+const fontClass = {
+  inter: "font-inter",
+  "dm-sans": "font-dm-sans",
+  manrope: "font-manrope",
+}[font];
+
+// Normalize: strip trailing slash (root "/" preserved) so canonicals are stable
+// regardless of how the page is requested. Matches trailingSlash: 'never' in astro.config.
+const normalizedPath = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const canonicalURL = new URL(normalizedPath, Astro.site).href;
+const socialImageURL = new URL(image, Astro.site).href;
+
+// Fallback schema: if a page doesn't pass one in, we emit a sensible
+// default tuned to the siteType:
+//   service   → Organization + WebSite (primary entity = Organization)
+//   content   → Organization + WebSite + Blog (primary entity = Blog)
+//   directory → Organization + WebSite (primary entity = WebSite)
+let effectiveSchema = schema;
+if (!effectiveSchema) {
+  const nodes: Thing[] = [getOrganization(), getWebSite()];
+  if (siteConfig.siteType === "content") {
+    nodes.push(getBlog() as unknown as Thing);
+  }
+  effectiveSchema = generateGraph(nodes);
+}
+---
+
+<!doctype html>
+<html lang="sv" data-theme={theme}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="robots" content={robots} />
+    {description && <meta name="description" content={description} />}
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:type" content={type} />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    {description && <meta property="og:description" content={description} />}
+    <meta property="og:image" content={socialImageURL} />
+    <meta property="og:site_name" content={companyConfig.name} />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    {description && <meta name="twitter:description" content={description} />}
+    <meta name="twitter:image" content={socialImageURL} />
+
+    {effectiveSchema && <Schema graph={effectiveSchema} />}
+
+    <!-- RSS-feed (länkar fram även för service-sajter; ofarligt om feed:en är tom) -->
+    <link rel="alternate" type="application/rss+xml" title={companyConfig.name} href="/rss.xml" />
+  </head>
+  <body class={`min-h-screen flex flex-col ${fontClass}`}>
+    <slot />
+    <CookieConsent />
+
+    <script>
+      import Lenis from "lenis";
+
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      // Scroll-reveal: threshold 0 så att även sektioner högre än viewporten
+      // garanterat triggar (undviker blank-innehåll-fällan).
+      const reveals = document.querySelectorAll<HTMLElement>(".reveal");
+      if (reveals.length) {
+        if (reduce) {
+          reveals.forEach((el) => el.classList.add("is-visible"));
+        } else {
+          const io = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((e) => {
+                if (e.isIntersecting) {
+                  e.target.classList.add("is-visible");
+                  io.unobserve(e.target);
+                }
+              });
+            },
+            { threshold: 0, rootMargin: "0px 0px -12% 0px" }
+          );
+          reveals.forEach((el) => io.observe(el));
+        }
+      }
+
+      // Lenis smooth scroll (av vid reduced-motion).
+      if (!reduce) {
+        const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
+        const raf = (time: number) => {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
+      }
+    </script>
+  </body>
+</html>

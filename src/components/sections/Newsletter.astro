@@ -1,0 +1,63 @@
+---
+import { companyConfig } from "../../config/company";
+
+interface Props {
+  title?: string;
+  description?: string;
+  buttonText?: string;
+  placeholder?: string;
+  /** Form action. Default: mailto link pointing to the company inbox. */
+  action?: string;
+  /** Optional disclaimer/privacy note below the form. */
+  disclaimer?: string;
+}
+
+const {
+  title = "Prenumerera på nyhetsbrevet",
+  description = "Få de senaste artiklarna direkt i din inkorg. Inga reklamutskick — bara innehåll.",
+  buttonText = "Prenumerera",
+  placeholder = "din@e-post.se",
+  action = `mailto:${companyConfig.email}?subject=Nyhetsbrev`,
+  disclaimer = "Vi behandlar din e-post enligt vår integritetspolicy. Du kan avregistrera dig när du vill.",
+} = Astro.props;
+---
+
+<section id="nyhetsbrev" class="section-pad bg-base-200">
+  <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+    <div class="grid lg:grid-cols-[1.2fr_1fr] gap-10 lg:gap-20 items-end">
+      <div>
+        <p class="micro-label mb-6">Nyhetsbrev</p>
+        <h2 class="font-display text-5xl md:text-7xl text-white tracking-[-0.045em] leading-[0.95] mb-5">
+          {title}
+        </h2>
+        <p class="text-white/55 text-lg leading-relaxed max-w-xl">
+          {description}
+        </p>
+      </div>
+
+      <div>
+        <form
+          action={action}
+          method="post"
+          class="flex flex-col sm:flex-row gap-3"
+        >
+          <label class="sr-only" for="newsletter-email">E-postadress</label>
+          <input
+            id="newsletter-email"
+            type="email"
+            name="email"
+            required
+            placeholder={placeholder}
+            class="flex-1 bg-base-100 rounded-field px-5 py-3.5 text-white placeholder:text-white/35 outline-none ring-1 ring-white/10 focus:ring-2 focus:ring-primary transition"
+          />
+          <button type="submit" class="btn btn-primary rounded-field px-7 border-0 decoration-0!">
+            {buttonText}
+          </button>
+        </form>
+        {disclaimer && (
+          <p class="mt-4 text-xs text-white/35">{disclaimer}</p>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

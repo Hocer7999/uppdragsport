@@ -1,0 +1,155 @@
+---
+/**
+ * Programmatic SEO-pattern: en sida per rad i src/data/ord.json.
+ *
+ * Klona detta mönster för andra dataset:
+ *   1. Lägg dataset som JSON (eller CSV efter konvertering) i src/data/.
+ *   2. Importera datasetet och definiera getStaticPaths() med en path per rad.
+ *   3. Mappa fälten mot DefinedTerm- eller annan schema.org-typ via getDefinedTerm()
+ *      eller en helper i src/utils/jsonLD.ts.
+ *   4. Skriv en hub-sida (index.astro) som listar och länkar in i datasetet.
+ *
+ * För större volymer: dela datasetet i flera JSON-filer eller läs från en
+ * extern källa (API/CSV) i en build-step. Glob-import via import.meta.glob
+ * fungerar också om varje rad är sin egen markdown-fil.
+ */
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import { Icon } from "astro-icon/components";
+import ordData from "../../data/ord.json";
+
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getWebPage,
+  getDefinedTerm,
+  getBreadcrumbs,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+interface OrdEntry {
+  slug: string;
+  title: string;
+  definition: string;
+  category: string;
+  related?: string[];
+}
+
+const ord = ordData as OrdEntry[];
+
+export async function getStaticPaths() {
+  const data = (await import("../../data/ord.json")).default as OrdEntry[];
+  return data.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props as { entry: OrdEntry };
+
+const related = (entry.related ?? [])
+  .map((slug) => ord.find((o) => o.slug === slug))
+  .filter((o): o is OrdEntry => Boolean(o));
+
+const pageTitle = `${entry.title} | ${companyConfig.name}`;
+const pageDescription = entry.definition.slice(0, 160);
+
+const schema = generateGraph([
+  getOrganization(),
+  getWebSite(),
+  getWebPage(Astro.url.pathname, pageTitle, pageDescription),
+  getDefinedTerm({
+    name: entry.title,
+    description: entry.definition,
+    pathname: Astro.url.pathname,
+    inDefinedTermSet: `https://${companyConfig.domain}/ord`,
+  }) as Thing,
+  getBreadcrumbs([
+    { name: "Hem", pathname: "/" },
+    { name: "Ord & begrepp", pathname: "/ord" },
+    { name: entry.title, pathname: Astro.url.pathname },
+  ]),
+]);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100">
+    <header class="py-16 bg-base-200">
+      <div class="max-w-[1100px] mx-auto px-4 md:px-10">
+        <nav class="text-sm text-base-content/60 mb-6" aria-label="Brödsmulor">
+          <a href="/" class="hover:text-primary decoration-0!">Hem</a>
+          <span class="mx-2">/</span>
+          <a href="/ord" class="hover:text-primary decoration-0!">Ord & begrepp</a>
+          <span class="mx-2">/</span>
+          <span class="text-base-content/80">{entry.title}</span>
+        </nav>
+
+        <span class="inline-block mb-4 px-3 py-1 bg-base-100 border border-base-300 text-base-content/70 rounded-full text-xs font-bold uppercase tracking-wider">
+          {entry.category}
+        </span>
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-base-content">
+          {entry.title}
+        </h1>
+      </div>
+    </header>
+
+    <section class="py-16">
+      <div class="max-w-[800px] mx-auto px-4 md:px-10">
+        <p class="text-xl text-base-content/80 leading-relaxed">
+          {entry.definition}
+        </p>
+      </div>
+    </section>
+
+    {related.length > 0 && (
+      <section class="py-12 bg-base-200">
+        <div class="max-w-[1100px] mx-auto px-4 md:px-10">
+          <h2 class="text-2xl font-bold text-base-content mb-6">
+            Relaterade termer
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {related.map((r) => (
+              <a
+                href={`/ord/${r.slug}`}
+                class="block bg-base-100 border border-base-200 hover:border-primary/40 hover:shadow-md p-5 rounded-xl transition-all decoration-0!"
+              >
+                <h3 class="font-bold text-base-content mb-1">
+                  {r.title}
+                </h3>
+                <p class="text-sm text-base-content/60 line-clamp-2">
+                  {r.definition}
+                </p>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <section class="py-12">
+      <div class="max-w-[1100px] mx-auto px-4 md:px-10 text-center">
+        <a href="/ord" class="btn btn-outline gap-2 group">
+          <Icon
+            name="heroicons:chevron-left"
+            class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
+          />
+          Alla ord & begrepp
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

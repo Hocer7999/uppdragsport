@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import SectionRenderer from "../components/SectionRenderer.astro";
+
+import { homepageSections } from "../config/pages";
+import { siteConfig } from "../config/site";
+import { companyConfig } from "../config/company";
+
+// JSON-LD: pick the primary entity based on siteType.
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getWebPage,
+  getBlog,
+} from "../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+const organization = getOrganization();
+const website = getWebSite();
+const webpage = getWebPage(
+  Astro.url.pathname,
+  `${companyConfig.name}`,
+  companyConfig.description,
+);
+
+const graphNodes: Thing[] = [organization, website, webpage];
+
+// For content sites the primary entity is a Blog; merge it in.
+if (siteConfig.siteType === "content") {
+  graphNodes.push(getBlog() as unknown as Thing);
+}
+
+const schema = generateGraph(graphNodes);
+---
+
+<Layout
+  title={`${companyConfig.name}`}
+  description={companyConfig.description}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow">
+    <SectionRenderer sections={homepageSections} />
+  </main>
+
+  <Footer />
+</Layout>

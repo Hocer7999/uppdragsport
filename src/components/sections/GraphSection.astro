@@ -1,0 +1,483 @@
+---
+interface Props {
+  badge?: string;
+  title?: string;
+  paragraphs?: string[];
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  badge = "Insikter & data",
+  title = "Se utvecklingen över tid",
+  paragraphs = [
+    "Visa kontrasten mellan två scenarier — t.ex. före och efter, eller två olika strategier — på ett enkelt och lättförståeligt sätt.",
+    "Anpassa siffrorna och rubrikerna efter din verksamhet. Default-värdena är platshållare.",
+  ],
+  ctaText = "Läs mer",
+  ctaLink = "#",
+} = Astro.props;
+---
+
+<section class="py-20 bg-base-100">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+    <!-- KPI Panel -->
+    <div
+      class="bg-base-200 border border-base-300 border-l-4 border-l-primary rounded-lg p-6 mb-16"
+    >
+      <h4
+        class="text-base font-semibold text-base-content mb-4 flex items-center gap-2"
+      >
+        <svg
+          class="w-5 h-5"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+        >
+          <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+          <line x1="12" y1="8" x2="12" y2="16"></line>
+          <line x1="8" y1="12" x2="16" y2="12"></line>
+        </svg>
+        {badge}
+      </h4>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <div class="flex justify-between text-sm">
+          <span class="text-base-content/70">TODO Nyckel:</span>
+          <span class="font-semibold text-base-content">TODO</span>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span class="text-base-content/70">TODO Nyckel:</span>
+          <span class="font-semibold text-base-content">TODO</span>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span class="text-base-content/70">TODO Nyckel:</span>
+          <span class="font-semibold text-base-content">TODO</span>
+        </div>
+        <div class="flex justify-between text-sm">
+          <span class="text-base-content/70">TODO Nyckel:</span>
+          <span class="font-semibold text-base-content">TODO</span>
+        </div>
+      </div>
+      <div
+        class="mt-4 pt-4 border-t border-base-300 text-xs text-base-content/50"
+      >
+        Anpassa siffrorna via prop på GraphSection.
+      </div>
+    </div>
+
+    <!-- Graph & Text Row -->
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Graph Column -->
+      <div class="bg-base-200/50 rounded-2xl p-4 md:p-6 border border-base-200">
+        <div class="graph-container relative flex flex-col h-[420px]">
+          <svg
+            id="growthGraph"
+            viewBox="0 0 600 420"
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-full h-full bg-gradient-to-br from-base-100 to-base-200 rounded-xl"
+          >
+            <!-- Grid lines -->
+            <line
+              x1="60"
+              y1="320"
+              x2="540"
+              y2="320"
+              class="stroke-base-300"
+              stroke-width="1"></line>
+            <line
+              x1="60"
+              y1="260"
+              x2="540"
+              y2="260"
+              class="stroke-base-300"
+              stroke-width="1"></line>
+            <line
+              x1="60"
+              y1="200"
+              x2="540"
+              y2="200"
+              class="stroke-base-300"
+              stroke-width="1"></line>
+            <line
+              x1="60"
+              y1="140"
+              x2="540"
+              y2="140"
+              class="stroke-base-300"
+              stroke-width="1"></line>
+            <line
+              x1="60"
+              y1="80"
+              x2="540"
+              y2="80"
+              class="stroke-base-300"
+              stroke-width="1"></line>
+
+            <!-- Axes -->
+            <line
+              x1="60"
+              y1="350"
+              x2="540"
+              y2="350"
+              class="stroke-current text-primary"
+              stroke-width="2"></line>
+            <line
+              x1="60"
+              y1="350"
+              x2="60"
+              y2="50"
+              class="stroke-current text-primary"
+              stroke-width="2"></line>
+
+            <!-- Linear growth (without platform) -->
+            <path
+              id="linearPath"
+              d="M 60 350 L 180 320 L 300 290 L 420 260 L 540 230"
+              class="stroke-current text-base-content/30 transition-opacity duration-300"
+              stroke-width="3"
+              fill="none"
+              stroke-dasharray="8,4"></path>
+
+            <!-- Exponential growth (with platform) -->
+            <path
+              id="compoundPath"
+              d="M 60 350 Q 180 300, 300 200 T 540 70"
+              class="stroke-current text-primary transition-opacity duration-300"
+              stroke-width="4"
+              fill="none"></path>
+
+            <!-- Data points for compound -->
+            <g id="compoundPoints" class="transition-opacity duration-300">
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8] fill-current text-primary"
+                cx="60"
+                cy="350"
+                r="6"
+                data-label="Start"
+                data-value="100"></circle>
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8] fill-current text-primary"
+                cx="180"
+                cy="280"
+                r="6"
+                data-label="Q1"
+                data-value="150"></circle>
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8] fill-current text-primary"
+                cx="300"
+                cy="200"
+                r="6"
+                data-label="Q2"
+                data-value="280"></circle>
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8] fill-current text-primary"
+                cx="420"
+                cy="110"
+                r="6"
+                data-label="Q3"
+                data-value="450"></circle>
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8] fill-current text-primary"
+                cx="540"
+                cy="70"
+                r="6"
+                data-label="Q4"
+                data-value="850"></circle>
+            </g>
+
+            <!-- Data points for simple -->
+            <g
+              id="simplePoints"
+              class="opacity-0 transition-opacity duration-300"
+            >
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8]"
+                cx="60"
+                cy="350"
+                r="6"
+                class="fill-base-content/40"
+                data-label="Start"
+                data-value="100"></circle>
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8]"
+                cx="180"
+                cy="320"
+                r="6"
+                class="fill-base-content/40"
+                data-label="Q1"
+                data-value="110"></circle>
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8]"
+                cx="300"
+                cy="290"
+                r="6"
+                class="fill-base-content/40"
+                data-label="Q2"
+                data-value="120"></circle>
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8]"
+                cx="420"
+                cy="260"
+                r="6"
+                class="fill-base-content/40"
+                data-label="Q3"
+                data-value="130"></circle>
+              <circle
+                class="data-point cursor-pointer transition-all hover:r-[8]"
+                cx="540"
+                cy="230"
+                r="6"
+                class="fill-base-content/40"
+                data-label="Q4"
+                data-value="140"></circle>
+            </g>
+
+            <!-- X Axis labels -->
+            <text
+              x="60"
+              y="375"
+              text-anchor="middle"
+              font-size="14"
+              class="fill-base-content/60">Start</text
+            >
+            <text
+              x="180"
+              y="375"
+              text-anchor="middle"
+              font-size="14"
+              class="fill-base-content/60">Q1</text
+            >
+            <text
+              x="300"
+              y="375"
+              text-anchor="middle"
+              font-size="14"
+              class="fill-base-content/60">Q2</text
+            >
+            <text
+              x="420"
+              y="375"
+              text-anchor="middle"
+              font-size="14"
+              class="fill-base-content/60">Q3</text
+            >
+            <text
+              x="540"
+              y="375"
+              text-anchor="middle"
+              font-size="14"
+              class="fill-base-content/60">Q4</text
+            >
+
+            <!-- Y Axis labels (generic index) -->
+            <text
+              x="50"
+              y="355"
+              text-anchor="end"
+              font-size="12"
+              class="fill-base-content/50">100</text
+            >
+            <text
+              x="50"
+              y="285"
+              text-anchor="end"
+              font-size="12"
+              class="fill-base-content/50">300</text
+            >
+            <text
+              x="50"
+              y="215"
+              text-anchor="end"
+              font-size="12"
+              class="fill-base-content/50">500</text
+            >
+            <text
+              x="50"
+              y="145"
+              text-anchor="end"
+              font-size="12"
+              class="fill-base-content/50">700</text
+            >
+            <text
+              x="50"
+              y="75"
+              text-anchor="end"
+              font-size="12"
+              class="fill-base-content/50">900</text
+            >
+
+            <!-- Dynamic result text -->
+            <text
+              id="resultText"
+              x="300"
+              y="35"
+              text-anchor="middle"
+              font-size="16"
+              class="fill-current text-primary font-bold"
+            >
+              Tillväxt med plattform: +850%
+            </text>
+
+            <!-- Title -->
+            <text
+              x="300"
+              y="410"
+              text-anchor="middle"
+              font-size="14"
+              class="fill-base-content/50 italic"
+            >
+              Ackumulerad värdeökning över tid
+            </text>
+          </svg>
+
+          <!-- Tooltip -->
+          <div
+            id="graphTooltip"
+            class="absolute bg-base-300 text-base-content px-3 py-2 rounded shadow-lg text-sm pointer-events-none opacity-0 transition-opacity duration-200 z-10 font-medium border border-base-content/10"
+          >
+          </div>
+
+          <!-- Toggle Buttons -->
+          <div
+            class="flex gap-2 justify-center mt-6 bg-base-100 p-2 rounded-xl border border-base-200 shadow-sm w-fit mx-auto"
+          >
+            <button
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:text-primary active-mode"
+              data-mode="compound">Scenario A</button
+            >
+            <button
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:text-primary text-base-content/60"
+              data-mode="simple">Scenario B</button
+            >
+            <button
+              class="px-4 py-2 rounded-lg text-sm font-medium transition-all hover:text-primary text-base-content/60"
+              data-mode="both">Jämför</button
+            >
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Column -->
+      <div class="content-text">
+        <h2 class="text-3xl font-bold text-base-content mb-6 tracking-tight">
+          {title}
+        </h2>
+        {paragraphs.map((p) => (
+          <p class="text-base text-base-content/70 leading-relaxed mb-6">{p}</p>
+        ))}
+        {ctaText && (
+          <a
+            href={ctaLink}
+            class="btn btn-outline border-base-content/20 hover:border-base-content hover:bg-base-content hover:text-base-100"
+          >
+            {ctaText}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* Custom styles for graph interaction */
+  .active-mode {
+    background-color: oklch(var(--p)); /* Primary color */
+    color: oklch(var(--pc)); /* Primary content color */
+  }
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const toggleButtons = document.querySelectorAll(".graph-container button");
+    const linearPath = document.getElementById("linearPath");
+    const compoundPath = document.getElementById("compoundPath");
+    const compoundPoints = document.getElementById("compoundPoints");
+    const simplePoints = document.getElementById("simplePoints");
+    const resultText = document.getElementById("resultText");
+    const tooltip = document.getElementById("graphTooltip");
+    const dataPoints = document.querySelectorAll(".data-point");
+    const graphContainer = document.querySelector(".graph-container");
+
+    const results = {
+      compound: "Scenario A: +850%",
+      simple: "Scenario B: +40%",
+      both: "Skillnad: betydande utveckling",
+    };
+
+    // Toggle button functionality
+    toggleButtons.forEach((button) => {
+      button.addEventListener("click", function (this: HTMLButtonElement) {
+        // Reset state
+        toggleButtons.forEach((btn) => {
+          btn.classList.remove("active-mode");
+          btn.classList.add("text-base-content/60");
+        });
+        this.classList.add("active-mode");
+        this.classList.remove("text-base-content/60");
+
+        const mode = this.getAttribute("data-mode");
+
+        if (mode === "compound") {
+          if (linearPath) linearPath.style.opacity = "0.2";
+          if (compoundPath) compoundPath.style.opacity = "1";
+          if (compoundPoints) compoundPoints.style.opacity = "1";
+          if (simplePoints) simplePoints.style.opacity = "0";
+          if (resultText) {
+            resultText.textContent = results.compound;
+            resultText.classList.remove("fill-base-content/50");
+            resultText.classList.add("fill-current", "text-primary");
+          }
+        } else if (mode === "simple") {
+          if (linearPath) linearPath.style.opacity = "1";
+          if (compoundPath) compoundPath.style.opacity = "0.2";
+          if (compoundPoints) compoundPoints.style.opacity = "0";
+          if (simplePoints) simplePoints.style.opacity = "1";
+          if (resultText) {
+            resultText.textContent = results.simple;
+            resultText.classList.remove("fill-current", "text-primary");
+            resultText.classList.add("fill-base-content/50");
+          }
+        } else if (mode === "both") {
+          if (linearPath) linearPath.style.opacity = "1";
+          if (compoundPath) compoundPath.style.opacity = "1";
+          if (compoundPoints) compoundPoints.style.opacity = "1";
+          if (simplePoints) simplePoints.style.opacity = "1";
+          if (resultText) {
+            resultText.textContent = results.both;
+            resultText.classList.add("fill-current", "text-primary");
+          }
+        }
+      });
+    });
+
+    // Tooltip functionality
+    if (dataPoints && tooltip && graphContainer) {
+      dataPoints.forEach((point) => {
+        point.addEventListener("mouseenter", function (this: SVGElement) {
+          const label = this.getAttribute("data-label");
+          const value = this.getAttribute("data-value");
+          tooltip.innerHTML = `${label} &rarr; Index: ${value}`;
+          tooltip.style.opacity = "1";
+        });
+
+        point.addEventListener("mousemove", function (e: any) {
+          const rect = graphContainer.getBoundingClientRect();
+          // Calculate position relative to the container
+          let left = e.clientX - rect.left + 10;
+          let top = e.clientY - rect.top - 10;
+
+          // Keep within bounds
+          if (left > rect.width - 100) left -= 120;
+
+          tooltip.style.left = left + "px";
+          tooltip.style.top = top + "px";
+        });
+
+        point.addEventListener("mouseleave", function () {
+          tooltip.style.opacity = "0";
+        });
+      });
+    }
+  });
+</script>

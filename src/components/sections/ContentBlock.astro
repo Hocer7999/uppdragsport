@@ -1,0 +1,64 @@
+---
+interface Props {
+  title: string;
+  text: string[];
+  image: string;
+  imageAlt: string;
+  reverse?: boolean;
+  background?: "white" | "gray";
+  eyebrow?: string;
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+const {
+  title,
+  text,
+  image,
+  imageAlt,
+  reverse = false,
+  background = "white",
+  eyebrow,
+  ctaText,
+  ctaLink = "#",
+} = Astro.props;
+
+const bgClass = background === "gray" ? "bg-base-200" : "bg-base-100";
+---
+
+<section class={`section-pad ${bgClass}`}>
+  <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <!-- Bildkolumn -->
+      <div
+        class={`relative rounded-box overflow-hidden aspect-[4/3] lg:aspect-auto lg:h-[520px] ${reverse ? "lg:order-last" : ""}`}
+      >
+        <img
+          src={image}
+          alt={imageAlt}
+          class="absolute inset-0 w-full h-full object-cover"
+          loading="lazy"
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+      </div>
+
+      <!-- Textkolumn -->
+      <div class={`${reverse ? "lg:order-first" : ""}`}>
+        {eyebrow && <p class="micro-label mb-6">{eyebrow}</p>}
+        <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em] leading-[0.98] mb-7">
+          {title}
+        </h2>
+        {text.map((paragraph) => (
+          <p class="text-white/55 text-lg mb-5 leading-relaxed">
+            {paragraph}
+          </p>
+        ))}
+        {ctaText && (
+          <a href={ctaLink} class="btn btn-primary rounded-field px-7 border-0 mt-4 decoration-0!">
+            {ctaText}
+          </a>
+        )}
+      </div>
+    </div>
+  </div>
+</section>

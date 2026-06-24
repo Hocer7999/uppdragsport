@@ -1,0 +1,157 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import { getCollection, getEntry } from "astro:content";
+
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getCollectionPage,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+const articles = (await getCollection("articles")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+
+// Resolve category labels once.
+const categoryByArticleId: Record<string, string | undefined> = {};
+const categorySlugByArticleId: Record<string, string | undefined> = {};
+for (const article of articles) {
+  if (article.data.category) {
+    const cat = await getEntry(article.data.category);
+    categoryByArticleId[article.id] = cat?.data.title;
+    categorySlugByArticleId[article.id] = cat?.slug;
+  }
+}
+
+// Author display name (with fallback)
+const authorNameByArticleId: Record<string, string> = {};
+for (const article of articles) {
+  if (article.data.author) {
+    const author = await getEntry(article.data.author);
+    authorNameByArticleId[article.id] = author?.data.name ?? article.data.authorName;
+  } else {
+    authorNameByArticleId[article.id] = article.data.authorName;
+  }
+}
+
+const pageTitle = `Artiklar & Guider | ${companyConfig.name}`;
+const pageDescription = `Artiklar och guider från ${companyConfig.name}.`;
+
+const schema = generateGraph([
+  getOrganization(),
+  getWebSite(),
+  getCollectionPage(
+    Astro.url.pathname,
+    pageTitle,
+    pageDescription,
+    articles.length,
+  ) as Thing,
+]);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100 py-16">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      <div class="text-center mb-16 max-w-2xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-base-content">
+          Artiklar & Guider
+        </h1>
+        <p class="text-lg text-base-content/70">
+          Tips, råd och insikter från {companyConfig.name}.
+        </p>
+      </div>
+
+      {articles.length === 0 ? (
+        <div class="text-center py-16">
+          <p class="text-base-content/60 text-lg">
+            Inga artiklar publicerade ännu.
+          </p>
+        </div>
+      ) : (
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {articles.map((article) => {
+            const categoryTitle = categoryByArticleId[article.id];
+            const categorySlug = categorySlugByArticleId[article.id];
+            const authorName = authorNameByArticleId[article.id];
+            return (
+              <article class="bg-base-100 rounded-2xl overflow-hidden border border-base-200 hover:shadow-xl transition-all duration-300 flex flex-col h-full group">
+                <a
+                  href={`/artiklar/${article.slug}`}
+                  class="block overflow-hidden relative aspect-video"
+                >
+                  {article.data.image && (
+                    <img
+                      src={article.data.image}
+                      alt={article.data.imageAlt || article.data.title}
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                  )}
+                  <div class="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors" />
+                </a>
+
+                <div class="p-8 flex flex-col flex-grow">
+                  {categoryTitle && categorySlug && (
+                    <div class="flex gap-2 mb-4 flex-wrap">
+                      <a
+                        href={`/kategori/${categorySlug}`}
+                        class="px-3 py-1 bg-base-200 text-base-content/70 hover:text-primary hover:bg-base-300 rounded-full text-xs font-semibold uppercase tracking-wider decoration-0!"
+                      >
+                        {categoryTitle}
+                      </a>
+                    </div>
+                  )}
+
+                  <h2 class="text-2xl font-bold mb-3 text-base-content group-hover:text-primary transition-colors">
+                    <a href={`/artiklar/${article.slug}`}>{article.data.title}</a>
+                  </h2>
+
+                  <p class="text-base-content/70 mb-6 line-clamp-3">
+                    {article.data.description}
+                  </p>
+
+                  <div class="mt-auto flex justify-between items-center text-sm border-t border-base-200 pt-4">
+                    <div class="flex items-center gap-2">
+                      <span class="w-8 h-8 rounded-full bg-primary/20 flex items-center justify-center text-primary font-bold">
+                        {authorName.charAt(0)}
+                      </span>
+                      <span class="font-medium text-base-content/80">
+                        {authorName}
+                      </span>
+                    </div>
+                    <time
+                      datetime={article.data.publishDate.toISOString()}
+                      class="text-base-content/50"
+                    >
+                      {article.data.publishDate.toLocaleDateString("sv-SE", {
+                        year: "numeric",
+                        month: "short",
+                        day: "numeric",
+                      })}
+                    </time>
+                  </div>
+                </div>
+              </article>
+            );
+          })}
+        </div>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

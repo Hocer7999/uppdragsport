@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import ArticleList from "../../components/sections/ArticleList.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getCollectionPage,
+  getBreadcrumbs,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  const uniqueTags = new Set<string>();
+  for (const a of articles) {
+    for (const t of a.data.tags ?? []) {
+      uniqueTags.add(t);
+    }
+  }
+  return Array.from(uniqueTags).map((tag) => ({
+    params: { slug: tag },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props;
+
+const allArticles = await getCollection("articles");
+const articlesWithTag = allArticles.filter((a) => a.data.tags.includes(tag));
+
+const pageTitle = `Tagg: ${tag} | ${companyConfig.name}`;
+const pageDescription = `Artiklar taggade med "${tag}" från ${companyConfig.name}.`;
+
+const schema = generateGraph([
+  getOrganization(),
+  getWebSite(),
+  getCollectionPage(
+    Astro.url.pathname,
+    pageTitle,
+    pageDescription,
+    articlesWithTag.length,
+  ) as Thing,
+  getBreadcrumbs([
+    { name: "Hem", pathname: "/" },
+    { name: "Artiklar", pathname: "/artiklar" },
+    { name: `Tagg: ${tag}`, pathname: Astro.url.pathname },
+  ]),
+]);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+  robots="noindex, follow"
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100">
+    <header class="py-16 bg-base-200">
+      <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+        <nav class="text-sm text-base-content/60 mb-6" aria-label="Brödsmulor">
+          <a href="/" class="hover:text-primary decoration-0!">Hem</a>
+          <span class="mx-2">/</span>
+          <a href="/artiklar" class="hover:text-primary decoration-0!">Artiklar</a>
+          <span class="mx-2">/</span>
+          <span class="text-base-content/80">#{tag}</span>
+        </nav>
+
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-base-content">
+          #{tag}
+        </h1>
+        <p class="text-lg text-base-content/70">
+          Alla artiklar taggade med <strong>{tag}</strong>.
+        </p>
+        <p class="text-sm text-base-content/50 mt-4">
+          {articlesWithTag.length} artiklar
+        </p>
+      </div>
+    </header>
+
+    {articlesWithTag.length === 0 ? (
+      <div class="max-w-[1400px] mx-auto px-4 md:px-10 py-16 text-center">
+        <p class="text-base-content/60">
+          Inga artiklar med denna tagg ännu.
+        </p>
+        <a href="/artiklar" class="btn btn-outline mt-6 gap-2 group">
+          <Icon
+            name="heroicons:chevron-left"
+            class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
+          />
+          Tillbaka till alla artiklar
+        </a>
+      </div>
+    ) : (
+      <ArticleList tag={tag} />
+    )}
+  </main>
+
+  <Footer />
+</Layout>

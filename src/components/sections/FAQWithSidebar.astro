@@ -1,0 +1,219 @@
+---
+interface FaqItem {
+  question: string;
+  answer: string;
+}
+
+interface Stat {
+  label: string;
+  value: string;
+}
+
+interface Props {
+  title?: string;
+  items?: FaqItem[];
+  companyName?: string;
+  companyDescription?: string;
+  email?: string;
+  orgNumber?: string;
+  address?: string;
+  stats?: Stat[];
+}
+
+import { companyConfig } from "../../config/company";
+import { defaultFaqs } from "../../config/faq";
+import { Icon } from "astro-icon/components";
+
+const {
+  title = "Vanliga frågor",
+  items = defaultFaqs,
+  companyName = companyConfig.name,
+  companyDescription = companyConfig.description,
+  email = companyConfig.email,
+  orgNumber = companyConfig.orgNumber,
+  address = companyConfig.address,
+  stats = [
+    { label: "TODO", value: "TODO" },
+    { label: "TODO", value: "TODO" },
+    { label: "TODO", value: "TODO" },
+  ],
+} = Astro.props;
+---
+
+<section class="py-20 bg-base-100">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+    <div class="grid lg:grid-cols-[1fr_350px] gap-12 items-start">
+      <!-- Main FAQ Column -->
+      <div class="faq-main">
+        <h2 class="text-3xl md:text-4xl font-bold mb-10 text-base-content">
+          {title}
+        </h2>
+
+        <div class="space-y-4">
+          {
+            items.map((item, index) => (
+              <div class="faq-item border border-base-200 rounded-xl bg-base-100 overflow-hidden transition-all duration-300 hover:shadow-md">
+                <h3>
+                  <button
+                    class="faq-question w-full flex justify-between items-center p-6 text-left font-semibold text-lg text-base-content focus:outline-none"
+                    aria-expanded="false"
+                    aria-controls={`faq-answer-${index}`}
+                  >
+                    {item.question}
+                    <Icon
+                      name="heroicons:chevron-down"
+                      class="w-5 h-5 transform transition-transform duration-300 text-primary"
+                    />
+                  </button>
+                </h3>
+                <div
+                  id={`faq-answer-${index}`}
+                  class="faq-answer max-h-0 overflow-hidden transition-all duration-300 ease-in-out"
+                >
+                  <div class="p-6 pt-0 text-base-content/70 leading-relaxed border-t border-transparent">
+                    {item.answer}
+                  </div>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Sidebar Column -->
+      <aside class="faq-sidebar lg:sticky lg:top-24">
+        <div
+          class="bg-base-100 border border-base-200 rounded-2xl p-8 shadow-sm"
+        >
+          <h2 class="text-xl font-bold mb-3 text-base-content">
+            Om {companyName}
+          </h2>
+          <p class="text-sm text-base-content/70 mb-6 leading-relaxed">
+            {companyDescription}
+          </p>
+
+          <div class="space-y-3 mb-8">
+            <div
+              class="flex justify-between py-2 border-b border-base-200 text-sm"
+            >
+              <span class="text-base-content/60">E-post</span>
+              <a
+                href={`mailto:${email}`}
+                class="font-medium text-primary hover:underline">{email}</a
+              >
+            </div>
+            <div
+              class="flex justify-between py-2 border-b border-base-200 text-sm"
+            >
+              <span class="text-base-content/60">Org.nr</span>
+              <span class="font-medium text-base-content">{orgNumber}</span>
+            </div>
+            <div
+              class="flex justify-between py-2 border-b border-base-200 text-sm"
+            >
+              <span class="text-base-content/60">Adress</span>
+              <span class="font-medium text-base-content">{address}</span>
+            </div>
+          </div>
+
+          <div class="bg-base-200/50 rounded-xl p-5 border border-base-200">
+            <h3
+              class="text-sm font-bold uppercase tracking-wider text-base-content/80 mb-4 border-b border-base-300 pb-2"
+            >
+              Snabba siffror
+            </h3>
+            <div class="space-y-3">
+              {
+                stats.map((stat) => (
+                  <div class="flex justify-between text-sm">
+                    <span class="text-base-content/70">{stat.label}</span>
+                    <span class="font-bold text-base-content">
+                      {stat.value}
+                    </span>
+                  </div>
+                ))
+              }
+            </div>
+          </div>
+
+          <div class="mt-8 pt-6 border-t border-base-200">
+            <h3 class="text-sm font-semibold mb-3 text-base-content">
+              Viktiga länkar
+            </h3>
+            <div class="flex flex-wrap gap-3">
+              <a
+                href="/integritetspolicy"
+                class="text-xs font-medium text-primary hover:text-primary-focus bg-primary/10 px-3 py-1.5 rounded-full transition-colors"
+                >Integritetspolicy</a
+              >
+              <a
+                href="/cookiepolicy"
+                class="text-xs font-medium text-primary hover:text-primary-focus bg-primary/10 px-3 py-1.5 rounded-full transition-colors"
+                >Cookiepolicy</a
+              >
+              <a
+                href="/#kontakt"
+                class="text-xs font-medium text-primary hover:text-primary-focus bg-primary/10 px-3 py-1.5 rounded-full transition-colors"
+                >Kontakt</a
+              >
+            </div>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const button = item.querySelector(".faq-question");
+      const answer = item.querySelector(".faq-answer");
+      const icon = button?.querySelector("svg");
+
+      button?.addEventListener("click", () => {
+        const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+        // Close all others
+        faqItems.forEach((otherItem) => {
+          if (otherItem !== item) {
+            const otherBtn = otherItem.querySelector(".faq-question");
+            const otherAns = otherItem.querySelector(".faq-answer");
+            const otherIcon = otherBtn?.querySelector("svg");
+
+            otherBtn?.setAttribute("aria-expanded", "false");
+            if (otherAns) {
+              (otherAns as HTMLElement).style.maxHeight = "0";
+              otherAns.classList.remove("border-base-200");
+              otherAns.classList.add("border-transparent");
+            }
+            otherIcon?.classList.remove("rotate-180");
+          }
+        });
+
+        // Toggle current
+        button.setAttribute("aria-expanded", (!isExpanded).toString());
+        if (answer) {
+          if (!isExpanded) {
+            (answer as HTMLElement).style.maxHeight =
+              answer.scrollHeight + "px";
+            answer.classList.remove("border-transparent");
+            answer.classList.add("border-base-200");
+          } else {
+            (answer as HTMLElement).style.maxHeight = "0";
+            answer.classList.remove("border-base-200");
+            answer.classList.add("border-transparent");
+          }
+        }
+
+        if (!isExpanded) {
+          icon?.classList.add("rotate-180");
+        } else {
+          icon?.classList.remove("rotate-180");
+        }
+      });
+    });
+  });
+</script>

@@ -1,0 +1,74 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface CTA {
+  text: string;
+  href: string;
+}
+
+interface Props {
+  title?: string;
+  subtitle?: string;
+  badge?: string;
+  primaryCta?: CTA;
+  secondaryCta?: CTA;
+}
+
+const {
+  title = "Välkommen",
+  subtitle = "En kort, tydlig presentation av er verksamhet. Anpassa rubriken och underrubriken efter ert företag.",
+  badge,
+  primaryCta,
+  secondaryCta,
+} = Astro.props;
+---
+
+<section class="bg-base-200 py-20 lg:py-28 relative overflow-hidden">
+  <div
+    class="max-w-[1100px] mx-auto px-4 md:px-10 text-center"
+  >
+    {badge && (
+      <div
+        class="inline-flex items-center gap-2 mb-6 bg-base-100 px-3 py-1.5 rounded-full shadow-sm border border-base-300"
+      >
+        <span class="w-2 h-2 rounded-full bg-success"></span>
+        <span
+          class="text-xs font-semibold uppercase tracking-wide text-base-content/70"
+          >{badge}</span
+        >
+      </div>
+    )}
+
+    <h1
+      class="text-4xl lg:text-5xl/tight font-bold text-base-content mb-6 tracking-tight"
+    >
+      {title}
+    </h1>
+
+    <p class="text-lg text-base-content/70 mb-8 leading-relaxed max-w-2xl mx-auto">
+      {subtitle}
+    </p>
+
+    {(primaryCta || secondaryCta) && (
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        {primaryCta && (
+          <a
+            href={primaryCta.href}
+            class="btn btn-primary btn-lg decoration-0! gap-2"
+          >
+            {primaryCta.text}
+            <Icon name="heroicons:arrow-right" class="w-4 h-4" />
+          </a>
+        )}
+        {secondaryCta && (
+          <a
+            href={secondaryCta.href}
+            class="btn btn-outline btn-lg decoration-0!"
+          >
+            {secondaryCta.text}
+          </a>
+        )}
+      </div>
+    )}
+  </div>
+</section>

@@ -1,0 +1,122 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getWebPage,
+  canonical,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+const services = (await getCollection("services")).sort((a, b) => {
+  const orderDiff = (a.data.order ?? 0) - (b.data.order ?? 0);
+  if (orderDiff !== 0) return orderDiff;
+  return a.data.title.localeCompare(b.data.title, "sv");
+});
+
+const pageTitle = `Våra tjänster | ${companyConfig.name}`;
+const pageDescription = `Översikt över tjänster från ${companyConfig.name}. ${companyConfig.description}`;
+
+const organization = getOrganization();
+const website = getWebSite();
+const webpage = getWebPage(
+  Astro.url.pathname,
+  pageTitle,
+  pageDescription,
+);
+
+const graphNodes: Thing[] = [organization, website, webpage];
+
+if (services.length > 0) {
+  const itemList: Thing = {
+    '@type': 'ItemList',
+    '@id': `${canonical(Astro.url.pathname)}#services-list`,
+    itemListElement: services.map((service, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: service.data.title,
+      url: canonical(`/tjanster/${service.data.slug ?? service.slug}`),
+    })),
+  } as Thing;
+  graphNodes.push(itemList);
+}
+
+const schema = generateGraph(graphNodes);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100 py-16">
+    <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+      <div class="text-center mb-16 max-w-2xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-base-content">
+          Våra tjänster
+        </h1>
+        <p class="text-lg text-base-content/70">
+          {`Ett urval av det vi erbjuder hos ${companyConfig.name}.`}
+        </p>
+      </div>
+
+      {
+        services.length === 0 ? (
+          <div class="text-center py-16">
+            <p class="text-base-content/60 text-lg">
+              Inga tjänster registrerade ännu.
+            </p>
+          </div>
+        ) : (
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service) => {
+              const slug = service.data.slug ?? service.slug;
+              return (
+                <a
+                  href={`/tjanster/${slug}`}
+                  class="card bg-base-100 border border-base-200 hover:shadow-xl transition-all duration-300 group decoration-0!"
+                >
+                  <div class="card-body p-8">
+                    {service.data.icon && (
+                      <div class="w-12 h-12 rounded-lg bg-primary/10 text-primary flex items-center justify-center mb-4 group-hover:bg-primary group-hover:text-primary-content transition-colors">
+                        <Icon name={service.data.icon} class="w-6 h-6" />
+                      </div>
+                    )}
+                    <h2 class="text-xl font-bold text-base-content mb-3 group-hover:text-primary transition-colors">
+                      {service.data.title}
+                    </h2>
+                    <p class="text-base-content/70 text-sm leading-relaxed mb-6">
+                      {service.data.shortDescription}
+                    </p>
+                    <span class="text-sm font-medium text-primary inline-flex items-center gap-2 mt-auto">
+                      Läs mer
+                      <Icon
+                        name="heroicons:arrow-right"
+                        class="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                      />
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
+          </div>
+        )
+      }
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,140 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import ScoreTicker from "../../components/sections/ScoreTicker.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getCollectionPage,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+const news = (await getCollection("news")).sort(
+  (a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
+);
+
+const lead = news[0] ?? null;
+const rest = news.slice(1);
+
+const pageTitle = `Sportnyheter | ${companyConfig.name}`;
+const pageDescription =
+  "Färska svenska sportnyheter — fotboll, hockey och mer, uppdaterat dygnet runt.";
+
+function fmtDate(d: Date): string {
+  return d.toLocaleDateString("sv-SE", { dateStyle: "long" });
+}
+
+const schema = generateGraph([
+  getOrganization(),
+  getWebSite(),
+  getCollectionPage(Astro.url.pathname, pageTitle, pageDescription, news.length) as Thing,
+]);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <ScoreTicker />
+
+  <main class="flex-grow bg-base-100">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-10">
+      <span class="micro-label text-primary">Dygnet runt</span>
+      <h1 class="font-display text-white text-5xl md:text-8xl tracking-[-0.05em] leading-[0.9] mt-3">
+        Sportnyheter
+      </h1>
+      <p class="text-white/55 text-lg md:text-xl max-w-2xl mt-6">
+        Det senaste från svensk och internationell sport — faktagranskat och uppdaterat löpande.
+      </p>
+    </div>
+
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 pb-24">
+      {news.length === 0 ? (
+        <div class="border-t border-white/10 py-20">
+          <p class="text-white/40 text-lg">Inga nyheter publicerade ännu. Tittar du in om en stund finns det färska.</p>
+        </div>
+      ) : (
+        <div class="space-y-14">
+          {lead && (
+            <a href={`/nyheter/${lead.slug}`} class="group grid lg:grid-cols-2 gap-8 lg:gap-12 items-center decoration-0! border-t border-white/10 pt-12">
+              <div class="relative aspect-[16/10] overflow-hidden rounded-box bg-base-200">
+                {lead.data.image ? (
+                  <img
+                    src={lead.data.image}
+                    alt={lead.data.imageAlt || lead.data.title}
+                    class="absolute inset-0 w-full h-full object-cover opacity-85 transition-all duration-700 group-hover:opacity-100 group-hover:scale-105"
+                  />
+                ) : (
+                  <div class="absolute inset-0 flex items-center justify-center text-white/15">
+                    <Icon name="heroicons:photo" class="w-16 h-16" />
+                  </div>
+                )}
+              </div>
+              <div>
+                <div class="flex items-center gap-3 mb-5">
+                  {lead.data.isBreaking && (
+                    <span class="inline-flex items-center px-2 py-0.5 rounded-field bg-primary text-primary-content text-[0.5625rem] font-bold uppercase tracking-[0.18em]">Direkt</span>
+                  )}
+                  <span class="micro-label text-primary">{lead.data.sport}</span>
+                  <time datetime={lead.data.publishDate.toISOString()} class="micro-label">{fmtDate(lead.data.publishDate)}</time>
+                </div>
+                <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.04em] leading-[0.98] mb-5 group-hover:text-white/80 transition-colors">
+                  {lead.data.title}
+                </h2>
+                <p class="text-white/55 text-lg leading-relaxed max-w-xl">{lead.data.description}</p>
+              </div>
+            </a>
+          )}
+
+          {rest.length > 0 && (
+            <div class="divide-y divide-white/10 border-t border-white/10">
+              {rest.map((n) => (
+                <a href={`/nyheter/${n.slug}`} class="group grid sm:grid-cols-[170px_1fr] gap-4 sm:gap-8 items-center py-7 decoration-0!">
+                  <div class="relative aspect-[16/10] sm:aspect-[4/3] overflow-hidden rounded-field bg-base-200">
+                    {n.data.image ? (
+                      <img
+                        src={n.data.image}
+                        alt={n.data.imageAlt || n.data.title}
+                        class="absolute inset-0 w-full h-full object-cover opacity-80 transition-all duration-500 group-hover:opacity-100 group-hover:scale-105"
+                      />
+                    ) : (
+                      <div class="absolute inset-0 flex items-center justify-center text-white/15">
+                        <Icon name="heroicons:photo" class="w-8 h-8" />
+                      </div>
+                    )}
+                  </div>
+                  <div>
+                    <div class="flex items-center gap-3 mb-2">
+                      {n.data.isBreaking && (
+                        <span class="inline-flex items-center px-2 py-0.5 rounded-field bg-primary text-primary-content text-[0.5625rem] font-bold uppercase tracking-[0.18em]">Direkt</span>
+                      )}
+                      <span class="micro-label text-primary">{n.data.sport}</span>
+                      <time datetime={n.data.publishDate.toISOString()} class="micro-label">{fmtDate(n.data.publishDate)}</time>
+                    </div>
+                    <h3 class="font-display text-2xl md:text-3xl text-white tracking-[-0.035em] leading-tight mb-2 group-hover:text-white/75 transition-colors">
+                      {n.data.title}
+                    </h3>
+                    <p class="text-white/50 leading-relaxed line-clamp-2 max-w-2xl">{n.data.description}</p>
+                  </div>
+                </a>
+              ))}
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

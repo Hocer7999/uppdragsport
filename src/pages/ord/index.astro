@@ -1,0 +1,98 @@
+---
+/**
+ * Hub-sida för programmatic-SEO-mönstret.
+ *
+ * Listar alla rader från src/data/ord.json. Anpassa rubriker och layout efter
+ * datasetet (t.ex. gruppering per kategori, alfabetiska sektioner, m.m.).
+ */
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import ordData from "../../data/ord.json";
+
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getCollectionPage,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+interface OrdEntry {
+  slug: string;
+  title: string;
+  definition: string;
+  category: string;
+  related?: string[];
+}
+
+const ord = (ordData as OrdEntry[]).sort((a, b) =>
+  a.title.localeCompare(b.title, "sv"),
+);
+
+// Group by category for nicer display
+const grouped: Record<string, OrdEntry[]> = {};
+for (const entry of ord) {
+  if (!grouped[entry.category]) grouped[entry.category] = [];
+  grouped[entry.category].push(entry);
+}
+
+const pageTitle = `Ord & begrepp | ${companyConfig.name}`;
+const pageDescription = `Förklaringar av centrala ord och begrepp.`;
+
+const schema = generateGraph([
+  getOrganization(),
+  getWebSite(),
+  getCollectionPage(Astro.url.pathname, pageTitle, pageDescription, ord.length) as Thing,
+]);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100 py-16">
+    <div class="max-w-[1100px] mx-auto px-4 md:px-10">
+      <div class="text-center mb-12 max-w-2xl mx-auto">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4 text-base-content">
+          Ord & begrepp
+        </h1>
+        <p class="text-lg text-base-content/70">
+          Slå upp definitioner och förklaringar — {ord.length} termer.
+        </p>
+      </div>
+
+      {Object.entries(grouped).map(([category, entries]) => (
+        <section class="mb-12">
+          <h2 class="text-2xl font-bold text-base-content mb-6 pb-2 border-b border-base-200">
+            {category}
+          </h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {entries.map((entry) => (
+              <a
+                href={`/ord/${entry.slug}`}
+                class="block bg-base-100 border border-base-200 hover:border-primary/40 hover:shadow-md p-5 rounded-xl transition-all decoration-0!"
+              >
+                <h3 class="font-bold text-base-content mb-1">
+                  {entry.title}
+                </h3>
+                <p class="text-sm text-base-content/60 line-clamp-2">
+                  {entry.definition}
+                </p>
+              </a>
+            ))}
+          </div>
+        </section>
+      ))}
+    </div>
+  </main>
+
+  <Footer />
+</Layout>

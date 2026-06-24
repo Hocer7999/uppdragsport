@@ -1,0 +1,108 @@
+---
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+interface Props {
+  title?: string;
+  limit?: number;
+}
+
+const { title = "Våra tjänster", limit = 6 } = Astro.props;
+
+const services = (await getCollection("services")).sort((a, b) => {
+  const orderDiff = (a.data.order ?? 0) - (b.data.order ?? 0);
+  if (orderDiff !== 0) return orderDiff;
+  return a.data.title.localeCompare(b.data.title, "sv");
+});
+
+// Cycle background variants for visual rhythm
+const cardVariants = [
+  "bg-primary text-primary-content",
+  "bg-secondary text-secondary-content",
+  "bg-neutral text-neutral-content",
+];
+
+// Show at most `limit` services on the homepage section
+const featured = services.slice(0, limit);
+---
+
+<section
+  id="tjanster"
+  class="py-20 bg-base-100 border-t border-base-200"
+>
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+    <h2 class="text-3xl font-bold text-base-content mb-10 tracking-tight">
+      {title}
+    </h2>
+
+    {
+      featured.length > 0 ? (
+        <div class="grid md:grid-cols-3 gap-6">
+          {featured.map((service, index) => {
+            const slug = service.data.slug ?? service.slug;
+            const variant = cardVariants[index % cardVariants.length];
+            return (
+              <a
+                href={`/tjanster/${slug}`}
+                class={`${variant} p-8 rounded-xl block hover:opacity-90 transition-opacity decoration-0!`}
+              >
+                {service.data.icon && (
+                  <div class="mb-4">
+                    <Icon name={service.data.icon} class="w-8 h-8" />
+                  </div>
+                )}
+                <h3 class="text-xl font-bold mb-3">{service.data.title}</h3>
+                <p class="text-sm opacity-90 leading-relaxed mb-6">
+                  {service.data.shortDescription}
+                </p>
+                <span class="text-sm font-medium flex items-center gap-2 hover:underline decoration-0!">
+                  Läs mer &rarr;
+                </span>
+              </a>
+            );
+          })}
+        </div>
+      ) : (
+        <div class="grid md:grid-cols-3 gap-6">
+          {/* Mall: rendera generiska TODO-kort när services-collection är tom */}
+          <div class="bg-primary text-primary-content p-8 rounded-xl">
+            <h3 class="text-xl font-bold mb-3">TODO Tjänst 1</h3>
+            <p class="text-sm opacity-90 leading-relaxed mb-6">
+              Beskriv den första tjänsten. Lägg till en markdown-fil i
+              src/content/services/ för att fylla detta automatiskt.
+            </p>
+            <a
+              href="/tjanster"
+              class="text-sm font-medium flex items-center gap-2 hover:underline decoration-0!"
+              >Läs mer &rarr;</a
+            >
+          </div>
+
+          <div class="bg-secondary text-secondary-content p-8 rounded-xl">
+            <h3 class="text-xl font-bold mb-3">TODO Tjänst 2</h3>
+            <p class="text-sm opacity-90 leading-relaxed mb-6">
+              Beskriv den andra tjänsten.
+            </p>
+            <a
+              href="/tjanster"
+              class="text-sm font-medium flex items-center gap-2 hover:underline decoration-0!"
+              >Läs mer &rarr;</a
+            >
+          </div>
+
+          <div class="bg-neutral text-neutral-content p-8 rounded-xl">
+            <h3 class="text-xl font-bold mb-3">TODO Tjänst 3</h3>
+            <p class="text-sm opacity-90 leading-relaxed mb-6">
+              Beskriv den tredje tjänsten.
+            </p>
+            <a
+              href="/tjanster"
+              class="text-sm font-medium flex items-center gap-2 hover:underline decoration-0!"
+              >Läs mer &rarr;</a
+            >
+          </div>
+        </div>
+      )
+    }
+  </div>
+</section>

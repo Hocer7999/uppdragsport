@@ -1,0 +1,192 @@
+---
+const currentYear = new Date().getFullYear();
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+import { Icon } from "astro-icon/components";
+
+// Defaults per siteType — these are used when companyConfig.footerLinks is the
+// untouched template default ("Tjänster / Om oss / Juridik"). Sites that
+// override footerLinks in company.ts get whatever they configured.
+const defaultsBySiteType = {
+  service: [
+    {
+      title: "Tjänster",
+      links: [{ text: "Alla tjänster", href: "/tjanster" }],
+    },
+    {
+      title: "Om oss",
+      links: [
+        { text: "Om oss", href: "/om-oss" },
+        { text: "Kontakt", href: "/#kontakt" },
+      ],
+    },
+    {
+      title: "Juridik",
+      links: [
+        { text: "Integritetspolicy", href: "/integritetspolicy" },
+        { text: "Cookiepolicy", href: "/cookiepolicy" },
+      ],
+    },
+  ],
+  content: [
+    {
+      title: "Innehåll",
+      links: [
+        { text: "Alla artiklar", href: "/artiklar" },
+        { text: "Kategorier", href: "/artiklar" },
+      ],
+    },
+    {
+      title: "Om oss",
+      links: [
+        { text: "Om sajten", href: "/om-oss" },
+        { text: "Nyhetsbrev", href: "/#nyhetsbrev" },
+        { text: "RSS-feed", href: "/rss.xml" },
+      ],
+    },
+    {
+      title: "Juridik",
+      links: [
+        { text: "Integritetspolicy", href: "/integritetspolicy" },
+        { text: "Cookiepolicy", href: "/cookiepolicy" },
+      ],
+    },
+  ],
+  directory: [
+    {
+      title: "Innehåll",
+      links: [
+        { text: "Ord & begrepp", href: "/ord" },
+        { text: "Sök", href: "/sok" },
+      ],
+    },
+    {
+      title: "Om sajten",
+      links: [
+        { text: "Om oss", href: "/om-oss" },
+      ],
+    },
+    {
+      title: "Juridik",
+      links: [
+        { text: "Integritetspolicy", href: "/integritetspolicy" },
+        { text: "Cookiepolicy", href: "/cookiepolicy" },
+      ],
+    },
+  ],
+} as const;
+
+// Use companyConfig.footerLinks if it has been customized away from the bare
+// template ("text: TODO"). Otherwise fall back to siteType-defaults.
+const isTemplateDefault = (companyConfig.footerLinks ?? []).some((section) =>
+  (section.links ?? []).some((l) => l.text === "TODO" || l.href === "#"),
+);
+
+const footerSections = isTemplateDefault
+  ? defaultsBySiteType[siteConfig.siteType]
+  : companyConfig.footerLinks;
+---
+
+<footer class="bg-base-100 border-t border-base-200 py-12">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+      <div class="col-span-1 md:col-span-1">
+        <div class="flex items-center gap-2.5 mb-6">
+          <img
+            src={companyConfig.logo}
+            alt={companyConfig.name}
+            class="h-8 w-auto"
+          />
+        </div>
+        <p class="text-sm text-base-content/60 leading-relaxed mb-6">
+          {companyConfig.description}
+        </p>
+      </div>
+
+      {
+        footerSections?.map((section) => (
+          <div>
+            <div class="font-semibold text-base-content mb-4">
+              {section.title}
+            </div>
+            <ul class="space-y-3 text-sm text-base-content/70">
+              {section.links.map((link) => (
+                <li>
+                  <a href={link.href} class="hover:text-primary decoration-0!">
+                    {link.text}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div
+      class="border-t border-base-200 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+    >
+      <p class="text-sm text-base-content/50">
+        &copy; {currentYear}
+        {companyConfig.name}. Alla rättigheter förbehållna.
+      </p>
+      <div class="flex gap-6">
+        {
+          companyConfig.socialMedia?.twitter && (
+            <a
+              href={companyConfig.socialMedia.twitter}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-base-content/40 hover:text-base-content transition-colors"
+            >
+              <span class="sr-only">Twitter / X</span>
+              <Icon name="mdi:twitter" class="h-5 w-5" />
+            </a>
+          )
+        }
+
+        {
+          companyConfig.socialMedia?.linkedin && (
+            <a
+              href={companyConfig.socialMedia.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-base-content/40 hover:text-base-content transition-colors"
+            >
+              <span class="sr-only">LinkedIn</span>
+              <Icon name="mdi:linkedin" class="h-5 w-5" />
+            </a>
+          )
+        }
+
+        {
+          companyConfig.socialMedia?.facebook && (
+            <a
+              href={companyConfig.socialMedia.facebook}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-base-content/40 hover:text-base-content transition-colors"
+            >
+              <span class="sr-only">Facebook</span>
+              <Icon name="mdi:facebook" class="h-5 w-5" />
+            </a>
+          )
+        }
+
+        {
+          companyConfig.socialMedia?.instagram && (
+            <a
+              href={companyConfig.socialMedia.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-base-content/40 hover:text-base-content transition-colors"
+            >
+              <span class="sr-only">Instagram</span>
+              <Icon name="mdi:instagram" class="h-5 w-5" />
+            </a>
+          )
+        }
+      </div>
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,103 @@
+---
+import { companyConfig } from "../../config/company";
+
+interface Props {
+    gaId?: string;
+}
+
+const { gaId = companyConfig.googleAnalyticsId } = Astro.props;
+---
+
+<div
+    id="cookie-banner"
+    class="fixed bottom-0 left-0 right-0 bg-white border-t border-gray-200 p-4 md:p-6 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)] z-50 hidden"
+>
+    <div
+        class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4"
+    >
+        <div class="flex-1 text-sm text-gray-600">
+            <p>
+                Vi använder cookies för att förbättra din upplevelse och
+                analysera trafiken. Genom att klicka på "Godkänn alla" samtycker
+                du till användningen av cookies. Läs mer i vår <a
+                    href="/cookiepolicy"
+                    class="underline hover:text-gray-900">cookiepolicy</a
+                >.
+            </p>
+        </div>
+        <div class="flex flex-shrink-0 gap-3">
+            <button
+                id="cookie-necessary"
+                class="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 hover:bg-gray-200 rounded-lg transition-colors"
+            >
+                Endast nödvändiga
+            </button>
+            <button
+                id="cookie-accept"
+                class="px-4 py-2 text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 rounded-lg transition-colors"
+            >
+                Godkänn alla
+            </button>
+        </div>
+    </div>
+</div>
+
+<script define:vars={{ gaId }}>
+    // Core logic to handle cookie consent
+    function initCookieConsent() {
+        const banner = document.getElementById("cookie-banner");
+        const acceptBtn = document.getElementById("cookie-accept");
+        const necessaryBtn = document.getElementById("cookie-necessary");
+
+        // Check if user has already made a choice
+        const consent = localStorage.getItem("cookie_consent");
+
+        if (!consent) {
+            // Show banner if no choice made
+            banner?.classList.remove("hidden");
+        } else if (consent === "accepted") {
+            // If previously accepted, load GA
+            loadGA();
+        }
+
+        // Handle "Accept All"
+        acceptBtn?.addEventListener("click", () => {
+            localStorage.setItem("cookie_consent", "accepted");
+            banner?.classList.add("hidden");
+            loadGA();
+        });
+
+        // Handle "Necessary Only"
+        necessaryBtn?.addEventListener("click", () => {
+            localStorage.setItem("cookie_consent", "declined");
+            banner?.classList.add("hidden");
+        });
+    }
+
+    // Function to load Google Analytics
+    function loadGA() {
+        if (!gaId || window.gaLoaded) return;
+
+        window.gaLoaded = true; // Prevent double loading
+
+        // Inject Google Tag Manager / Analytics script
+        const script1 = document.createElement("script");
+        script1.async = true;
+        script1.src = `https://www.googletagmanager.com/gtag/js?id=${gaId}`;
+        document.head.appendChild(script1);
+
+        const script2 = document.createElement("script");
+        script2.innerHTML = `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', '${gaId}');
+    `;
+        document.head.appendChild(script2);
+
+        console.log("Google Analytics loaded");
+    }
+
+    // Initialize on page load
+    initCookieConsent();
+</script>

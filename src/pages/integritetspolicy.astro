@@ -1,0 +1,379 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import { companyConfig } from "../config/company";
+import { siteConfig } from "../config/site";
+---
+
+<Layout
+    title={`Integritetspolicy | ${companyConfig.name}`}
+    description={`Integritetspolicy för ${companyConfig.name}. Hur vi hanterar dina personuppgifter.`}
+    theme={siteConfig.theme}
+    font={siteConfig.font}
+>
+    <Header />
+
+    <main class="flex-grow bg-base-100 py-16">
+        <div class="max-w-4xl mx-auto px-4 md:px-8">
+            <div class="prose prose-lg max-w-none">
+                <h1>Integritetspolicy</h1>
+                <p>
+                    <strong>Senast uppdaterad:</strong>
+                    {companyConfig.lastUpdated}
+                </p>
+
+                <hr />
+
+                <h2>1. Introduktion</h2>
+                <p>
+                    Denna integritetspolicy gäller för webbplatsen på domänen <strong
+                        >{companyConfig.domain}</strong
+                    >, som drivs av <strong>{companyConfig.name}</strong>.
+                </p>
+                <p>
+                    Vi är mycket medvetna om vikten av integritet och
+                    datasäkerhet. Denna policy förklarar hur vi samlar in,
+                    använder, lagrar och skyddar dina personuppgifter när du
+                    besöker vår webbplats.
+                </p>
+
+                <h2>2. Vilka personuppgifter vi samlar in</h2>
+                <h3>2.1 Uppgifter du tillhandahåller direkt</h3>
+                <ul>
+                    <li>
+                        <strong>Namn, e-postadress och telefonnummer</strong> – när
+                        du fyller i kontaktformulär eller kontaktar oss.
+                    </li>
+                    <li>
+                        <strong>Ditt meddelande</strong> – när du skriver till oss
+                        via kontaktformulär eller e-post.
+                    </li>
+                </ul>
+
+                <h3>2.2 Uppgifter vi samlar in automatiskt</h3>
+                <ul>
+                    <li>
+                        <strong>IP-adress</strong> – för att identifiera din enhet
+                        och land.
+                    </li>
+                    <li>
+                        <strong>Cookie-data</strong> – information om dina inställningar
+                        och besök.
+                    </li>
+                    <li>
+                        <strong>Enhetsuppgifter</strong> – typ av webbläsare, operativsystem
+                        och enhetstyp.
+                    </li>
+                    <li>
+                        <strong>Besöksdata</strong> – vilka sidor du besöker och hur
+                        länge.
+                    </li>
+                </ul>
+
+                <h3>2.3 Uppgifter från tredje part</h3>
+                <ul>
+                    <li>
+                        <strong>Analytics-data</strong> – från Google Analytics.
+                    </li>
+                </ul>
+
+                <h2>3. Rättslig grund för behandling</h2>
+                <p>
+                    Vi behandlar dina personuppgifter enbart på följande
+                    rättsliga grunder enligt GDPR Art. 6:
+                </p>
+                <div class="overflow-x-auto my-6">
+                    <table class="table table-zebra w-full text-sm">
+                        <thead>
+                            <tr>
+                                <th>Behandling</th>
+                                <th>Rättslig grund</th>
+                                <th>Syfte</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kontaktformulär</td>
+                                <td>Samtycke / Kontrakt</td>
+                                <td>Svara på din förfrågan</td>
+                            </tr>
+                            <tr>
+                                <td>Webbanalys</td>
+                                <td>Berättigat intresse</td>
+                                <td>Förbättra webbplatsen</td>
+                            </tr>
+                            <tr>
+                                <td>Juridiska krav</td>
+                                <td>Rättslig förpliktelse</td>
+                                <td>Efterleva lag och regler</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>4. Hur vi använder dina uppgifter</h2>
+                <ol>
+                    <li>
+                        <strong>Att besvara dina frågor</strong> – genom att behandla
+                        din kontaktinformation.
+                    </li>
+                    <li>
+                        <strong>Att förbättra webbplatsen</strong> – analysera användarnas
+                        beteende för att optimera webbplatsen.
+                    </li>
+                    <li>
+                        <strong>Säkerhet</strong> – att skydda dig och oss mot bedrägerier
+                        och missbruk.
+                    </li>
+                    <li>
+                        <strong>Att uppfylla rättsliga krav</strong> – att följa tillämplig
+                        lagstiftning.
+                    </li>
+                </ol>
+
+                <h2>5. Lagring och bevarandetider</h2>
+                <div class="overflow-x-auto my-6">
+                    <table class="table table-zebra w-full text-sm">
+                        <thead>
+                            <tr>
+                                <th>Typ av uppgift</th>
+                                <th>Bevarandetid</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Kontaktformulär</td>
+                                <td>1 år efter sista kontakt</td>
+                            </tr>
+                            <tr>
+                                <td>Webbplatsloggar</td>
+                                <td>3 månader</td>
+                            </tr>
+                            <tr>
+                                <td>Analytics</td>
+                                <td>2 år</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2>6. Dataskydd och säkerhet</h2>
+                <p>
+                    Vi implementerar säkerhetsåtgärder som SSL/TLS-kryptering,
+                    brandväggar och åtkomstkontroll för att skydda dina
+                    uppgifter.
+                </p>
+
+                <h2>7. Delning av personuppgifter</h2>
+                <p>
+                    Vi delar dina personuppgifter med följande kategorier av
+                    mottagare:
+                </p>
+
+                <h3>7.1 Tjänsteleverantörer</h3>
+                <ul>
+                    <li>
+                        <strong>Webbhotell</strong> – Vår värdtjänstleverantör.
+                    </li>
+                    <li>
+                        <strong>E-postleverantör</strong> – För kommunikation.
+                    </li>
+                    <li><strong>Analytics</strong> – Google Analytics.</li>
+                </ul>
+
+                <h3>7.2 Rättslig förpliktelse</h3>
+                <p>
+                    Vi kan vara tvungna att dela uppgifter med myndigheter om vi
+                    är rättsligt förpliktigade att göra det.
+                </p>
+
+                <h3>7.3 Affärstransaktioner</h3>
+                <p>
+                    Om vi går genom en fusion, förvärv eller försäljning av
+                    tillgångar kan dina personuppgifter överföras som en del av
+                    den transaktionen.
+                </p>
+
+                <p>
+                    <strong>Viktigt:</strong> Vi delar aldrig dina personuppgifter
+                    för marknadsföring utan ditt uttryckliga samtycke.
+                </p>
+
+                <h2>8. Överföring till tredje land</h2>
+                <p>
+                    Vissa av våra tjänsteleverantörer är baserade utanför
+                    EU/EES. Vi säkerställer att dessa överföringar är rättsligt
+                    tillåtna genom:
+                </p>
+                <ul>
+                    <li>
+                        <strong>Standardavtalsklausuler (SCC)</strong> – godkända
+                        överföringsmekanismer.
+                    </li>
+                    <li>
+                        <strong>Adequacy-beslut</strong> – för länder med motsvarande
+                        dataskyddsnivå.
+                    </li>
+                </ul>
+
+                <h2>9. Dina rättigheter</h2>
+                <p>Du har följande rättigheter enligt GDPR:</p>
+
+                <h3>9.1 Rätt till åtkomst</h3>
+                <p>
+                    Du kan begära att få en kopia av all personuppgift vi
+                    behandlar om dig. Vi svarar på sådan förfrågan utan onödigt
+                    dröjsmål.
+                </p>
+
+                <h3>9.2 Rätt till rättelse</h3>
+                <p>
+                    Du kan begära att vi rättar felaktig eller ofullständig
+                    information.
+                </p>
+
+                <h3>9.3 Rätt till radering ("Rätten att bli glömd")</h3>
+                <p>
+                    Du kan begära radering av dina uppgifter under vissa
+                    omständigheter, till exempel när:
+                </p>
+                <ul>
+                    <li>
+                        Uppgifterna inte längre är nödvändiga för sitt syfte.
+                    </li>
+                    <li>Du återkallar ditt samtycke.</li>
+                    <li>Du invänder mot behandlingen.</li>
+                </ul>
+                <p>
+                    <strong>Undantag:</strong> Vi kan behöva bevara uppgifter för
+                    att uppfylla rättsliga krav (t.ex. bokföringskrav).
+                </p>
+
+                <h3>9.4 Rätt till begränsning av behandling</h3>
+                <p>
+                    Du kan begära att vi begränsar behandlingen av dina
+                    uppgifter, till exempel under en rättelse.
+                </p>
+
+                <h3>9.5 Rätt till dataportabilitet</h3>
+                <p>
+                    Du kan begära dina personuppgifter i ett vanligt digitalt
+                    format för att överföra dem till en annan tjänst.
+                </p>
+
+                <h3>9.6 Rätt till invändning</h3>
+                <p>
+                    Du kan invända mot vissa behandlingar, särskilt
+                    marknadsföringsbehandling. Du kan klicka på länken
+                    "Avprenumerera" i våra e-postmeddelanden eller kontakta oss
+                    direkt.
+                </p>
+
+                <h3>9.7 Rätt till omöjliggörande av automatiserade beslut</h3>
+                <p>
+                    Du har rätt att inte bli föremål för beslut enbart baserat
+                    på automatiserad behandling som producerar juridiska eller
+                    liknande betydelse för dig.
+                </p>
+
+                <h2>10. Utövande av dina rättigheter</h2>
+                <p>
+                    För att utöva någon av dina rättigheter, vänligen kontakta
+                    oss på:
+                </p>
+                <ul>
+                    <li>
+                        <strong>E-post:</strong>
+                        <a href={`mailto:${companyConfig.email}`}
+                            >{companyConfig.email}</a
+                        >
+                    </li>
+                    <li>
+                        <strong>Postadress:</strong>
+                        {companyConfig.name}, {companyConfig.address}, {
+                            companyConfig.postalCode
+                        }
+                        {companyConfig.city}
+                    </li>
+                </ul>
+                <p>
+                    Vi svarar på din förfrågan inom 30 dagar. Du behöver inte
+                    betala något för att utöva dina rättigheter, förutom i
+                    undantagsfall där en förfrågan är uppenbart ogrundad.
+                </p>
+
+                <h2>11. Dataskyddsmyndighet och klagomål</h2>
+                <p>
+                    Om du anser att vi behandlar dina personuppgifter på ett
+                    sätt som strider mot GDPR, har du rätt att lämna in ett
+                    klagomål till Integritetsskyddsmyndigheten (IMY):
+                </p>
+                <ul>
+                    <li>
+                        <strong>Webbplats:</strong>
+                        <a
+                            href="https://www.imy.se"
+                            target="_blank"
+                            rel="noopener">www.imy.se</a
+                        >
+                    </li>
+                    <li><strong>E-post:</strong> imy@imy.se</li>
+                    <li>
+                        <strong>Postadress:</strong> Integritetsskyddsmyndigheten,
+                        Box 8114, 104 20 Stockholm
+                    </li>
+                </ul>
+                <p>
+                    Du kan även kontakta oss direkt för att lösa eventuella
+                    problem innan du vänder dig till myndigheten.
+                </p>
+
+                <h2>12. Ändringar av denna policy</h2>
+                <p>
+                    Vi kan uppdatera denna integritetspolicy när som helst för
+                    att återspegla ändringar i vår datakörning eller på grund av
+                    ändringar i lagstiftningen. Vi meddelar dig om väsentliga
+                    ändringar genom ett framträdande meddelande på vår
+                    webbplats.
+                </p>
+                <p>
+                    Din fortsatta användning av webbplatsen efter ändringar
+                    utgör ditt godkännande av den uppdaterade policyn.
+                </p>
+
+                <h2>13. Tredjepartswebbplatser och tjänster</h2>
+                <p>
+                    Vår webbplats kan innehålla länkar till andra webbplatser
+                    eller tjänster som vi inte kontrollerar. Denna policy gäller
+                    inte för dessa externa webbplatser. Vi rekommenderar att du
+                    läser deras egna integritetspolicies innan du delar någon
+                    information.
+                </p>
+
+                <h2>14. Barn och minderåriga</h2>
+                <p>
+                    Vår webbplats är inte avsedd för personer under 13 år. Vi
+                    samlar inte medvetet in personuppgifter från barn under 13
+                    år.
+                </p>
+
+                <h2>15. Kontakt</h2>
+                <p>
+                    För att utöva dina rättigheter eller om du har frågor,
+                    kontakta oss:
+                </p>
+                <p>
+                    <strong>{companyConfig.name}</strong><br />
+                    E-post: <a href={`mailto:${companyConfig.email}`}
+                        >{companyConfig.email}</a
+                    ><br />
+                    Adress: {companyConfig.address}, {companyConfig.postalCode}
+                    {companyConfig.city}
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>

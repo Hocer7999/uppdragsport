@@ -1,0 +1,221 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import RelatedPosts from "../../components/sections/RelatedPosts.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection, getEntry } from "astro:content";
+
+export async function getStaticPaths() {
+  const articles = await getCollection("articles");
+  return articles.map((entry) => ({
+    params: { slug: entry.slug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await entry.render();
+
+import { siteConfig } from "../../config/site";
+
+import {
+  generateGraph,
+  getArticle,
+  getBlogPosting,
+  getFAQPage,
+  getBreadcrumbs,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+import { companyConfig } from "../../config/company";
+
+// Resolve referenced category + author entries
+const categoryEntry = entry.data.category
+  ? await getEntry(entry.data.category)
+  : null;
+const authorEntry = entry.data.author
+  ? await getEntry(entry.data.author)
+  : null;
+
+// Display name for the author: prefer the linked author's name, fall back to authorName.
+const displayAuthorName = authorEntry?.data.name ?? entry.data.authorName;
+
+// For content sites, treat articles as BlogPosting; otherwise generic Article.
+const articleSchema =
+  siteConfig.siteType === "content"
+    ? getBlogPosting(
+        Astro.url.pathname,
+        entry.data.title,
+        entry.data.publishDate,
+        displayAuthorName,
+        entry.data.image,
+        entry.data.description,
+        entry.data.updatedDate,
+      )
+    : getArticle(
+        Astro.url.pathname,
+        entry.data.title,
+        entry.data.publishDate,
+        displayAuthorName,
+        entry.data.image,
+        entry.data.description,
+        entry.data.updatedDate,
+      );
+
+const breadcrumbs = getBreadcrumbs([
+  { name: "Hem", pathname: "/" },
+  { name: "Artiklar", pathname: "/artiklar" },
+  { name: entry.data.title, pathname: Astro.url.pathname },
+]);
+
+const graphNodes: Thing[] = [articleSchema as Thing, breadcrumbs];
+
+if (entry.data.faq && entry.data.faq.length > 0) {
+  graphNodes.push(getFAQPage(entry.data.faq, Astro.url.pathname));
+}
+
+const schema = generateGraph(graphNodes);
+---
+
+<Layout
+  title={`${entry.data.metaTitle || entry.data.title} | ${companyConfig.name}`}
+  description={entry.data.metaDescription || entry.data.description}
+  image={entry.data.image}
+  type="article"
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100 pb-20">
+    <!-- Article Header -->
+    <header class="relative py-20 bg-base-200">
+      <div
+        class="max-w-[1400px] mx-auto px-4 md:px-10 grid md:grid-cols-2 gap-12 items-center"
+      >
+        <div>
+          {categoryEntry && (
+            <div class="flex gap-2 mb-6">
+              <a
+                href={`/kategori/${categoryEntry.slug}`}
+                class="px-3 py-1 bg-white/50 border border-base-300 text-base-content/80 rounded-full text-xs font-bold uppercase tracking-wider decoration-0! hover:text-primary"
+              >
+                {categoryEntry.data.title}
+              </a>
+            </div>
+          )}
+
+          <h1
+            class="text-4xl md:text-5xl/tight font-extrabold mb-6 text-base-content"
+          >
+            {entry.data.title}
+          </h1>
+
+          <p class="text-xl text-base-content/70 mb-8 leading-relaxed">
+            {entry.data.description}
+          </p>
+
+          <div class="flex items-center gap-4 text-sm">
+            <div class="flex items-center gap-2">
+              {authorEntry?.data.avatar ? (
+                <img
+                  src={authorEntry.data.avatar}
+                  alt={displayAuthorName}
+                  class="w-10 h-10 rounded-full object-cover shadow-lg"
+                />
+              ) : (
+                <span
+                  class="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-primary-content font-bold shadow-lg"
+                >
+                  {displayAuthorName.charAt(0)}
+                </span>
+              )}
+              <div>
+                {authorEntry ? (
+                  <a
+                    href={`/forfattare/${authorEntry.slug}`}
+                    class="block font-bold text-base-content hover:text-primary decoration-0!"
+                  >
+                    {displayAuthorName}
+                  </a>
+                ) : (
+                  <span class="block font-bold text-base-content">
+                    {displayAuthorName}
+                  </span>
+                )}
+                <time
+                  datetime={entry.data.publishDate.toISOString()}
+                  class="text-base-content/50"
+                >
+                  {entry.data.publishDate.toLocaleDateString("sv-SE", {
+                    dateStyle: "long",
+                  })}
+                </time>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {entry.data.image && (
+          <figure class="relative group">
+            <div class="absolute inset-0 bg-primary/10 rounded-2xl transform rotate-3 transition-transform group-hover:rotate-0 duration-500" />
+            <img
+              src={entry.data.image}
+              alt={entry.data.imageAlt || entry.data.title}
+              class="relative rounded-2xl shadow-2xl w-full aspect-[4/3] object-cover transform -rotate-1 transition-transform group-hover:rotate-0 duration-500"
+            />
+            {entry.data.imageCredit && (
+              <figcaption class="relative mt-4 text-xs text-base-content/40">
+                {entry.data.imageSource ? (
+                  <a href={entry.data.imageSource} rel="nofollow noopener" class="hover:text-base-content/70 decoration-0!">
+                    {entry.data.imageCredit}
+                  </a>
+                ) : (
+                  entry.data.imageCredit
+                )}
+              </figcaption>
+            )}
+          </figure>
+        )}
+      </div>
+    </header>
+
+    <!-- Article Content -->
+    <article class="max-w-3xl mx-auto px-4 md:px-10 py-16">
+      <div
+        class="prose prose-lg prose-invert max-w-none prose-headings:font-bold prose-strong:text-white prose-a:text-primary hover:prose-a:text-primary-focus"
+      >
+        <Content />
+      </div>
+
+      {entry.data.tags && entry.data.tags.length > 0 && (
+        <div class="mt-12 pt-8 border-t border-base-200 flex flex-wrap gap-2">
+          <span class="text-sm font-semibold text-base-content/70 mr-2">Taggar:</span>
+          {entry.data.tags.map((tag) => (
+            <a
+              href={`/tag/${tag}`}
+              class="px-3 py-1 bg-base-200 text-base-content/70 hover:text-primary hover:bg-base-300 rounded-full text-xs font-medium transition-colors decoration-0!"
+            >
+              #{tag}
+            </a>
+          ))}
+        </div>
+      )}
+
+      <div class="mt-16 pt-8 border-t border-base-200">
+        <a href="/artiklar" class="btn btn-outline gap-2 group">
+          <Icon
+            name="heroicons:chevron-left"
+            class="w-4 h-4 transform group-hover:-translate-x-1 transition-transform"
+          />
+          Tillbaka till alla artiklar
+        </a>
+      </div>
+    </article>
+
+    <RelatedPosts currentSlug={entry.slug} />
+  </main>
+
+  <Footer />
+</Layout>

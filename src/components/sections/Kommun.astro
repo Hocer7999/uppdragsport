@@ -1,0 +1,55 @@
+---
+import { companyConfig } from "../../config/company";
+
+interface Props {
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaLink?: string;
+  cities?: string[];
+}
+
+const {
+  title = "Vi finns där du finns",
+  description = "Vi arbetar i hela Sverige. Hör av dig så hittar vi en lösning som passar dig.",
+  ctaText = "Se alla orter",
+  ctaLink = "#kontakt",
+  cities = companyConfig.serviceAreas,
+} = Astro.props;
+---
+
+<section class="py-20 bg-base-100">
+  <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+    <h2 class="text-3xl font-bold text-base-content mb-3 tracking-tight">
+      {title}
+    </h2>
+    <p class="text-base-content/70 mb-10 text-base">
+      {description}
+    </p>
+
+    <div
+      class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-3"
+    >
+      {
+        cities.map((city) => (
+          <a
+            href="#"
+            class="block text-center py-3 px-2 bg-base-200 rounded-md text-sm text-base-content hover:bg-base-300 hover:text-primary transition-colors border border-base-300 decoration-0!"
+          >
+            {city}
+          </a>
+        ))
+      }
+    </div>
+
+    {ctaText && (
+      <div class="mt-8">
+        <a
+          href={ctaLink}
+          class="text-base-content hover:text-primary font-medium flex items-center gap-1 decoration-0!"
+          >{ctaText} &rarr;</a
+        >
+      </div>
+    )}
+  </div>
+</section>

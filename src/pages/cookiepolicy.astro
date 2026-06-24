@@ -1,0 +1,384 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import { companyConfig } from "../config/company";
+import { siteConfig } from "../config/site";
+
+import { Icon } from "astro-icon/components";
+---
+
+<Layout
+    title={`Cookiepolicy | ${companyConfig.name}`}
+    description={`Cookiepolicy för ${companyConfig.name}. Läs om hur vi använder cookies för att förbättra din upplevelse.`}
+    theme={siteConfig.theme}
+    font={siteConfig.font}
+>
+    <Header />
+
+    <main class="flex-grow bg-base-100 py-16">
+        <div class="max-w-4xl mx-auto px-4 md:px-8">
+            <div class="prose prose-lg max-w-none">
+                <h1>Cookiepolicy</h1>
+                <p class="lead">
+                    Denna cookiepolicy förklarar hur {companyConfig.name} (nedan "vi",
+                    "oss" eller "vår") använder cookies och liknande spårningsteknik
+                    på vår webbplats {companyConfig.domain}.
+                </p>
+
+                <p>
+                    Vi är engagerade i att vara transparenta om vår
+                    datainsamling och ge dig kontroll över dina personuppgifter.
+                    Denna policy beskriver de cookies vi använder, varför vi
+                    använder dem och hur du kan hantera dina inställningar.
+                </p>
+
+                <p>
+                    <strong>Senast uppdaterad:</strong>
+                    {companyConfig.lastUpdated}
+                </p>
+
+                <hr />
+
+                <h2>1. Vad är cookies?</h2>
+                <p>
+                    Cookies är små textfiler som lagras på din enhet (dator,
+                    surfplatta eller smartphone) när du besöker en webbplats. De
+                    lagrar information om din session och dina preferenser.
+                </p>
+                <p>Cookies kan vara:</p>
+                <ul>
+                    <li>
+                        <strong>Session-cookies</strong> – raderas när du stänger
+                        webbläsaren
+                    </li>
+                    <li>
+                        <strong>Persistenta cookies</strong> – lagras på din enhet
+                        under en längre period
+                    </li>
+                    <li>
+                        <strong>Förstaparts-cookies</strong> – satta av webbplatsen
+                        du besöker
+                    </li>
+                    <li>
+                        <strong>Tredjeparts-cookies</strong> – satta av andra webbplatser
+                        eller tjänster
+                    </li>
+                </ul>
+
+                <h2>2. Vilka cookies använder vi?</h2>
+
+                <h3>2.1 Nödvändiga cookies (obligatoriska)</h3>
+                <p>
+                    Dessa cookies är <strong>essentiella</strong> för att vår webbplats
+                    ska fungera korrekt. De kräver <strong
+                        >inte användarens samtycke</strong
+                    > enligt GDPR och ePrivacy-direktiven.
+                </p>
+                <div class="overflow-x-auto my-6">
+                    <table class="table table-zebra w-full text-sm">
+                        <thead>
+                            <tr>
+                                <th>Cookie-namn</th>
+                                <th>Syfte</th>
+                                <th>Varaktighet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>session_id</td>
+                                <td
+                                    >Upprätthåller din session och autentisering</td
+                                >
+                                <td>Session</td>
+                            </tr>
+                            <tr>
+                                <td>csrf_token</td>
+                                <td>Skyddar mot CSRF-attacker</td>
+                                <td>Session</td>
+                            </tr>
+                            <tr>
+                                <td>cookie_consent</td>
+                                <td>Lagrar dina cookie-preferenser</td>
+                                <td>365 dagar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    <em
+                        >Laglig grund: Art. 6.1b GDPR. Nödvändigt för att
+                        tillhandahålla tjänsten och upprätthålla webbplatsens
+                        funktionalitet.</em
+                    >
+                </p>
+
+                <h3>2.2 Analytics-cookies (statistik)</h3>
+                <p>
+                    Dessa cookies hjälper oss att förstå hur besökare använder
+                    vår webbplats. Vi kan se vilka sidor som är populära och hur
+                    vi kan förbättra användarupplevelsen.
+                </p>
+                <div class="overflow-x-auto my-6">
+                    <table class="table table-zebra w-full text-sm">
+                        <thead>
+                            <tr>
+                                <th>Cookie-namn</th>
+                                <th>Tjänst</th>
+                                <th>Syfte</th>
+                                <th>Varaktighet</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>_ga</td>
+                                <td>Google Analytics</td>
+                                <td>Unik användar-ID</td>
+                                <td>2 år</td>
+                            </tr>
+                            <tr>
+                                <td>_gid</td>
+                                <td>Google Analytics</td>
+                                <td>Session-ID</td>
+                                <td>24 timmar</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p>
+                    <em
+                        >Laglig grund: Ditt samtycke (GDPR Art. 6.1a). Du kan
+                        när som helst återkalla ditt samtycke eller ändra dina
+                        inställningar via vår cookie-panel.</em
+                    >
+                </p>
+
+                <h2>3. Hur du hanterar cookies</h2>
+
+                <h3>3.1 Webbläsarinställningar</h3>
+                <p>Du kan hantera cookies direkt i din webbläsare:</p>
+                <ul>
+                    <li>
+                        <strong>Chrome:</strong> Inställningar → Sekretess och säkerhet
+                        → Cookies och andra webbplatsdata
+                    </li>
+                    <li>
+                        <strong>Firefox:</strong> Inställningar → Sekretess och säkerhet
+                        → Cookies och webbplatsdata
+                    </li>
+                    <li>
+                        <strong>Safari:</strong> Inställningar → Sekretess → Cookies
+                        och webbplatsdata
+                    </li>
+                    <li>
+                        <strong>Edge:</strong> Inställningar → Sekretess och tjänster
+                        → Cookies och andra webbplatsdata
+                    </li>
+                </ul>
+                <div
+                    class="bg-yellow-50 border-l-4 border-yellow-400 p-4 my-6 not-prose"
+                >
+                    <div class="flex">
+                        <div class="flex-shrink-0">
+                            <Icon
+                                name="heroicons:exclamation-triangle"
+                                class="h-5 w-5 text-yellow-400"
+                            />
+                        </div>
+                        <div class="ml-3">
+                            <p class="text-sm m-0">
+                                <strong>Notering:</strong> Om du inaktiverar nödvändiga
+                                cookies kan webbplatsen sluta fungera korrekt.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>3.3 Do not track (DNT)</h3>
+                <p>
+                    Vissa webbläsare stöder "Do Not Track"-signaler. Vi
+                    respekterar dessa signaler och begränsar spårning för
+                    användare med DNT aktiverat.
+                </p>
+
+                <h2>4. Tredjepartstjänster som använder cookies</h2>
+                <p>
+                    Vi använder följande tredjepartstjänster som kan ställa in
+                    cookies:
+                </p>
+
+                <h3>Google Analytics</h3>
+                <ul>
+                    <li>
+                        <strong>Ändamål:</strong> Webbanalys och användarstatistik
+                    </li>
+                    <li>
+                        <strong>Sekretesspolicy:</strong>
+                        <a
+                            href="https://policies.google.com/privacy"
+                            target="_blank"
+                            rel="noopener"
+                            >https://policies.google.com/privacy</a
+                        >
+                    </li>
+                    <li>
+                        <strong>Cookies-policy:</strong>
+                        <a
+                            href="https://policies.google.com/technologies/cookies"
+                            target="_blank"
+                            rel="noopener"
+                            >https://policies.google.com/technologies/cookies</a
+                        >
+                    </li>
+                    <li>
+                        <strong>Opt-out:</strong>
+                        <a
+                            href="https://tools.google.com/dlpage/gaoptout"
+                            target="_blank"
+                            rel="noopener"
+                            >https://tools.google.com/dlpage/gaoptout</a
+                        >
+                    </li>
+                </ul>
+
+                <h3>Google Ads / DoubleClick</h3>
+                <ul>
+                    <li><strong>Ändamål:</strong> Reklam och målgruppering</li>
+                    <li>
+                        <strong>Sekretesspolicy:</strong>
+                        <a
+                            href="https://policies.google.com/privacy"
+                            target="_blank"
+                            rel="noopener"
+                            >https://policies.google.com/privacy</a
+                        >
+                    </li>
+                    <li>
+                        <strong>Opt-out:</strong>
+                        <a
+                            href="https://adssettings.google.com"
+                            target="_blank"
+                            rel="noopener">https://adssettings.google.com</a
+                        >
+                    </li>
+                </ul>
+
+                <h3>Facebook Pixel</h3>
+                <ul>
+                    <li>
+                        <strong>Ändamål:</strong> Konverteringsspårning och ommarknadsföring
+                    </li>
+                    <li>
+                        <strong>Sekretesspolicy:</strong>
+                        <a
+                            href="https://www.facebook.com/privacy/explanation"
+                            target="_blank"
+                            rel="noopener"
+                            >https://www.facebook.com/privacy/explanation</a
+                        >
+                    </li>
+                    <li>
+                        <strong>Cookies-policy:</strong>
+                        <a
+                            href="https://www.facebook.com/policies/cookies/"
+                            target="_blank"
+                            rel="noopener"
+                            >https://www.facebook.com/policies/cookies/</a
+                        >
+                    </li>
+                </ul>
+
+                <h2>5. Lagring av data</h2>
+                <p>Din persondata och cookie-information lagras:</p>
+                <ul>
+                    <li>
+                        <strong>Varaktighet:</strong> Enligt vad som anges för varje
+                        cookie-typ ovan.
+                    </li>
+                    <li>
+                        <strong>Säkerhet:</strong> Vi använder moderna krypteringsstandarder
+                        (HTTPS/TLS).
+                    </li>
+                    <li>
+                        <strong>Plats:</strong> Data kan lagras både på vår server
+                        och hos tredjepartsleverantörer i Sverige och EU.
+                    </li>
+                </ul>
+
+                <h2>6. Dina rättigheter</h2>
+                <p>Enligt GDPR har du följande rättigheter:</p>
+                <ul>
+                    <li>
+                        <strong>Rätt att få tillgång:</strong> Du kan begära att få
+                        veta vilka personuppgifter vi lagrar om dig.
+                    </li>
+                    <li>
+                        <strong>Rätt att radera:</strong> Du kan begära att vi raderar
+                        dina personuppgifter, förutom när vi har en legal skyldighet
+                        att behålla dem.
+                    </li>
+                    <li>
+                        <strong>Rätt att korrigera:</strong> Du kan begära rättelse
+                        av felaktiga uppgifter.
+                    </li>
+                    <li>
+                        <strong>Rätt att begränsa behandling:</strong> Du kan begära
+                        att vi begränsar hur vi behandlar dina uppgifter.
+                    </li>
+                    <li>
+                        <strong>Rätt att portabilitet:</strong> Du kan begära en maskinläsbar
+                        kopia av dina data.
+                    </li>
+                    <li>
+                        <strong>Rätt att invända:</strong> Du kan invända mot viss
+                        databehandling, inklusive riktad marknadsföring.
+                    </li>
+                </ul>
+                <p>
+                    <strong
+                        >Kontakta oss för att utöva dessa rättigheter:</strong
+                    ><br />
+                    E-post: <a href={`mailto:${companyConfig.email}`}
+                        >{companyConfig.email}</a
+                    ><br />
+                    Post: {companyConfig.name}, {companyConfig.address}, {
+                        companyConfig.postalCode
+                    }
+                    {companyConfig.city}
+                </p>
+
+                <h2>7. Uppdateringar av denna policy</h2>
+                <p>
+                    Vi kan uppdatera denna cookiepolicy när som helst för att
+                    reflektera ändringar i vår praxis, teknik eller lagkrav. Vi
+                    rekommenderar att du regelbundet läser denna policy för att
+                    hålla dig informerad.
+                </p>
+                <p>
+                    Ändringar träder i kraft omedelbart vid publicering på denna
+                    sida.
+                </p>
+
+                <h2>8. Kontaktuppgifter</h2>
+                <p>
+                    Om du har frågor om denna cookiepolicy, vår användning av
+                    cookies eller dina rättigheter under GDPR, kontakta oss
+                    gärna:
+                </p>
+                <p>
+                    <strong>{companyConfig.name}</strong><br />
+                    E-post: <a href={`mailto:${companyConfig.email}`}
+                        >{companyConfig.email}</a
+                    ><br />
+                    Webbplats: <a href={`https://${companyConfig.domain}`}
+                        >{companyConfig.domain}</a
+                    ><br />
+                    Adress: {companyConfig.address}, {companyConfig.postalCode}
+                    {companyConfig.city}
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <Footer />
+</Layout>

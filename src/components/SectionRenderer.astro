@@ -1,0 +1,20 @@
+---
+import { sectionRegistry, type SectionConfig } from "../lib/sectionRegistry";
+
+interface Props {
+  sections: SectionConfig[];
+}
+
+const { sections } = Astro.props;
+---
+
+{
+  sections.map(({ type, props }) => {
+    const Component = sectionRegistry[type];
+    if (!Component) {
+      console.warn(`Unknown section type: ${type}`);
+      return null;
+    }
+    return <Component {...(props ?? {})} />;
+  })
+}

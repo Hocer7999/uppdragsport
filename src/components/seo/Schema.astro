@@ -1,0 +1,11 @@
+---
+import type { Graph } from "schema-dts";
+
+interface Props {
+    graph: Graph;
+}
+
+const { graph } = Astro.props;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(graph)} />

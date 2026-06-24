@@ -1,0 +1,38 @@
+---
+// Stadium Noir — typografi-only editorial-sektion.
+// Stor blockquote, ingen bild, inget kort. Röd accent ENDAST på citattecknet.
+interface Props {
+  eyebrow?: string;
+  quote?: string;
+  attribution?: string;
+}
+
+const {
+  eyebrow = "Redaktionellt",
+  quote =
+    "Sport är aldrig bara resultatet. Det är minuten före avspark, tystnaden efter en missad straff, och historien som ingen tabell rymmer. Det är det vi skriver om.",
+  attribution = "Uppdragsport",
+} = Astro.props;
+---
+
+<section class="section-pad bg-base-100">
+  <div class="max-w-5xl mx-auto px-6 md:px-10">
+    {eyebrow && (
+      <p class="micro-label mb-10">{eyebrow}</p>
+    )}
+    <blockquote class="relative">
+      <span
+        aria-hidden="true"
+        class="font-display text-primary text-[6rem] md:text-[9rem] leading-none block -mb-8 md:-mb-12 select-none"
+      >
+        &ldquo;
+      </span>
+      <p
+        class="font-display text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.02] text-white tracking-[-0.04em]"
+      >
+        {quote}
+      </p>
+      <footer class="mt-10 micro-label">— {attribution}</footer>
+    </blockquote>
+  </div>
+</section>

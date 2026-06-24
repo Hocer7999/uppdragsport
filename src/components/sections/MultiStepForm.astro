@@ -1,0 +1,541 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<section
+  class="py-20 bg-gradient-to-br from-emerald-50 via-emerald-100/30 to-emerald-50 relative overflow-hidden"
+>
+  <!-- Background Decorations -->
+  <div
+    class="absolute inset-0 bg-[radial-gradient(#10b981_1px,transparent_1px)] [background-size:32px_32px] opacity-[0.03] pointer-events-none"
+  >
+  </div>
+  <div
+    class="absolute right-0 top-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-3xl pointer-events-none"
+  >
+  </div>
+
+  <div
+    class="max-w-[1400px] mx-auto px-4 md:px-10 relative z-10 grid lg:grid-cols-[1fr_1.2fr] gap-12 items-center"
+  >
+    <!-- Left Content -->
+    <div>
+      <div
+        class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 text-primary-focus text-sm font-semibold border border-primary/20 backdrop-blur-md mb-6 shadow-sm"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary/80 opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+          ></span>
+        </span>
+        Bäst i klassen
+      </div>
+
+      <h1
+        class="text-4xl lg:text-5xl/tight font-extrabold text-gray-900 mb-6 tracking-tight"
+      >
+        Få ett kostnadsfritt förslag
+      </h1>
+
+      <p class="text-lg text-gray-600 mb-8 leading-relaxed max-w-xl">
+        Berätta lite om vad du behöver hjälp med, så återkommer vi med ett
+        anpassat förslag helt utan kostnad.
+      </p>
+
+      <div class="flex flex-wrap gap-6 mb-8 text-sm font-medium text-gray-700">
+        <div class="flex items-center gap-2">
+          <div
+            class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+          >
+            <Icon name="heroicons:check" class="w-3.5 h-3.5" />
+          </div>
+          Personligt bemötande
+        </div>
+        <div class="flex items-center gap-2">
+          <div
+            class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+          >
+            <Icon name="heroicons:scale" class="w-3.5 h-3.5" />
+          </div>
+          Tydlig rådgivning
+        </div>
+        <div class="flex items-center gap-2">
+          <div
+            class="w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center text-primary"
+          >
+            <Icon name="heroicons:shield-check" class="w-3.5 h-3.5" />
+          </div>
+          Inga förpliktelser
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Card -->
+    <div
+      class="bg-white rounded-[2rem] p-6 md:p-10 shadow-2xl shadow-primary/10 border border-gray-100"
+    >
+      <!-- Progress Steps -->
+      <div class="flex items-center justify-between mb-8 relative">
+        <div
+          class="step active flex flex-col items-center flex-1 relative z-10"
+        >
+          <div
+            class="w-10 h-10 rounded-full border-2 flex items-center justify-center mb-2 text-sm font-bold bg-white transition-all duration-300 border-gray-900 text-gray-900 shadow-sm"
+            data-step="1"
+          >
+            1
+          </div>
+          <span
+            class="text-xs font-semibold uppercase tracking-wider text-gray-900"
+            >Lösning</span
+          >
+        </div>
+        <div
+          class="flex-1 h-px bg-gray-200 -mx-4 absolute top-5 left-[16%] right-[16%] z-0"
+        >
+          <div
+            class="h-full bg-primary transition-all duration-500 w-0"
+            id="progress-bar"
+          >
+          </div>
+        </div>
+        <div
+          class="step flex flex-col items-center flex-1 relative z-10 opacity-60"
+        >
+          <div
+            class="w-10 h-10 rounded-full border-2 flex items-center justify-center mb-2 text-sm font-bold bg-white border-gray-200 text-gray-400 transition-all duration-300"
+            data-step="2"
+          >
+            2
+          </div>
+          <span
+            class="text-xs font-semibold uppercase tracking-wider text-gray-400"
+            >Uppgifter</span
+          >
+        </div>
+
+        <!-- Spacer for absolute positioning -->
+        <div
+          class="step flex flex-col items-center flex-1 relative z-10 opacity-60"
+        >
+          <div
+            class="w-10 h-10 rounded-full border-2 flex items-center justify-center mb-2 text-sm font-bold bg-white border-gray-200 text-gray-400 transition-all duration-300"
+            data-step="3"
+          >
+            3
+          </div>
+          <span
+            class="text-xs font-semibold uppercase tracking-wider text-gray-400"
+            >Klart</span
+          >
+        </div>
+      </div>
+
+      <div class="mb-6 flex justify-between items-start">
+        <div>
+          <span
+            class="inline-block px-3 py-1 rounded bg-primary/10 text-primary-focus text-xs font-bold mb-3"
+            >Klart på 30 sekunder!</span
+          >
+          <h2
+            class="text-2xl md:text-3xl font-bold text-gray-900 leading-tight"
+          >
+            Få ett förslag
+          </h2>
+        </div>
+        <!-- Badge -->
+        <div class="hidden sm:block">
+          <div
+            class="w-20 h-20 rounded-full bg-primary/80 p-1 rotate-6 shadow-lg"
+          >
+            <div
+              class="w-full h-full rounded-full border-2 border-white border-dashed flex items-center justify-center bg-primary/80 text-white text-[10px] font-bold text-center leading-tight"
+            >
+              FÅ<br />OFFERT
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <form
+        id="multi-step-form"
+        class="space-y-6"
+        onsubmit="event.preventDefault();"
+      >
+        <!-- Step 1 -->
+        <div class="form-step" data-step="1">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+            <div class="form-group">
+              <label class="block text-sm font-medium text-gray-700 mb-1.5"
+                >Typ av verksamhet</label
+              >
+              <select
+                name="type"
+                class="w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 text-gray-900 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all cursor-pointer"
+              >
+                <option value="foretag">Företag</option>
+                <option value="organisation">Organisation</option>
+                <option value="offentlig">Offentlig sektor</option>
+                <option value="annat">Annat</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="block text-sm font-medium text-gray-700 mb-1.5"
+                >Behov</label
+              >
+              <select
+                name="installation"
+                class="w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 text-gray-900 text-sm focus:ring-2 focus:ring-primary focus:border-primary transition-all cursor-pointer"
+              >
+                <option value="utveckling">Systemutveckling</option>
+                <option value="strategi">Digital Strategi</option>
+                <option value="support">Support & Drift</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group mb-8">
+            <label class="block text-sm font-medium text-gray-700 mb-3"
+              >Vad är du intresserad av?</label
+            >
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
+              <label class="cursor-pointer group">
+                <input
+                  type="radio"
+                  name="product"
+                  value="analys"
+                  checked
+                  class="peer sr-only"
+                />
+                <div
+                  class="p-4 rounded-2xl border-2 border-gray-100 bg-white flex flex-col items-center gap-3 transition-all peer-checked:border-primary peer-checked:bg-primary/5 group-hover:border-primary/20"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center peer-checked:bg-primary/10 text-gray-400 peer-checked:text-primary transition-colors"
+                  >
+                    <Icon name="heroicons:chart-bar" class="w-6 h-6" />
+                  </div>
+                  <span
+                    class="text-xs font-bold text-gray-700 peer-checked:text-primary-focus"
+                    >Analys</span
+                  >
+                </div>
+              </label>
+
+              <label class="cursor-pointer group">
+                <input
+                  type="radio"
+                  name="product"
+                  value="integration"
+                  class="peer sr-only"
+                />
+                <div
+                  class="p-4 rounded-2xl border-2 border-gray-100 bg-white flex flex-col items-center gap-3 transition-all peer-checked:border-primary peer-checked:bg-primary/5 group-hover:border-primary/20"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center peer-checked:bg-primary/10 text-gray-400 peer-checked:text-primary transition-colors"
+                  >
+                    <Icon name="heroicons:puzzle-piece" class="w-6 h-6" />
+                  </div>
+                  <span
+                    class="text-xs font-bold text-gray-700 peer-checked:text-primary-focus"
+                    >Integration</span
+                  >
+                </div>
+              </label>
+
+              <label class="cursor-pointer group">
+                <input
+                  type="radio"
+                  name="product"
+                  value="optimering"
+                  class="peer sr-only"
+                />
+                <div
+                  class="p-4 rounded-2xl border-2 border-gray-100 bg-white flex flex-col items-center gap-3 transition-all peer-checked:border-primary peer-checked:bg-primary/5 group-hover:border-primary/20"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center peer-checked:bg-primary/10 text-gray-400 peer-checked:text-primary transition-colors"
+                  >
+                    <Icon name="heroicons:bolt" class="w-6 h-6" />
+                  </div>
+                  <span
+                    class="text-xs font-bold text-gray-700 peer-checked:text-primary-focus"
+                    >Optimering</span
+                  >
+                </div>
+              </label>
+
+              <label class="cursor-pointer group">
+                <input
+                  type="radio"
+                  name="product"
+                  value="radgivning"
+                  class="peer sr-only"
+                />
+                <div
+                  class="p-4 rounded-2xl border-2 border-gray-100 bg-white flex flex-col items-center gap-3 transition-all peer-checked:border-primary peer-checked:bg-primary/5 group-hover:border-primary/20"
+                >
+                  <div
+                    class="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center peer-checked:bg-primary/10 text-gray-400 peer-checked:text-primary transition-colors"
+                  >
+                    <Icon
+                      name="heroicons:chat-bubble-left-right"
+                      class="w-6 h-6"
+                    />
+                  </div>
+                  <span
+                    class="text-xs font-bold text-gray-700 peer-checked:text-primary-focus"
+                    >Rådgivning</span
+                  >
+                </div>
+              </label>
+            </div>
+          </div>
+
+          <button
+            type="button"
+            class="btn-next w-full btn btn-lg bg-primary hover:bg-primary-focus text-white border-none rounded-xl font-bold tracking-wide shadow-lg shadow-primary/30"
+          >
+            Gå vidare
+          </button>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="form-step hidden" data-step="2">
+          <div class="space-y-4 mb-6">
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >Postnummer</label
+              >
+              <input
+                type="text"
+                name="zip"
+                placeholder="123 45"
+                class="w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div>
+              <label class="block text-sm font-medium text-gray-700 mb-1"
+                >För- och efternamn</label
+              >
+              <input
+                type="text"
+                name="name"
+                placeholder="Anna Andersson"
+                class="w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-primary"
+              />
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >Telefon</label
+                >
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="070-123 45 67"
+                  class="w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-primary"
+                />
+              </div>
+              <div>
+                <label class="block text-sm font-medium text-gray-700 mb-1"
+                  >E-post</label
+                >
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="anna@exempel.se"
+                  class="w-full px-4 py-3 rounded-xl border-gray-200 bg-gray-50 focus:ring-2 focus:ring-primary focus:border-primary"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="flex gap-3">
+            <button
+              type="button"
+              class="btn-prev btn btn-outline border-gray-200 text-gray-600 hover:bg-gray-50 hover:border-gray-300 rounded-xl px-6"
+            >
+              Tillbaka
+            </button>
+            <button
+              type="button"
+              class="btn-submit w-full btn btn-lg bg-primary hover:bg-primary-focus text-white border-none rounded-xl font-bold tracking-wide shadow-lg shadow-primary/30"
+            >
+              Få offerter nu
+            </button>
+          </div>
+        </div>
+
+        <!-- Step 3 (Success) -->
+        <div class="form-step hidden text-center py-8" data-step="3">
+          <div
+            class="w-20 h-20 rounded-full bg-primary/10 text-primary flex items-center justify-center mx-auto mb-6"
+          >
+            <Icon name="heroicons:check" class="w-10 h-10" />
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-2">
+            Tack för din förfrågan!
+          </h3>
+          <p class="text-gray-600 mb-8">
+            Vi har tagit emot dina uppgifter och återkommer inom kort med ett
+            personligt förslag.
+          </p>
+          <button
+            type="button"
+            class="btn btn-outline border-primary text-primary hover:bg-primary/5 rounded-full px-8"
+            onclick="location.reload()"
+          >
+            Gör en ny förfrågan
+          </button>
+        </div>
+      </form>
+
+      <div
+        class="mt-6 flex items-center gap-4 text-xs text-gray-400 justify-center"
+      >
+        <span class="flex items-center gap-1"
+          ><Icon name="heroicons:shield-check" class="w-3 h-3" /> Tryggt & Säkert</span
+        >
+        <span class="w-1 h-1 rounded-full bg-gray-300"></span>
+        <span>GDPR-säkrad</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const form = document.getElementById("multi-step-form");
+    if (!form) return;
+
+    let currentStep = 1;
+    const totalSteps = 3;
+
+    const steps = form.querySelectorAll(".form-step");
+    const indicators = document.querySelectorAll(".step");
+    const progressBar = document.getElementById("progress-bar");
+
+    const btnNext = form.querySelector(".btn-next");
+    const btnPrev = form.querySelector(".btn-prev");
+    const btnSubmit = form.querySelector(".btn-submit");
+
+    function updateStep(step: number) {
+      // Update visibility
+      steps.forEach((s) => {
+        if (parseInt(s.getAttribute("data-step")!) === step) {
+          s.classList.remove("hidden");
+          s.classList.add("animate-fade-in");
+        } else {
+          s.classList.add("hidden");
+        }
+      });
+
+      // Update indicators
+      indicators.forEach((i) => {
+        const iStep = parseInt(
+          i.querySelector("[data-step]")?.getAttribute("data-step") || "0",
+        );
+        const circle = i.querySelector("div");
+        const label = i.querySelector("span");
+
+        if (iStep < step) {
+          // Completed
+          i.classList.remove("opacity-60", "active");
+          i.classList.add("completed");
+          if (circle) {
+            circle.className =
+              "w-10 h-10 rounded-full flex items-center justify-center mb-2 text-sm font-bold bg-primary text-white transition-all duration-300";
+            circle.innerHTML =
+              '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" /></svg>';
+          }
+          if (label)
+            label.className =
+              "text-xs font-semibold uppercase tracking-wider text-primary";
+        } else if (iStep === step) {
+          // Active
+          i.classList.remove("opacity-60");
+          i.classList.add("active");
+          if (circle) {
+            circle.className =
+              "w-10 h-10 rounded-full border-2 flex items-center justify-center mb-2 text-sm font-bold bg-white border-gray-900 text-gray-900 shadow-xl scale-110 transition-all duration-300";
+            circle.textContent = iStep.toString();
+          }
+          if (label)
+            label.className =
+              "text-xs font-bold uppercase tracking-wider text-gray-900";
+        } else {
+          // Pending
+          i.classList.add("opacity-60");
+          i.classList.remove("active", "completed");
+          if (circle) {
+            circle.className =
+              "w-10 h-10 rounded-full border-2 flex items-center justify-center mb-2 text-sm font-bold bg-white border-gray-200 text-gray-400 transition-all duration-300";
+            circle.textContent = iStep.toString();
+          }
+          if (label)
+            label.className =
+              "text-xs font-semibold uppercase tracking-wider text-gray-400";
+        }
+      });
+
+      // Update Progress Bar
+      if (progressBar) {
+        const progress = ((step - 1) / (totalSteps - 1)) * 100;
+        progressBar.style.width = `${progress}%`;
+      }
+    }
+
+    btnNext?.addEventListener("click", () => {
+      if (currentStep < totalSteps) {
+        currentStep++;
+        updateStep(currentStep);
+      }
+    });
+
+    btnPrev?.addEventListener("click", () => {
+      if (currentStep > 1) {
+        currentStep--;
+        updateStep(currentStep);
+      }
+    });
+
+    btnSubmit?.addEventListener("click", () => {
+      // Simulate submission
+      const submitBtn = btnSubmit as HTMLButtonElement;
+      const originalText = submitBtn.textContent;
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Skickar..."; // Loading text
+
+      setTimeout(() => {
+        currentStep = 3;
+        updateStep(currentStep);
+        submitBtn.disabled = false;
+        submitBtn.textContent = originalText;
+      }, 1000);
+    });
+
+    // Init
+    updateStep(1);
+  });
+</script>
+
+<style>
+  .animate-fade-in {
+    animation: fadeIn 0.4s ease-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>

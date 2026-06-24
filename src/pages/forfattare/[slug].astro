@@ -1,0 +1,152 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/layout/Header.astro";
+import Footer from "../../components/layout/Footer.astro";
+import ArticleList from "../../components/sections/ArticleList.astro";
+import { Icon } from "astro-icon/components";
+import { getCollection } from "astro:content";
+
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getPerson,
+  getCollectionPage,
+  getBreadcrumbs,
+} from "../../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+export async function getStaticPaths() {
+  const authors = await getCollection("authors");
+  return authors.map((author) => ({
+    params: { slug: author.slug },
+    props: { author },
+  }));
+}
+
+const { author } = Astro.props;
+
+const allArticles = await getCollection("articles");
+const articlesByAuthor = allArticles.filter(
+  (a) => a.data.author?.slug === author.slug,
+);
+
+const pageTitle = `${author.data.name} | ${companyConfig.name}`;
+const pageDescription = author.data.bio;
+
+const schema = generateGraph([
+  getOrganization(),
+  getWebSite(),
+  getPerson({
+    name: author.data.name,
+    bio: author.data.bio,
+    avatar: author.data.avatar,
+    role: author.data.role,
+    socials: author.data.socials,
+    pathname: Astro.url.pathname,
+  }) as Thing,
+  getCollectionPage(
+    Astro.url.pathname,
+    pageTitle,
+    pageDescription,
+    articlesByAuthor.length,
+  ) as Thing,
+  getBreadcrumbs([
+    { name: "Hem", pathname: "/" },
+    { name: "Artiklar", pathname: "/artiklar" },
+    { name: author.data.name, pathname: Astro.url.pathname },
+  ]),
+]);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100">
+    <header class="py-16 bg-base-200">
+      <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+        <nav class="text-sm text-base-content/60 mb-6" aria-label="Brödsmulor">
+          <a href="/" class="hover:text-primary decoration-0!">Hem</a>
+          <span class="mx-2">/</span>
+          <a href="/artiklar" class="hover:text-primary decoration-0!">Artiklar</a>
+          <span class="mx-2">/</span>
+          <span class="text-base-content/80">{author.data.name}</span>
+        </nav>
+
+        <div class="flex flex-col md:flex-row items-start gap-8">
+          {author.data.avatar ? (
+            <img
+              src={author.data.avatar}
+              alt={author.data.name}
+              class="w-32 h-32 rounded-full object-cover shadow-lg flex-shrink-0"
+            />
+          ) : (
+            <div class="w-32 h-32 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+              <Icon name="heroicons:user" class="w-16 h-16" />
+            </div>
+          )}
+
+          <div class="flex-1">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2 text-base-content">
+              {author.data.name}
+            </h1>
+            {author.data.role && (
+              <p class="text-sm uppercase tracking-wider font-semibold text-primary mb-4">
+                {author.data.role}
+              </p>
+            )}
+            <p class="text-lg text-base-content/70 leading-relaxed max-w-2xl">
+              {author.data.bio}
+            </p>
+            {author.data.socials && Object.keys(author.data.socials).length > 0 && (
+              <div class="flex gap-3 mt-6">
+                {Object.entries(author.data.socials).map(([name, url]) => (
+                  <a
+                    href={url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="text-sm text-base-content/60 hover:text-primary decoration-0!"
+                  >
+                    {name}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="py-12">
+      <div class="max-w-[1400px] mx-auto px-4 md:px-10">
+        <h2 class="text-2xl font-bold text-base-content mb-2">
+          Artiklar av {author.data.name}
+        </h2>
+        <p class="text-sm text-base-content/50 mb-8">
+          {articlesByAuthor.length} artiklar
+        </p>
+      </div>
+
+      {articlesByAuthor.length === 0 ? (
+        <div class="max-w-[1400px] mx-auto px-4 md:px-10 py-8 text-center">
+          <p class="text-base-content/60">
+            Inga artiklar publicerade ännu.
+          </p>
+        </div>
+      ) : (
+        <ArticleList author={author.slug} />
+      )}
+    </section>
+  </main>
+
+  <Footer />
+</Layout>

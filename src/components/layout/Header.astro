@@ -1,0 +1,114 @@
+---
+interface Link {
+  text: string;
+  href: string;
+}
+
+import { Icon } from "astro-icon/components";
+import { companyConfig } from "../../config/company";
+import { siteConfig } from "../../config/site";
+
+interface Props {
+  logoText?: string;
+  links?: Link[];
+  ctaText?: string;
+  ctaLink?: string;
+}
+
+// Default CTA varies by siteType so the header makes sense on different sajter.
+const defaultCtaBySiteType = {
+  service: { text: "Boka tid", href: "/#kontakt" },
+  content: { text: "Prenumerera", href: "/#nyhetsbrev" },
+  directory: { text: "Sök", href: "/sok" },
+} as const;
+
+const fallbackCta = defaultCtaBySiteType[siteConfig.siteType];
+
+const {
+  logoText = companyConfig.name,
+  links = companyConfig.headerLinks,
+  ctaText = fallbackCta.text,
+  ctaLink = fallbackCta.href,
+} = Astro.props;
+---
+
+<header class="bg-base-100 border-b border-base-200">
+  <div
+    class="max-w-[1400px] mx-auto px-4 md:px-10 h-20 flex items-center justify-between"
+  >
+    <!-- Logo -->
+    <a
+      href="/"
+      class="flex items-center gap-2.5 hover:opacity-80 transition-opacity text-base-content decoration-0!"
+    >
+      <img src={companyConfig.logo} alt={logoText} class="h-10 w-auto" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex items-center gap-8">
+      {
+        links.map((link) => (
+          <a
+            href={link.href}
+            class="text-sm text-base-content/70 hover:text-base-content transition-colors font-medium decoration-0!"
+          >
+            {link.text}
+          </a>
+        ))
+      }
+    </nav>
+
+    <!-- CTA & Mobile Menu -->
+    <div class="flex items-center gap-4">
+      <a
+        href={ctaLink}
+        class="bg-accent text-accent-content px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-accent/90 transition-colors decoration-0! hidden sm:inline-block"
+      >
+        {ctaText}
+      </a>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden btn btn-ghost btn-sm btn-square text-base-content"
+        aria-label="Öppna meny"
+      >
+        <Icon name="heroicons:bars-3" class="w-6 h-6" />
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Dropdown -->
+  <div
+    id="mobile-menu"
+    class="hidden absolute top-20 left-0 w-full bg-base-100 border-b border-base-200 shadow-lg md:hidden p-4 flex flex-col gap-4 z-50"
+  >
+    {
+      links.map((link) => (
+        <a
+          href={link.href}
+          class="text-base text-base-content/70 hover:text-base-content transition-colors font-medium decoration-0! py-2"
+        >
+          {link.text}
+        </a>
+      ))
+    }
+    <a
+      href={ctaLink}
+      class="bg-accent text-accent-content px-5 py-2.5 rounded-md text-sm font-semibold hover:bg-accent/90 transition-colors decoration-0! text-center mt-2"
+    >
+      {ctaText}
+    </a>
+  </div>
+</header>
+
+<script>
+  const mobileBtn = document.getElementById("mobile-menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
+
+  if (mobileBtn && mobileMenu) {
+    mobileBtn.addEventListener("click", () => {
+      mobileMenu.classList.toggle("hidden");
+    });
+  }
+</script>

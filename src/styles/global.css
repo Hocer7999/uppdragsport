@@ -1,0 +1,180 @@
+/* =====================================================================
+   Uppdragsport — Stadium Noir
+   Hög-energi mörk sportmagasin-estetik (röd-på-svart, biograf-känsla).
+   Custom DaisyUI v5-tema + display/body-typografi + utilities.
+   ===================================================================== */
+
+/* Fonts:
+   - Display: Geist (oversized rubriker, tight tracking) via fontsource CDN
+   - Body: Inter Tight (letter-spacing -0.03em)
+   - Inter behålls som DaisyUI-default-mappad fallback */
+@import url('https://cdn.jsdelivr.net/fontsource/css/geist@latest/index.css');
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300..800&family=Inter:wght@100..900&display=swap');
+
+@import "tailwindcss";
+
+@plugin "@tailwindcss/typography";
+
+@plugin "daisyui" {
+  themes: stadium-noir --default --prefersdark;
+}
+
+/* --- Stadium Noir: röd-på-svart biograf-tema ----------------------- */
+@plugin "daisyui/theme" {
+  name: "stadium-noir";
+  default: true;
+  prefersdark: true;
+  color-scheme: dark;
+
+  --color-base-100: #000000;
+  --color-base-200: #0a0a0a;
+  --color-base-300: #161616;
+  --color-base-content: #ffffff;
+
+  /* Röd — används SPARSAMT (primär CTA + ett mikro-element/sida). */
+  --color-primary: #f33736;
+  --color-primary-content: #ffffff;
+
+  /* accent speglar primary så Header/CTA-komponenter (bg-accent) blir röda. */
+  --color-accent: #f33736;
+  --color-accent-content: #ffffff;
+
+  --color-secondary: #e3e3e3;
+  --color-secondary-content: #000000;
+
+  --color-neutral: #222222;
+  --color-neutral-content: #e3e3e3;
+
+  --color-info: #38bdf8;
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
+  --color-error: #f33736;
+
+  /* Lågmält, inte rundat-mjukt. */
+  --radius-selector: 0.4rem;
+  --radius-field: 0.4rem;
+  --radius-box: 0.75rem;
+}
+
+/* --- Typografi-tokens ---------------------------------------------- */
+@theme {
+  --font-inter: "Inter Tight", "Inter", sans-serif;
+  --font-dm-sans: "Inter Tight", "Inter", sans-serif;
+  --font-manrope: "Inter Tight", "Inter", sans-serif;
+  --font-display: "Geist", "Inter Tight", sans-serif;
+}
+
+/* Body: Inter Tight med stram tracking. */
+.font-inter,
+.font-dm-sans,
+.font-manrope {
+  font-family: var(--font-inter);
+  letter-spacing: -0.03em;
+}
+
+/* --- Stadium Noir utilities ---------------------------------------- */
+
+/* Display-rubriker: Geist, tung optisk vikt, mycket stram tracking. */
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.045em;
+  font-weight: 500;
+}
+
+/* Generös vertikal sektionsrytm — biograf-luft. */
+.section-pad {
+  padding-block: clamp(6rem, 12vw, 14rem);
+}
+
+/* Stadium-rubrik: enorm, tight, lågmält tung. */
+.headline-xl {
+  font-family: var(--font-display);
+  font-weight: 500;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+  font-size: clamp(4.5rem, 13vw, 16rem);
+}
+
+/* Röd radial halo-glow bakom hero-innehåll. */
+.halo-red {
+  background: radial-gradient(
+    60% 50% at 50% 38%,
+    rgba(243, 55, 54, 0.28) 0%,
+    rgba(243, 55, 54, 0.10) 35%,
+    transparent 70%
+  );
+}
+
+/* Helbleed actionfoto med mjuk fade nedåt i svart. */
+.photo-fade {
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 22%,
+    black 62%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    black 22%,
+    black 62%,
+    transparent 100%
+  );
+}
+
+/* Mikroetikett — monospace-känsla, versaler, vidgad tracking, dämpad. */
+.micro-label {
+  font-size: 0.6875rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+/* --- Marquee (live score-ticker) ----------------------------------- */
+/* Innehållet dupliceras 2× i markupen → 50% translate ger sömlös loop. */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 70s linear infinite;
+  width: max-content;
+}
+.marquee-track:hover .animate-marquee {
+  animation-play-state: paused;
+}
+
+/* --- Scroll-reveal (IntersectionObserver togglar .is-visible) ------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* Dölj scrollbar (filmstrip). */
+.hide-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Respektera reduced-motion: stäng av marquee + reveal helt. */
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
