@@ -7,7 +7,7 @@ entityType: "league"
 authorName: "Uppdragsports redaktion"
 tags: ["allsvenskan", "fotboll"]
 image: "/images/news/2026-06-24-allsvenskan-toppstrid.webp"
-imageAlt: "Strålkastarbelyst fotbollsplan i skymning inför avspark"
+imageAlt: "Grön fotbollsplan upplyst av strålkastare på en arena"
 sources:
   - title: "SVT Sport"
     url: "https://www.svt.se/sport/fotboll/"

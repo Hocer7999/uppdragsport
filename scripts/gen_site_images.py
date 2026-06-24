@@ -19,50 +19,52 @@ ENV_PATH = ROOT / ".env"
 MODEL = "openai/gpt-image-2"
 SUBMIT_URL = f"https://queue.fal.run/{MODEL}"
 
-# Gemensam stil-svans för visuell konsistens (Stadium Noir).
+# Gemensam stil-svans för visuell konsistens.
+# Ljus, vibrant och välexponerad sport-estetik — energisk men ren. Färgen
+# kommer från motivet (grönt gräs, röd bana, vit is), inte från mörker.
 STYLE = (
-    " cinematic dark sports photography, near-black background, dramatic single "
-    "directional light, deep shadows, one subtle warm red light accent, "
-    "high contrast, moody atmosphere, fine haze in the light beam, no people faces, "
-    "no text, no logos, no watermark, wide editorial composition"
+    " vivid high-energy sports photography, bright clean lighting, crisp and sharp, "
+    "saturated vibrant colours, bright stadium floodlights, well-exposed with balanced "
+    "contrast, dynamic and fresh, no people faces, no text, no logos, no watermark, "
+    "wide editorial composition"
 )
 
 # (filnamn relativt public/, bredd, höjd, prompt-kärna)
 JOBS = [
     ("images/hero.webp", 1536, 1024,
-     "empty floodlit stadium at night seen from pitch level, wet grass reflecting "
-     "the lights, long shadows, atmospheric mist drifting across the field"),
+     "a vibrant green floodlit football pitch seen from pitch level, lush bright grass, "
+     "crisp clean stadium lights, clear vivid atmosphere, energetic and alive"),
     ("images/om-oss.webp", 1536, 1024,
-     "dark sports arena interior before kickoff, rows of empty seats fading into "
-     "shadow, a single shaft of light falling onto the field"),
+     "bright modern sports arena interior before kickoff, rows of colourful seats, "
+     "daylight and floodlight filling the space, vivid and airy"),
     ("images/categories/fotboll.webp", 1024, 1280,
-     "close-up of a classic round black-and-white soccer ball resting on floodlit "
-     "wet green grass at night, dramatic side light, water droplets glistening, "
-     "dark blurred stadium stands behind, association football"),
+     "close-up of a classic black-and-white soccer ball on vivid bright green grass, "
+     "crisp daylight, sharp detail, fresh dew droplets, bright stadium behind, "
+     "association football"),
     ("images/categories/hockey.webp", 1024, 1280,
-     "empty ice hockey rink under arena spotlights, polished ice reflecting light, "
-     "an empty goal net in shadow, cold dark atmosphere"),
+     "bright ice hockey rink under clean arena lights, gleaming white ice, a goal net, "
+     "crisp cold fresh atmosphere, vivid and clear"),
     ("images/categories/innebandy.webp", 1024, 1280,
-     "indoor sports hall floor with bright court lines, a floorball and stick on the "
-     "polished wood, dramatic overhead spotlight, dark rafters above"),
+     "bright indoor sports hall, glossy light wood floor with vivid court lines, a "
+     "floorball and stick, clean bright overhead lighting, airy"),
     ("images/categories/friidrott-och-skidor.webp", 1024, 1280,
-     "running track lanes at night under stadium lights, sharp white lane markings "
-     "curving away, empty and dramatic, dark grandstand behind"),
+     "bright running track under stadium lights, vivid red track surface, crisp white "
+     "lane markings curving away, clean fresh and energetic"),
     ("images/articles/allsvenskan-formkurvor.webp", 1536, 1024,
-     "floodlit football pitch at dusk seen at a low angle, long dramatic shadows "
-     "stretching across the grass, empty dark stadium stands"),
+     "bright floodlit football pitch at a low angle, vivid lush green grass, crisp "
+     "clean lighting, clear bright stadium"),
     ("images/articles/shl-slutspel.webp", 1536, 1024,
-     "ice hockey rink lit by arena spotlights, reflections on the ice, an empty "
-     "players bench in deep shadow, tense dark atmosphere"),
+     "bright ice hockey rink under arena lights, gleaming white ice with clean "
+     "reflections, vivid fresh atmosphere"),
     ("images/articles/landslaget-kval.webp", 1536, 1024,
-     "large empty national stadium at twilight, faint flags lining the upper stands, "
-     "a single dramatic light over the dark pitch"),
+     "large bright national stadium at golden hour, flags lining the stands, vivid "
+     "warm light over a clear green pitch"),
     ("images/articles/friidrotts-vm.webp", 1536, 1024,
-     "athletics running track at night under bright stadium lights, crisp lane lines, "
-     "starting blocks in the foreground, empty dark stands behind"),
+     "athletics running track under bright stadium lights, vivid red track, crisp white "
+     "lane lines, starting blocks in the foreground, clean bright stands"),
     ("images/articles/innebandy-ssl.webp", 1536, 1024,
-     "indoor floorball arena, glossy court with bright boundary lines, dramatic "
-     "ceiling spotlights, dark empty stands surrounding the court"),
+     "bright indoor floorball arena, glossy court with vivid boundary lines, clean "
+     "ceiling lights, fresh and airy"),
 ]
 
 

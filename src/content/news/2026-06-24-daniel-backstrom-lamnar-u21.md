@@ -8,7 +8,7 @@ entityType: "person"
 authorName: "Uppdragsports redaktion"
 tags: ["U21", "landslaget", "fotboll", "förbundskapten"]
 image: "/images/news/2026-06-24-daniel-backstrom-lamnar-u21.webp"
-imageAlt: "Fotbollstränare i silhuett längs sidlinjen under dramatisk stadionbelysning i skymningen"
+imageAlt: "Solbelyst fotbollsplan med grönt gräs och ett tomt mål"
 sources:
   - title: "SVT Sport"
     url: "https://www.svt.se/sport/fotboll/u21-landslagets-forbundskapten-daniel-backstrom-lamnar-i-fortid"
