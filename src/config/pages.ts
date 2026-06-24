@@ -49,13 +49,19 @@ export const serviceHomepageSections: SectionConfig[] = [
 export const contentHomepageSections: SectionConfig[] = [
     { type: "HeroStadium" },
     { type: "ScoreTicker" },
-    { type: "AdBanner" },
+    { type: "AdBanner", props: {
+        image: "/images/ads/unibet.webp", brand: "Unibet", accent: "#15a34a",
+        tagline: "Spela på Allsvenskan – oddsboost varje helg.", cta: "Spela nu",
+    } },
     { type: "NewsPortal", props: { title: "Allt just nu" } },
     { type: "CategoryGrid", props: {
         title: "Sporterna",
         description: "Välj din arena. Vi täcker bollsport, is och bana — från elitserien till friidrottens VM-finaler.",
     } },
-    { type: "AdBanner" },
+    { type: "AdBanner", props: {
+        image: "/images/ads/betsson.webp", brand: "Betsson", accent: "#ff7a00",
+        tagline: "Live-odds på alla matcher, direkt i mobilen.", cta: "Hämta erbjudande",
+    } },
     { type: "MomentsFilmstrip" },
     { type: "EditorialQuote" },
     { type: "Newsletter", props: {
