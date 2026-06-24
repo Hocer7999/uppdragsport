@@ -1,0 +1,53 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/layout/Header.astro";
+import Footer from "../components/layout/Footer.astro";
+import Highlights from "../components/sections/Highlights.astro";
+import sportdata from "../data/sportdata.json";
+import { companyConfig } from "../config/company";
+import { siteConfig } from "../config/site";
+import {
+  generateGraph,
+  getOrganization,
+  getWebSite,
+  getCollectionPage,
+} from "../utils/jsonLD";
+import type { Thing } from "schema-dts";
+
+const count = ((sportdata as any)?.highlights ?? []).length;
+const pageTitle = `Höjdpunkter & matchklipp | ${companyConfig.name}`;
+const pageDescription =
+  "Se de senaste matchklippen från Premier League, Champions League och andra storligor – samlat på ett ställe.";
+
+const schema = generateGraph([
+  getOrganization(),
+  getWebSite(),
+  getCollectionPage(Astro.url.pathname, pageTitle, pageDescription, count) as Thing,
+]);
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  theme={siteConfig.theme}
+  font={siteConfig.font}
+  schema={schema}
+>
+  <Header />
+
+  <main class="flex-grow bg-base-100">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 pt-20 md:pt-28 pb-2">
+      <span class="micro-label text-primary">Matchklipp</span>
+      <h1 class="font-display text-white text-5xl md:text-8xl tracking-[-0.05em] leading-[0.9] mt-3">
+        Höjdpunkter
+      </h1>
+      <p class="text-white/55 text-lg md:text-xl max-w-2xl mt-6">
+        De senaste höjdpunkterna från storligorna. Klicka för att se klippet på YouTube – uppdateras löpande.
+      </p>
+    </div>
+
+    <Highlights title="Senaste klippen" limit={99} />
+  </main>
+
+  <Footer />
+</Layout>

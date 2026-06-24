@@ -5,11 +5,11 @@
 import sportdata from "../../data/sportdata.json";
 import { Icon } from "astro-icon/components";
 
-interface Props { title?: string }
-const { title = "Höjdpunkter" } = Astro.props;
+interface Props { title?: string; limit?: number; moreHref?: string }
+const { title = "Höjdpunkter", limit = 6, moreHref } = Astro.props;
 
 interface Clip { home: string; away: string; score?: string | null; league: string; video: string; thumb?: string | null; date?: string }
-const clips = ((sportdata as any)?.highlights ?? []) as Clip[];
+const clips = (((sportdata as any)?.highlights ?? []) as Clip[]).slice(0, limit);
 ---
 
 {clips.length > 0 && (
@@ -19,7 +19,14 @@ const clips = ((sportdata as any)?.highlights ?? []) as Clip[];
         <div class="flex items-center gap-4">
           <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em]">{title}</h2>
         </div>
-        <span class="micro-label">Matchklipp · YouTube</span>
+        {moreHref ? (
+          <a href={moreHref} class="micro-label hover:text-white transition-colors decoration-0! inline-flex items-center gap-2 pb-1">
+            Alla klipp
+            <Icon name="heroicons:arrow-right" class="w-4 h-4" />
+          </a>
+        ) : (
+          <span class="micro-label">Matchklipp · YouTube</span>
+        )}
       </div>
 
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">

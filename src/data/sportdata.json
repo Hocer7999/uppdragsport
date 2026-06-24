@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-24T12:59:43.633253+00:00",
+  "fetched_at": "2026-06-24T13:06:29.273444+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -472,6 +472,92 @@
       ]
     },
     {
+      "id": "4481",
+      "name": "Europa League",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-20",
+          "time": "19:00:00",
+          "home": "Freiburg",
+          "away": "Aston Villa",
+          "score": "0–3",
+          "video": "https://www.youtube.com/watch?v=R-c1j7EpMJQ",
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/7xukba1778654753.jpg"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-07-09",
+          "time": "17:00:00",
+          "home": "Qarabağ",
+          "away": "Vestri"
+        }
+      ]
+    },
+    {
+      "id": "4337",
+      "name": "Eredivisie",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-24",
+          "time": "10:15:00",
+          "home": "Ajax",
+          "away": "Utrecht",
+          "score": "0–0",
+          "video": null,
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/btoi4e1769670860.jpg"
+        }
+      ],
+      "upcoming": [
+        {
+          "date": "2026-08-07",
+          "time": "18:00:00",
+          "home": "Cambuur",
+          "away": "Excelsior"
+        }
+      ]
+    },
+    {
+      "id": "4344",
+      "name": "Primeira Liga",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-28",
+          "time": "19:00:00",
+          "home": "Casa Pia",
+          "away": "Torreense",
+          "score": "2–0",
+          "video": "https://www.youtube.com/watch?v=KU5zNHnjBgQ",
+          "thumb": null
+        }
+      ],
+      "upcoming": []
+    },
+    {
+      "id": "4329",
+      "name": "Championship",
+      "sport": "fotboll",
+      "table": [],
+      "recent": [
+        {
+          "date": "2026-05-23",
+          "time": "15:30:00",
+          "home": "Hull City",
+          "away": "Southampton",
+          "score": null,
+          "video": null,
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/zg06ti1779518377.jpg"
+        }
+      ],
+      "upcoming": []
+    },
+    {
       "id": "4756",
       "name": "Svenska Cupen",
       "sport": "fotboll",
@@ -551,6 +637,24 @@
       "league": "Ligue 1",
       "video": "https://www.youtube.com/watch?v=RlcpnPwWZj0",
       "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/et32dv1780035576.jpg"
+    },
+    {
+      "home": "Freiburg",
+      "away": "Aston Villa",
+      "score": "0–3",
+      "date": "2026-05-20",
+      "league": "Europa League",
+      "video": "https://www.youtube.com/watch?v=R-c1j7EpMJQ",
+      "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/7xukba1778654753.jpg"
+    },
+    {
+      "home": "Casa Pia",
+      "away": "Torreense",
+      "score": "2–0",
+      "date": "2026-05-28",
+      "league": "Primeira Liga",
+      "video": "https://www.youtube.com/watch?v=KU5zNHnjBgQ",
+      "thumb": null
     }
   ]
 }

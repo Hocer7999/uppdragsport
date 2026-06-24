@@ -56,7 +56,7 @@ export const contentHomepageSections: SectionConfig[] = [
     } },
     { type: "NewsPortal", props: { title: "Allt just nu" } },
     { type: "MatchCenter", props: { title: "Resultat & matcher" } },
-    { type: "Highlights", props: { title: "Höjdpunkter" } },
+    { type: "Highlights", props: { title: "Höjdpunkter", limit: 6, moreHref: "/klipp" } },
     { type: "AdBanner", props: {
         image: "/images/ads/betsson.webp", brand: "Betsson", accent: "#ff7a00",
         tagline: "Live-odds på alla matcher, direkt i mobilen.", cta: "Hämta erbjudande",

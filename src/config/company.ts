@@ -41,6 +41,7 @@ export const companyConfig = {
     headerLinks: [
         { text: "Nyheter", href: "/nyheter" },
         { text: "Artiklar", href: "/artiklar" },
+        { text: "Klipp", href: "/klipp" },
         { text: "Fotboll", href: "/kategori/fotboll" },
         { text: "Hockey", href: "/kategori/hockey" },
         { text: "Om oss", href: "/om-oss" },
@@ -50,6 +51,7 @@ export const companyConfig = {
             title: "Innehåll",
             links: [
                 { text: "Sportnyheter", href: "/nyheter" },
+                { text: "Höjdpunkter", href: "/klipp" },
                 { text: "Alla artiklar", href: "/artiklar" },
                 { text: "Fotboll", href: "/kategori/fotboll" },
                 { text: "Hockey", href: "/kategori/hockey" },
