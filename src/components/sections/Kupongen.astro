@@ -67,9 +67,9 @@ const fav = (o?: Triple | null): "one" | "x" | "two" | null => {
                     </div>
                     {m.svenskaFolket && (
                       <div class="flex h-1.5 mt-2 ml-8 rounded-full overflow-hidden bg-white/5" title={`Svenska folket: 1 ${p1}% · X ${px}% · 2 ${p2}%`}>
-                        <span class={f === "one" ? "bg-primary" : "bg-white/35"} style={`width:${p1}%`}></span>
-                        <span class={f === "x" ? "bg-primary" : "bg-white/20"} style={`width:${px}%`}></span>
-                        <span class={f === "two" ? "bg-primary" : "bg-white/35"} style={`width:${p2}%`}></span>
+                        <span class={f === "one" ? "bg-primary" : "bg-white/35"} data-bar={p1} style={`width:${p1}%`}></span>
+                        <span class={f === "x" ? "bg-primary" : "bg-white/20"} data-bar={px} style={`width:${px}%`}></span>
+                        <span class={f === "two" ? "bg-primary" : "bg-white/35"} data-bar={p2} style={`width:${p2}%`}></span>
                       </div>
                     )}
                   </div>

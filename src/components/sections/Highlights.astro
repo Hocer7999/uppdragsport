@@ -14,7 +14,7 @@ const clips = (((sportdata as any)?.highlights ?? []) as Clip[]).slice(0, limit)
 
 {clips.length > 0 && (
   <section class="bg-base-100 py-16 md:py-20 border-t border-white/5">
-    <div class="max-w-[1400px] mx-auto px-6 md:px-10 reveal">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
       <div class="flex flex-wrap items-end justify-between gap-3 mb-10 border-b border-white/10 pb-5">
         <div class="flex items-center gap-4">
           <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em]">{title}</h2>
@@ -29,7 +29,7 @@ const clips = (((sportdata as any)?.highlights ?? []) as Clip[]).slice(0, limit)
         )}
       </div>
 
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="stagger-group grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {clips.map((c) => (
           <a
             href={c.video}

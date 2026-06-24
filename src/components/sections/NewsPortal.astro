@@ -84,7 +84,7 @@ const fmtDate = (d: Date) => d.toLocaleDateString("sv-SE", { month: "short", day
           </a>
         )}
 
-        <div class="grid sm:grid-cols-2 gap-x-8 gap-y-9 border-t border-white/10 pt-9">
+        <div class="stagger-group grid sm:grid-cols-2 gap-x-8 gap-y-9 border-t border-white/10 pt-9">
           {grid.map((c) => (
             <a href={c.href} class="group flex flex-col decoration-0!">
               <div class="relative aspect-video overflow-hidden rounded-field bg-base-200 mb-4">

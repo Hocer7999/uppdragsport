@@ -50,7 +50,7 @@ const rows = (l?.table ?? []).filter((r) => r.team).slice(0, limit);
               </span>
             </td>
             <td class="py-2 text-right tabular-nums text-white/45">{r.played ?? "–"}</td>
-            <td class="py-2 text-right tabular-nums font-semibold text-white">{r.points ?? "–"}</td>
+            <td class="py-2 text-right tabular-nums font-semibold text-white"><span data-countup={r.points}>{r.points ?? "–"}</span></td>
           </tr>
         ))}
       </tbody>

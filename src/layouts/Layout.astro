@@ -2,6 +2,7 @@
 import "../styles/global.css";
 import Schema from "../components/seo/Schema.astro";
 import CookieConsent from "../components/layout/CookieConsent.astro";
+import { ClientRouter } from "astro:transitions";
 import type { Graph, Thing } from "schema-dts";
 import { companyConfig } from "../config/company";
 import { siteConfig } from "../config/site";
@@ -99,6 +100,9 @@ if (!effectiveSchema) {
 
     <!-- RSS-feed (länkar fram även för service-sajter; ofarligt om feed:en är tom) -->
     <link rel="alternate" type="application/rss+xml" title={companyConfig.name} href="/rss.xml" />
+
+    <!-- App-känsla mellan sidor (Astro View Transitions) -->
+    <ClientRouter />
   </head>
   <body class={`min-h-screen flex flex-col ${fontClass}`}>
     <slot />
@@ -106,40 +110,78 @@ if (!effectiveSchema) {
 
     <script>
       import Lenis from "lenis";
+      import { animate, inView, stagger } from "motion";
 
       const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      // CSS döljer stagger-barn endast när JS är aktivt (annars syns allt).
+      document.documentElement.classList.add("js-motion");
 
-      // Scroll-reveal: threshold 0 så att även sektioner högre än viewporten
-      // garanterat triggar (undviker blank-innehåll-fällan).
-      const reveals = document.querySelectorAll<HTMLElement>(".reveal");
-      if (reveals.length) {
-        if (reduce) {
-          reveals.forEach((el) => el.classList.add("is-visible"));
-        } else {
-          const io = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((e) => {
-                if (e.isIntersecting) {
-                  e.target.classList.add("is-visible");
-                  io.unobserve(e.target);
-                }
-              });
-            },
-            { threshold: 0, rootMargin: "0px 0px -12% 0px" }
-          );
-          reveals.forEach((el) => io.observe(el));
-        }
-      }
-
-      // Lenis smooth scroll (av vid reduced-motion).
-      if (!reduce) {
+      // Lenis smooth scroll — initieras EN gång och överlever view transitions.
+      function initLenis() {
+        if (reduce || (window as any).__lenis) return;
         const lenis = new Lenis({ duration: 1.1, smoothWheel: true });
-        const raf = (time: number) => {
-          lenis.raf(time);
-          requestAnimationFrame(raf);
-        };
+        (window as any).__lenis = lenis;
+        const raf = (t: number) => { lenis.raf(t); requestAnimationFrame(raf); };
         requestAnimationFrame(raf);
       }
+
+      // Scroll-reveal (.reveal) — binär fade (threshold 0 undviker blank-fällan).
+      function initReveal() {
+        const els = document.querySelectorAll<HTMLElement>(".reveal:not(.is-visible)");
+        if (!els.length) return;
+        if (reduce) { els.forEach((el) => el.classList.add("is-visible")); return; }
+        const io = new IntersectionObserver((entries) => {
+          entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add("is-visible"); io.unobserve(e.target); } });
+        }, { threshold: 0, rootMargin: "0px 0px -12% 0px" });
+        els.forEach((el) => io.observe(el));
+      }
+
+      // Count-up: siffror ([data-countup]) räknas upp från 0 när de syns.
+      function initCountUp() {
+        document.querySelectorAll<HTMLElement>("[data-countup]:not([data-done])").forEach((el) => {
+          const target = parseFloat((el.dataset.countup || "").replace(",", "."));
+          el.dataset.done = "1";
+          if (!isFinite(target) || reduce) return;
+          const dec = (el.dataset.countup || "").includes(",") ? 1 : 0;
+          inView(el, () => {
+            animate(0, target, {
+              duration: 1.1, ease: [0.16, 1, 0.3, 1],
+              onUpdate: (v) => { el.textContent = dec ? v.toFixed(dec).replace(".", ",") : Math.round(v).toString(); },
+            });
+          }, { amount: 0.6 });
+        });
+      }
+
+      // Staggrade reveals: barn i .stagger-group glider in i sekvens.
+      function initStagger() {
+        document.querySelectorAll<HTMLElement>(".stagger-group:not([data-done])").forEach((group) => {
+          group.dataset.done = "1";
+          const kids = Array.from(group.children) as HTMLElement[];
+          if (reduce) { kids.forEach((k) => (k.style.opacity = "1")); return; }
+          inView(group, () => {
+            animate(kids, { opacity: [0, 1], transform: ["translateY(22px)", "translateY(0)"] },
+              { duration: 0.7, delay: stagger(0.06), ease: [0.16, 1, 0.3, 1] });
+          }, { amount: 0.12 });
+        });
+      }
+
+      // Streck-/progress-barer ([data-bar]=procent) fylls på plats.
+      function initBars() {
+        document.querySelectorAll<HTMLElement>("[data-bar]:not([data-done])").forEach((el) => {
+          el.dataset.done = "1";
+          const w = parseFloat(el.dataset.bar || "0");
+          if (reduce) { el.style.width = w + "%"; return; }
+          el.style.width = "0%";
+          inView(el, () => { animate(el, { width: ["0%", w + "%"] }, { duration: 0.9, ease: [0.16, 1, 0.3, 1] }); }, { amount: 0.4 });
+        });
+      }
+
+      function initAll() { initLenis(); initReveal(); initCountUp(); initStagger(); initBars(); }
+      // astro:page-load fyrar på första laddningen OCH efter varje view transition.
+      document.addEventListener("astro:page-load", initAll);
+      // ClientRouter nollställer <html>-klasserna vid navigering → återställ
+      // js-motion FÖRE paint så stagger-barnen inte blinkar till.
+      document.addEventListener("astro:after-swap", () => document.documentElement.classList.add("js-motion"));
     </script>
   </body>
 </html>

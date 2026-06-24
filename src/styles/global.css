@@ -244,3 +244,14 @@
     opacity: 1;
   }
 }
+
+/* Staggrade reveals: dölj barnen bara när JS kör (Motion fyller in dem).
+   Utan JS / vid reduced-motion syns allt direkt. */
+.js-motion .stagger-group > * {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .js-motion .stagger-group > * {
+    opacity: 1;
+  }
+}
