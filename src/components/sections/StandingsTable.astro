@@ -10,7 +10,7 @@ interface Props {
 }
 const { league = "Allsvenskan", limit = 6, heading = true } = Astro.props;
 
-interface Row { pos?: any; team?: string; points?: any; played?: any }
+interface Row { pos?: any; team?: string; points?: any; played?: any; badge?: string | null }
 interface League { name: string; table: Row[] }
 
 const leagues = (sportdata?.leagues ?? []) as League[];
@@ -39,7 +39,16 @@ const rows = (l?.table ?? []).filter((r) => r.team).slice(0, limit);
         {rows.map((r, i) => (
           <tr class="text-white/75">
             <td class={`py-2 tabular-nums ${i === 0 ? "text-primary font-bold" : "text-white/40"}`}>{r.pos ?? i + 1}</td>
-            <td class="py-2 font-medium text-white truncate max-w-[140px]">{r.team}</td>
+            <td class="py-2 font-medium text-white">
+              <span class="flex items-center gap-2 min-w-0">
+                {r.badge ? (
+                  <img src={`${r.badge}/tiny`} alt="" width="16" height="16" class="w-4 h-4 object-contain shrink-0" loading="lazy" />
+                ) : (
+                  <span class="w-4 h-4 shrink-0 rounded-full bg-white/5"></span>
+                )}
+                <span class="truncate max-w-[120px]">{r.team}</span>
+              </span>
+            </td>
             <td class="py-2 text-right tabular-nums text-white/45">{r.played ?? "–"}</td>
             <td class="py-2 text-right tabular-nums font-semibold text-white">{r.points ?? "–"}</td>
           </tr>

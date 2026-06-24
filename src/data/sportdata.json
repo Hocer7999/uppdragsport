@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-24T12:30:03.184798+00:00",
+  "fetched_at": "2026-06-24T12:43:14.473247+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -21,7 +21,7 @@
           "played": "10",
           "gd": "+6",
           "points": "20",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/zyl9m01523905866.png"
         },
         {
           "pos": 3,
@@ -29,7 +29,7 @@
           "played": "11",
           "gd": "+5",
           "points": "18",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/svqvqq1421957626.png"
         },
         {
           "pos": 4,
@@ -37,7 +37,7 @@
           "played": "11",
           "gd": "+11",
           "points": "17",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/3kgg5b1592144695.png"
         },
         {
           "pos": 5,
@@ -45,7 +45,7 @@
           "played": "11",
           "gd": "+5",
           "points": "15",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/3pahks1639779139.png"
         },
         {
           "pos": 6,
@@ -61,7 +61,7 @@
           "played": "10",
           "gd": "0",
           "points": "15",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/nwr81l1639779730.png"
         },
         {
           "pos": 8,
@@ -69,7 +69,7 @@
           "played": "9",
           "gd": "+6",
           "points": "13",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/yuuwru1425411493.png"
         },
         {
           "pos": 9,
@@ -85,7 +85,7 @@
           "played": "10",
           "gd": "-4",
           "points": "12",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/rwsrxq1420769503.png"
         },
         {
           "pos": 11,
@@ -101,7 +101,7 @@
           "played": "10",
           "gd": "-4",
           "points": "10",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/wrytvq1429977939.png"
         },
         {
           "pos": 13,
@@ -117,7 +117,7 @@
           "played": "10",
           "gd": "-9",
           "points": "10",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/ywyxtp1429470529.png"
         },
         {
           "pos": 15,
@@ -125,7 +125,7 @@
           "played": "10",
           "gd": "-11",
           "points": "6",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/26hnaj1639778271.png"
         },
         {
           "pos": 16,
@@ -181,7 +181,7 @@
           "played": "12",
           "gd": "+4",
           "points": "22",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png"
         },
         {
           "pos": 4,
@@ -197,7 +197,7 @@
           "played": "12",
           "gd": "+1",
           "points": "20",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/8s0ejz1644586526.png"
         },
         {
           "pos": 6,
@@ -205,7 +205,7 @@
           "played": "12",
           "gd": "+6",
           "points": "19",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/ekorbs1579903412.png"
         },
         {
           "pos": 7,
@@ -213,7 +213,7 @@
           "played": "12",
           "gd": "+3",
           "points": "19",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/8s0ejz1644586526.png"
         },
         {
           "pos": 8,
@@ -221,7 +221,7 @@
           "played": "12",
           "gd": "+5",
           "points": "18",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/gxj75t1579903800.png"
         },
         {
           "pos": 9,
@@ -229,7 +229,7 @@
           "played": "12",
           "gd": "-4",
           "points": "17",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/xogmss1592144703.png"
         },
         {
           "pos": 10,
@@ -245,7 +245,7 @@
           "played": "12",
           "gd": "-3",
           "points": "13",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/b5nixj1560591208.png"
         },
         {
           "pos": 12,
@@ -253,7 +253,7 @@
           "played": "12",
           "gd": "-6",
           "points": "13",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qrmule1592144711.png"
         },
         {
           "pos": 13,
@@ -261,7 +261,7 @@
           "played": "12",
           "gd": "-1",
           "points": "12",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/wtqvry1429979320.png"
         },
         {
           "pos": 14,
@@ -269,7 +269,7 @@
           "played": "12",
           "gd": "-5",
           "points": "10",
-          "badge": null
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/hxzuyi1511624611.png"
         },
         {
           "pos": 15,
