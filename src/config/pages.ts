@@ -48,20 +48,24 @@ export const serviceHomepageSections: SectionConfig[] = [
 // → editorial → nyhetsbrev → redaktion.
 export const contentHomepageSections: SectionConfig[] = [
     { type: "HeroStadium" },
+    { type: "TopBreakingBar" },
     { type: "ScoreTicker" },
     { type: "AdBanner", props: {
         image: "/images/ads/unibet.webp", brand: "Unibet", accent: "#15a34a",
         tagline: "Spela på Allsvenskan – oddsboost varje helg.", cta: "Spela nu",
     } },
     { type: "NewsPortal", props: { title: "Allt just nu" } },
-    { type: "CategoryGrid", props: {
-        title: "Sporterna",
-        description: "Välj din arena. Vi täcker bollsport, is och bana — från elitserien till friidrottens VM-finaler.",
-    } },
+    { type: "MatchCenter", props: { title: "Resultat & matcher" } },
     { type: "AdBanner", props: {
         image: "/images/ads/betsson.webp", brand: "Betsson", accent: "#ff7a00",
         tagline: "Live-odds på alla matcher, direkt i mobilen.", cta: "Hämta erbjudande",
     } },
+    { type: "LeagueTables", props: { title: "Tabeller" } },
+    { type: "CategoryGrid", props: {
+        title: "Sporterna",
+        description: "Välj din arena. Vi täcker bollsport, is och bana — från elitserien till friidrottens VM-finaler.",
+    } },
+    { type: "LatestWire", props: { title: "Senaste nytt", limit: 16 } },
     { type: "MomentsFilmstrip" },
     { type: "EditorialQuote" },
     { type: "Newsletter", props: {

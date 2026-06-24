@@ -1,0 +1,36 @@
+---
+// "JUST NU"-strip à la Fotbollskanalen: röd-taggad rad med de senaste
+// nyheterna, högst upp. Renderas bara om det finns nyheter.
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+const news = (await getCollection("news"))
+  .sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
+  .slice(0, 4);
+---
+
+{news.length > 0 && (
+  <section class="bg-base-200 border-y border-white/10">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10">
+      <div class="flex items-stretch gap-0 overflow-x-auto hide-scrollbar">
+        <div class="flex items-center gap-2 pr-5 mr-1 shrink-0 border-r border-white/10">
+          <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
+          <span class="font-display text-sm font-bold uppercase tracking-[0.12em] text-primary">Just nu</span>
+        </div>
+        {news.map((n) => (
+          <a
+            href={`/nyheter/${n.slug}`}
+            class="group flex items-center gap-2.5 py-3 px-5 shrink-0 border-r border-white/10 decoration-0! whitespace-nowrap"
+          >
+            <span class="micro-label text-white/40 shrink-0">{n.data.sport}</span>
+            <span class="text-sm text-white/85 font-medium group-hover:text-white transition-colors max-w-[40ch] truncate">{n.data.title}</span>
+          </a>
+        ))}
+        <a href="/nyheter" class="flex items-center gap-1.5 py-3 px-5 shrink-0 micro-label hover:text-white transition-colors decoration-0!">
+          Alla
+          <Icon name="heroicons:arrow-right" class="w-3.5 h-3.5" />
+        </a>
+      </div>
+    </div>
+  </section>
+)}

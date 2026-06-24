@@ -45,6 +45,10 @@ import MomentsFilmstrip from "../components/sections/MomentsFilmstrip.astro";
 import NewsPortal from "../components/sections/NewsPortal.astro";
 import AdBanner from "../components/sections/AdBanner.astro";
 import StandingsTable from "../components/sections/StandingsTable.astro";
+import TopBreakingBar from "../components/sections/TopBreakingBar.astro";
+import MatchCenter from "../components/sections/MatchCenter.astro";
+import LeagueTables from "../components/sections/LeagueTables.astro";
+import LatestWire from "../components/sections/LatestWire.astro";
 
 export const sectionRegistry = {
     Hero,
@@ -83,6 +87,10 @@ export const sectionRegistry = {
     NewsPortal,
     AdBanner,
     StandingsTable,
+    TopBreakingBar,
+    MatchCenter,
+    LeagueTables,
+    LatestWire,
 } as const;
 
 export type SectionType = keyof typeof sectionRegistry;

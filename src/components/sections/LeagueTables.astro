@@ -1,0 +1,29 @@
+---
+// "Tabeller" — flera ligatabeller sida vid sida (Allsvenskan, Superettan,
+// SHL m.fl. när säsong pågår). Datadrivet; renderas bara om någon liga har
+// tabellrader. Återanvänder StandingsTable.
+import sportdata from "../../data/sportdata.json";
+import StandingsTable from "./StandingsTable.astro";
+
+interface Props { title?: string }
+const { title = "Tabeller" } = Astro.props;
+
+const leagues = (sportdata?.leagues ?? []) as any[];
+const tabled = leagues.filter((l) => (l.table ?? []).some((r: any) => r.team)).map((l) => l.name);
+---
+
+{tabled.length > 0 && (
+  <section class="bg-base-100 py-16 md:py-20 border-t border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 reveal">
+      <div class="flex items-center gap-4 mb-10 border-b border-white/10 pb-5">
+        <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em]">{title}</h2>
+        <span class="micro-label hidden sm:inline">Uppdateras löpande</span>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-12">
+        {tabled.map((name) => (
+          <StandingsTable league={name} limit={8} />
+        ))}
+      </div>
+    </div>
+  </section>
+)}

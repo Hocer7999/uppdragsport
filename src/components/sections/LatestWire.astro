@@ -1,0 +1,50 @@
+---
+// "Senaste nytt" — lång, tät wire med ALLA nyheter + artiklar i omvänd
+// kronologi (à la Fotbollskanalens senaste-flöde). Tidsstämplat, tvåkolumns.
+import { getCollection, getEntry } from "astro:content";
+
+interface Props { title?: string; limit?: number }
+const { title = "Senaste nytt", limit = 16 } = Astro.props;
+
+const byDate = (a: any, b: any) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf();
+const news = (await getCollection("news")).sort(byDate);
+const articles = (await getCollection("articles")).sort(byDate);
+
+const catTitle: Record<string, string | undefined> = {};
+for (const a of articles) {
+  if (a.data.category) {
+    const c = await getEntry(a.data.category);
+    catTitle[a.id] = c?.data.title;
+  }
+}
+
+type Row = { href: string; title: string; date: Date; tag: string; kind: "news" | "article" };
+const rows: Row[] = [
+  ...news.map((n): Row => ({ href: `/nyheter/${n.slug}`, title: n.data.title, date: n.data.publishDate, tag: n.data.sport, kind: "news" })),
+  ...articles.map((a): Row => ({ href: `/artiklar/${a.slug}`, title: a.data.title, date: a.data.publishDate, tag: catTitle[a.id] ?? a.data.tags?.[0] ?? "Analys", kind: "article" })),
+]
+  .sort((a, b) => b.date.valueOf() - a.date.valueOf())
+  .slice(0, limit);
+
+const fmt = (d: Date) => d.toLocaleDateString("sv-SE", { month: "short", day: "numeric" });
+---
+
+{rows.length > 0 && (
+  <section class="bg-base-200/40 py-16 md:py-20 border-y border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 reveal">
+      <div class="flex items-center gap-4 mb-8 border-b border-white/10 pb-5">
+        <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+        <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em]">{title}</h2>
+      </div>
+      <div class="grid md:grid-cols-2 gap-x-12">
+        {rows.map((r) => (
+          <a href={r.href} class="group flex items-baseline gap-4 py-3 border-b border-white/8 decoration-0!">
+            <time class="micro-label shrink-0 w-12">{fmt(r.date)}</time>
+            <span class={`micro-label shrink-0 w-20 truncate ${r.kind === "news" ? "text-primary" : ""}`}>{r.tag}</span>
+            <span class="text-white/85 font-medium leading-snug group-hover:text-white transition-colors">{r.title}</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+)}

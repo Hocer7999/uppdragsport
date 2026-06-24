@@ -1,0 +1,74 @@
+---
+// "Resultat & matcher" — senaste resultat + kommande matcher från
+// build-time-datan (src/data/sportdata.json). Datadrivet, degraderar tyst.
+import sportdata from "../../data/sportdata.json";
+
+interface Props { title?: string }
+const { title = "Resultat & matcher" } = Astro.props;
+
+interface Ev { home?: string; away?: string; score?: string | null; date?: string; league?: string }
+const leagues = (sportdata?.leagues ?? []) as any[];
+
+const results: Ev[] = leagues.flatMap((l) =>
+  (l.recent ?? []).filter((e: any) => e.score && e.home && e.away).map((e: any) => ({ ...e, league: l.name })),
+).slice(0, 6);
+const upcoming: Ev[] = leagues.flatMap((l) =>
+  (l.upcoming ?? []).filter((e: any) => e.home && e.away).map((e: any) => ({ ...e, league: l.name })),
+).slice(0, 6);
+
+const fmt = (d?: string) => (d ? new Date(d).toLocaleDateString("sv-SE", { month: "short", day: "numeric" }) : "");
+const has = results.length > 0 || upcoming.length > 0;
+---
+
+{has && (
+  <section class="bg-base-200/40 py-16 md:py-20 border-y border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 reveal">
+      <div class="flex items-center gap-4 mb-10 border-b border-white/10 pb-5">
+        <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em]">{title}</h2>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-10 lg:gap-16">
+        <!-- Senaste resultat -->
+        {results.length > 0 && (
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <h3 class="font-display text-xl text-white tracking-[-0.02em]">Senaste resultat</h3>
+              <span class="micro-label">Facit</span>
+            </div>
+            <div class="divide-y divide-white/8">
+              {results.map((m) => (
+                <div class="flex items-center gap-4 py-3.5">
+                  <span class="micro-label w-24 shrink-0">{m.league}</span>
+                  <span class="flex-1 text-white/85 font-medium text-right truncate">{m.home}</span>
+                  <span class="font-display text-lg text-white tabular-nums px-3 shrink-0">{m.score}</span>
+                  <span class="flex-1 text-white/85 font-medium truncate">{m.away}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- Kommande -->
+        {upcoming.length > 0 && (
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <h3 class="font-display text-xl text-white tracking-[-0.02em]">Kommande matcher</h3>
+              <span class="micro-label">Spelschema</span>
+            </div>
+            <div class="divide-y divide-white/8">
+              {upcoming.map((m) => (
+                <div class="flex items-center gap-4 py-3.5">
+                  <span class="micro-label w-24 shrink-0">{m.league}</span>
+                  <span class="flex-1 text-white/85 font-medium text-right truncate">{m.home}</span>
+                  <span class="text-white/30 px-3 shrink-0">vs</span>
+                  <span class="flex-1 text-white/85 font-medium truncate">{m.away}</span>
+                  <span class="micro-label shrink-0 w-12 text-right">{fmt(m.date)}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  </section>
+)}
