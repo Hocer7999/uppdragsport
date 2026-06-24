@@ -2,6 +2,7 @@
 // "Resultat & matcher" — senaste resultat + kommande matcher från
 // build-time-datan (src/data/sportdata.json). Datadrivet, degraderar tyst.
 import sportdata from "../../data/sportdata.json";
+import svenskaspel from "../../data/svenskaspel.json";
 
 interface Props { title?: string }
 const { title = "Resultat & matcher" } = Astro.props;
@@ -12,9 +13,18 @@ const leagues = (sportdata?.leagues ?? []) as any[];
 const results: Ev[] = leagues.flatMap((l) =>
   (l.recent ?? []).filter((e: any) => e.score && e.home && e.away).map((e: any) => ({ ...e, league: l.name })),
 ).slice(0, 6);
-const upcoming: Ev[] = leagues.flatMap((l) =>
+const sdUpcoming: Ev[] = leagues.flatMap((l) =>
   (l.upcoming ?? []).filter((e: any) => e.home && e.away).map((e: any) => ({ ...e, league: l.name })),
-).slice(0, 6);
+);
+// Svenska Spel ger riktiga kommande matcher (fler) — föredra dem.
+const seenUp = new Set<string>();
+const ssUpcoming: Ev[] = ((svenskaspel?.draws ?? []) as any[])
+  .flatMap((d) => d.matches ?? [])
+  .filter((m: any) => m.home && m.away && m.kickoff)
+  .map((m: any): Ev => ({ home: m.home, away: m.away, date: m.kickoff, league: m.league }))
+  .filter((m) => { const k = `${m.home}|${m.away}|${m.date}`; if (seenUp.has(k)) return false; seenUp.add(k); return true; })
+  .sort((a, b) => (a.date ?? "").localeCompare(b.date ?? ""));
+const upcoming: Ev[] = (ssUpcoming.length ? ssUpcoming : sdUpcoming).slice(0, 8);
 
 const fmt = (d?: string) => (d ? new Date(d).toLocaleDateString("sv-SE", { month: "short", day: "numeric" }) : "");
 const has = results.length > 0 || upcoming.length > 0;

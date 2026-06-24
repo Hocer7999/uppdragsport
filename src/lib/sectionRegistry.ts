@@ -49,6 +49,7 @@ import TopBreakingBar from "../components/sections/TopBreakingBar.astro";
 import MatchCenter from "../components/sections/MatchCenter.astro";
 import LeagueTables from "../components/sections/LeagueTables.astro";
 import LatestWire from "../components/sections/LatestWire.astro";
+import Kupongen from "../components/sections/Kupongen.astro";
 
 export const sectionRegistry = {
     Hero,
@@ -91,6 +92,7 @@ export const sectionRegistry = {
     MatchCenter,
     LeagueTables,
     LatestWire,
+    Kupongen,
 } as const;
 
 export type SectionType = keyof typeof sectionRegistry;

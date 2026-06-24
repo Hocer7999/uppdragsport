@@ -61,6 +61,7 @@ export const contentHomepageSections: SectionConfig[] = [
         tagline: "Live-odds på alla matcher, direkt i mobilen.", cta: "Hämta erbjudande",
     } },
     { type: "LeagueTables", props: { title: "Tabeller" } },
+    { type: "Kupongen", props: { title: "Veckans kupong" } },
     { type: "CategoryGrid", props: {
         title: "Sporterna",
         description: "Välj din arena. Vi täcker bollsport, is och bana — från elitserien till friidrottens VM-finaler.",

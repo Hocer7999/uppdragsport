@@ -1,0 +1,85 @@
+---
+// "Veckans kupong" — öppna Svenska Spel-omgångar (Stryktipset/Europa-/VM-tipset)
+// med 1X2-odds + svenska folket-streck. Build-time-data (src/data/svenskaspel.json).
+// Renderas bara om det finns öppna omgångar.
+import svenskaspel from "../../data/svenskaspel.json";
+
+interface Props { title?: string }
+const { title = "Veckans kupong" } = Astro.props;
+
+interface Triple { one?: string; x?: string; two?: string }
+interface Match { number?: number; home: string; away: string; league?: string | null; kickoff?: string | null; odds?: Triple | null; svenskaFolket?: Triple | null }
+interface Draw { product: string; name: string; closeDescription?: string | null; matchCount: number; matches: Match[] }
+
+const draws = ((svenskaspel?.draws ?? []) as Draw[]).filter((d) => d.matches?.length);
+
+const pct = (v?: string) => {
+  const n = parseInt((v ?? "").replace(/\D/g, ""), 10);
+  return Number.isFinite(n) ? n : 0;
+};
+// vilken av 1/X/2 har lägst odds (favorit) — för markering
+const fav = (o?: Triple | null): "one" | "x" | "two" | null => {
+  if (!o) return null;
+  const f = (s?: string) => parseFloat((s ?? "").replace(",", ".")) || 999;
+  const arr: ["one" | "x" | "two", number][] = [["one", f(o.one)], ["x", f(o.x)], ["two", f(o.two)]];
+  arr.sort((a, b) => a[1] - b[1]);
+  return arr[0][0];
+};
+---
+
+{draws.length > 0 && (
+  <section class="bg-base-100 py-16 md:py-20 border-t border-white/5">
+    <div class="max-w-[1400px] mx-auto px-6 md:px-10 reveal">
+      <div class="flex flex-wrap items-end justify-between gap-3 mb-10 border-b border-white/10 pb-5">
+        <div class="flex items-center gap-4">
+          <h2 class="font-display text-4xl md:text-6xl text-white tracking-[-0.045em]">{title}</h2>
+        </div>
+        <span class="micro-label">Odds &amp; svenska folket · Svenska Spel</span>
+      </div>
+
+      <div class="grid lg:grid-cols-2 gap-x-12 gap-y-12">
+        {draws.map((draw) => (
+          <div>
+            <div class="flex items-baseline justify-between mb-4">
+              <h3 class="font-display text-2xl text-white tracking-[-0.02em]">{draw.name}</h3>
+              {draw.closeDescription && <span class="micro-label normal-case tracking-normal text-white/40">{draw.closeDescription.replace(/^.*stänger/i, "Stänger")}</span>}
+            </div>
+
+            <div class="divide-y divide-white/8">
+              {draw.matches.map((m) => {
+                const f = fav(m.odds);
+                const p1 = pct(m.svenskaFolket?.one), px = pct(m.svenskaFolket?.x), p2 = pct(m.svenskaFolket?.two);
+                return (
+                  <div class="py-3">
+                    <div class="flex items-center gap-3">
+                      <span class="font-display text-white/30 tabular-nums w-5 shrink-0 text-sm">{m.number}</span>
+                      <div class="flex-1 min-w-0">
+                        <div class="text-white/90 font-medium text-sm truncate">{m.home} <span class="text-white/30">–</span> {m.away}</div>
+                        {m.league && <span class="micro-label">{m.league}</span>}
+                      </div>
+                      <div class="flex gap-1.5 shrink-0">
+                        {(["one", "x", "two"] as const).map((k) => (
+                          <span class={`px-2 py-1 rounded-field text-xs tabular-nums border ${f === k ? "border-primary/60 text-primary bg-primary/10 font-bold" : "border-white/10 text-white/70"}`}>
+                            <span class="text-white/30 mr-1">{k === "one" ? "1" : k === "x" ? "X" : "2"}</span>{m.odds?.[k] ?? "–"}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+                    {m.svenskaFolket && (
+                      <div class="flex h-1.5 mt-2 ml-8 rounded-full overflow-hidden bg-white/5" title={`Svenska folket: 1 ${p1}% · X ${px}% · 2 ${p2}%`}>
+                        <span class={f === "one" ? "bg-primary" : "bg-white/35"} style={`width:${p1}%`}></span>
+                        <span class={f === "x" ? "bg-primary" : "bg-white/20"} style={`width:${px}%`}></span>
+                        <span class={f === "two" ? "bg-primary" : "bg-white/35"} style={`width:${p2}%`}></span>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        ))}
+      </div>
+      <p class="micro-label normal-case tracking-normal text-white/30 mt-8">Odds och streck från Svenska Spel, uppdateras löpande. 18+ · Spela ansvarsfullt.</p>
+    </div>
+  </section>
+)}
