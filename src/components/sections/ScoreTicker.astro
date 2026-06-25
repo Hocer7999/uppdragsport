@@ -1,7 +1,7 @@
 ---
 // Live score-ticker (hybridens data-halva). Läser den build-time-bakade
-// src/data/sportdata.json (TheSportsDB → fetch_sports_data.py). Degraderar
-// tyst: ingen data → sektionen renderas inte alls.
+// src/data/sportdata.json (TheSportsDB → fetch_sports_data.py). Klubbmärken
+// kommer direkt ur event-datan. Degraderar tyst: ingen data → ingen sektion.
 import sportdata from "../../data/sportdata.json";
 
 interface MatchEvent {
@@ -9,12 +9,10 @@ interface MatchEvent {
   away?: string;
   score?: string | null;
   date?: string;
+  homeBadge?: string | null;
+  awayBadge?: string | null;
 }
-interface TableRow {
-  pos?: string | number | null;
-  team?: string;
-  points?: string | number | null;
-}
+interface TableRow { pos?: any; team?: string; points?: any }
 interface League {
   name: string;
   sport: string;
@@ -25,30 +23,33 @@ interface League {
 
 const leagues = (sportdata?.leagues ?? []) as League[];
 
-type Item = { label: string; text: string };
+type Item = {
+  label: string;
+  kind: "match" | "text";
+  home?: string; homeBadge?: string | null;
+  score?: string | null;
+  away?: string; awayBadge?: string | null;
+  text?: string;
+};
 const items: Item[] = [];
 
 for (const l of leagues) {
   for (const e of l.recent ?? []) {
     if (e.score && e.home && e.away) {
-      items.push({ label: l.name, text: `${e.home} ${e.score} ${e.away}` });
+      items.push({ label: l.name, kind: "match", home: e.home, homeBadge: e.homeBadge, score: e.score, away: e.away, awayBadge: e.awayBadge });
     }
   }
   const top = (l.table ?? []).filter((r) => r.team).slice(0, 3);
   if (top.length) {
-    items.push({
-      label: `${l.name} · tabell`,
-      text: top.map((r) => `${r.pos}. ${r.team} ${r.points}p`).join("   "),
-    });
+    items.push({ label: `${l.name} · tabell`, kind: "text", text: top.map((r) => `${r.pos}. ${r.team} ${r.points}p`).join("   ") });
   }
   for (const e of (l.upcoming ?? []).slice(0, 2)) {
     if (e.home && e.away) {
-      items.push({ label: `${l.name} · kommande`, text: `${e.home} – ${e.away}` });
+      items.push({ label: `${l.name} · kommande`, kind: "match", home: e.home, homeBadge: e.homeBadge, score: null, away: e.away, awayBadge: e.awayBadge });
     }
   }
 }
 
-// Behövs minst några poster för att en loop ska se vettig ut.
 const show = items.length >= 3;
 ---
 
@@ -57,20 +58,29 @@ const show = items.length >= 3;
     class="marquee-track relative bg-base-200 border-y border-white/10 overflow-hidden select-none"
     aria-label="Senaste resultat och tabeller"
   >
-    {/* Fast etikett till vänster + fade-kanter */}
     <div class="absolute left-0 top-0 bottom-0 z-20 flex items-center gap-2 pl-5 pr-6 bg-base-200">
       <span class="w-1.5 h-1.5 rounded-full bg-primary animate-pulse"></span>
       <span class="micro-label text-white/70">Resultat</span>
     </div>
     <div class="absolute right-0 top-0 bottom-0 z-10 w-24 bg-gradient-to-l from-base-200 to-transparent pointer-events-none"></div>
 
-    <div class="flex animate-marquee py-3.5 pl-36">
+    <div class="flex animate-marquee py-3 pl-36">
       {[0, 1].map((dup) => (
         <div class="flex shrink-0" aria-hidden={dup === 1 ? "true" : undefined}>
           {items.map((it) => (
-            <span class="inline-flex items-baseline gap-3 px-7 border-r border-white/10 whitespace-nowrap">
+            <span class="inline-flex items-center gap-2.5 px-7 border-r border-white/10 whitespace-nowrap">
               <span class="micro-label text-primary">{it.label}</span>
-              <span class="font-display text-white text-lg md:text-xl tracking-[-0.02em]">{it.text}</span>
+              {it.kind === "match" ? (
+                <span class="inline-flex items-center gap-2 font-display text-white text-base md:text-lg tracking-[-0.02em]">
+                  <span>{it.home}</span>
+                  {it.homeBadge && <img src={`${it.homeBadge}/tiny`} alt="" class="w-5 h-5 object-contain" />}
+                  <span class="px-0.5 tabular-nums text-white/90">{it.score ?? "–"}</span>
+                  {it.awayBadge && <img src={`${it.awayBadge}/tiny`} alt="" class="w-5 h-5 object-contain" />}
+                  <span>{it.away}</span>
+                </span>
+              ) : (
+                <span class="font-display text-white text-base md:text-lg tracking-[-0.02em]">{it.text}</span>
+              )}
             </span>
           ))}
         </div>

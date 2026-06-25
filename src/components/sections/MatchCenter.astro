@@ -7,7 +7,7 @@ import svenskaspel from "../../data/svenskaspel.json";
 interface Props { title?: string }
 const { title = "Resultat & matcher" } = Astro.props;
 
-interface Ev { home?: string; away?: string; score?: string | null; date?: string; league?: string }
+interface Ev { home?: string; away?: string; score?: string | null; date?: string; league?: string; homeBadge?: string | null; awayBadge?: string | null }
 const leagues = (sportdata?.leagues ?? []) as any[];
 
 const results: Ev[] = leagues.flatMap((l) =>
@@ -47,11 +47,17 @@ const has = results.length > 0 || upcoming.length > 0;
             </div>
             <div class="divide-y divide-white/8">
               {results.map((m) => (
-                <div class="flex items-center gap-4 py-3.5">
-                  <span class="micro-label w-24 shrink-0">{m.league}</span>
-                  <span class="flex-1 text-white/85 font-medium text-right truncate">{m.home}</span>
-                  <span class="font-display text-lg text-white tabular-nums px-3 shrink-0">{m.score}</span>
-                  <span class="flex-1 text-white/85 font-medium truncate">{m.away}</span>
+                <div class="flex items-center gap-3 py-3.5">
+                  <span class="micro-label w-16 shrink-0 truncate">{m.league}</span>
+                  <span class="flex-1 flex items-center justify-end gap-2 min-w-0 text-white/85 font-medium">
+                    <span class="truncate">{m.home}</span>
+                    {m.homeBadge && <img src={`${m.homeBadge}/tiny`} alt="" loading="lazy" class="w-4 h-4 object-contain shrink-0" />}
+                  </span>
+                  <span class="font-display text-lg text-white tabular-nums px-1 shrink-0">{m.score}</span>
+                  <span class="flex-1 flex items-center gap-2 min-w-0 text-white/85 font-medium">
+                    {m.awayBadge && <img src={`${m.awayBadge}/tiny`} alt="" loading="lazy" class="w-4 h-4 object-contain shrink-0" />}
+                    <span class="truncate">{m.away}</span>
+                  </span>
                 </div>
               ))}
             </div>
@@ -67,12 +73,18 @@ const has = results.length > 0 || upcoming.length > 0;
             </div>
             <div class="divide-y divide-white/8">
               {upcoming.map((m) => (
-                <div class="flex items-center gap-4 py-3.5">
-                  <span class="micro-label w-24 shrink-0">{m.league}</span>
-                  <span class="flex-1 text-white/85 font-medium text-right truncate">{m.home}</span>
-                  <span class="text-white/30 px-3 shrink-0">vs</span>
-                  <span class="flex-1 text-white/85 font-medium truncate">{m.away}</span>
-                  <span class="micro-label shrink-0 w-12 text-right">{fmt(m.date)}</span>
+                <div class="flex items-center gap-3 py-3.5">
+                  <span class="micro-label w-16 shrink-0 truncate">{m.league}</span>
+                  <span class="flex-1 flex items-center justify-end gap-2 min-w-0 text-white/85 font-medium">
+                    <span class="truncate">{m.home}</span>
+                    {m.homeBadge && <img src={`${m.homeBadge}/tiny`} alt="" loading="lazy" class="w-4 h-4 object-contain shrink-0" />}
+                  </span>
+                  <span class="text-white/30 px-1 shrink-0">vs</span>
+                  <span class="flex-1 flex items-center gap-2 min-w-0 text-white/85 font-medium">
+                    {m.awayBadge && <img src={`${m.awayBadge}/tiny`} alt="" loading="lazy" class="w-4 h-4 object-contain shrink-0" />}
+                    <span class="truncate">{m.away}</span>
+                  </span>
+                  <span class="micro-label shrink-0 w-10 text-right">{fmt(m.date)}</span>
                 </div>
               ))}
             </div>

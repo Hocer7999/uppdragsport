@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-25T06:15:10.423003+00:00",
+  "fetched_at": "2026-06-25T06:52:20.378401+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -142,6 +142,8 @@
           "time": "12:00:00",
           "home": "Häcken",
           "away": "Hammarby",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/zyl9m01523905866.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/3kgg5b1592144695.png",
           "score": "3–2",
           "video": null,
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/kvcljc1675683785.jpg"
@@ -152,7 +154,9 @@
           "date": "2026-07-03",
           "time": "17:00:00",
           "home": "Sirius",
-          "away": "Mjällby"
+          "away": "Mjällby",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/yryyvr1429976751.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/ruwqxv1430239112.png"
         }
       ]
     },
@@ -296,6 +300,8 @@
           "time": "17:05:00",
           "home": "Örebro",
           "away": "Sandvikens",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/qrmule1592144711.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/4gslrk1579904587.png",
           "score": "1–1",
           "video": null,
           "thumb": null
@@ -306,7 +312,9 @@
           "date": "2026-06-26",
           "time": "17:00:00",
           "home": "Brage",
-          "away": "Falkenberg"
+          "away": "Falkenberg",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/b5nixj1560591208.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png"
         }
       ]
     },
@@ -321,6 +329,8 @@
           "time": "13:15:00",
           "home": "Skellefteå AIK",
           "away": "Rögle BK",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/rvqqtq1421696143.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/5b0pij1644937975.png",
           "score": "7–3",
           "video": null,
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/7buw071694599324.jpg"
@@ -331,7 +341,9 @@
           "date": "2026-09-19",
           "time": "13:15:00",
           "home": "Frölunda HC",
-          "away": "Växjö Lakers"
+          "away": "Växjö Lakers",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/1zbgup1656774483.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/5q04mx1644937962.png"
         }
       ]
     },
@@ -346,6 +358,8 @@
           "time": "15:00:00",
           "home": "West Ham United",
           "away": "Leeds United",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/yutyxs1467459956.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/jcgrml1756649030.png",
           "score": "3–0",
           "video": "https://www.youtube.com/watch?v=E5y8302KfUw",
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/iejgyx1750321086.jpg"
@@ -356,7 +370,9 @@
           "date": "2026-08-21",
           "time": "19:00:00",
           "home": "Arsenal",
-          "away": "Coventry City"
+          "away": "Coventry City",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/uxyqys1424033798.png"
         }
       ]
     },
@@ -371,6 +387,8 @@
           "time": "16:00:00",
           "home": "Paris SG",
           "away": "Arsenal",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/rwqrrq1473504808.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/uyhbfe1612467038.png",
           "score": "1–1",
           "video": "https://www.youtube.com/watch?v=_QliLmqcyh0",
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/68f48e1778654752.jpg"
@@ -381,7 +399,9 @@
           "date": "2026-07-07",
           "time": "16:00:00",
           "home": "Lincoln Red Imps",
-          "away": "Inter Club d'Escaldes"
+          "away": "Inter Club d'Escaldes",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/w1d87s1594393899.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/39f7xv1578827342.png"
         }
       ]
     },
@@ -396,6 +416,8 @@
           "time": "19:00:00",
           "home": "Villarreal",
           "away": "Atlético Madrid",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/vrypqy1473503073.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/0ulh3q1719984315.png",
           "score": "5–1",
           "video": "https://www.youtube.com/watch?v=6nDSrVykH-I",
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/na2zs81751450432.jpg"
@@ -414,6 +436,8 @@
           "time": "18:45:00",
           "home": "Hellas Verona",
           "away": "Roma",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/p6camf1593457737.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/jwro2s1760820674.png",
           "score": "0–2",
           "video": "https://www.youtube.com/watch?v=aflJKg6GSl4",
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/atbus91765442677.jpg"
@@ -424,7 +448,9 @@
           "date": "2026-08-23",
           "time": "16:30:00",
           "home": "Udinese",
-          "away": "Como"
+          "away": "Como",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/vwvstr1448806811.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/02x81t1627405841.png"
         }
       ]
     },
@@ -439,6 +465,8 @@
           "time": "18:30:00",
           "home": "Paderborn",
           "away": "Wolfsburg",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/kddvva1566048058.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/ci9trv1778399557.png",
           "score": "2–1",
           "video": "https://www.youtube.com/watch?v=eXa4amTV5_w",
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/0d4n2b1779346198.jpg"
@@ -457,6 +485,8 @@
           "time": "18:45:00",
           "home": "Nice",
           "away": "St Etienne",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/msy7ly1621593859.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/m4ej831656423694.png",
           "score": "4–1",
           "video": "https://www.youtube.com/watch?v=RlcpnPwWZj0",
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/et32dv1780035576.jpg"
@@ -467,7 +497,9 @@
           "date": "2026-08-22",
           "time": "15:00:00",
           "home": "Angers",
-          "away": "Lille"
+          "away": "Lille",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/ix6q4w1678808069.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/2giize1534005340.png"
         }
       ]
     },
@@ -482,6 +514,8 @@
           "time": "19:00:00",
           "home": "Freiburg",
           "away": "Aston Villa",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/urwtup1473453288.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/jykrpv1717309891.png",
           "score": "0–3",
           "video": "https://www.youtube.com/watch?v=R-c1j7EpMJQ",
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/7xukba1778654753.jpg"
@@ -492,7 +526,9 @@
           "date": "2026-07-09",
           "time": "16:00:00",
           "home": "Qarabağ",
-          "away": "Vestri"
+          "away": "Vestri",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/f9h2by1725001244.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/27f6gb1614288091.png"
         }
       ]
     },
@@ -507,6 +543,8 @@
           "time": "10:15:00",
           "home": "Ajax",
           "away": "Utrecht",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/zg9tii1755495289.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/yuhha71625167104.png",
           "score": "0–0",
           "video": null,
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/btoi4e1769670860.jpg"
@@ -517,7 +555,9 @@
           "date": "2026-08-07",
           "time": "18:00:00",
           "home": "Cambuur",
-          "away": "Excelsior"
+          "away": "Excelsior",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/b3rap31579463652.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/bmbn9v1625172555.png"
         }
       ]
     },
@@ -532,6 +572,8 @@
           "time": "19:00:00",
           "home": "Casa Pia",
           "away": "Torreense",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/d8ugsc1678717133.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/byn6c21659694982.png",
           "score": "2–0",
           "video": "https://www.youtube.com/watch?v=KU5zNHnjBgQ",
           "thumb": null
@@ -550,6 +592,8 @@
           "time": "15:30:00",
           "home": "Hull City",
           "away": "Southampton",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/fbqqda1601726113.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/ggqtd01621593274.png",
           "score": null,
           "video": null,
           "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/zg06ti1779518377.jpg"
@@ -568,6 +612,8 @@
           "time": "17:30:00",
           "home": "Järfälla",
           "away": "Arlanda",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/jxjbrm1779296224.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/j3bxmc1738171802.png",
           "score": "0–2",
           "video": null,
           "thumb": null
@@ -578,7 +624,9 @@
           "date": "2026-07-27",
           "time": "17:00:00",
           "home": "IFK Skövde",
-          "away": "Jönköping Södra"
+          "away": "Jönköping Södra",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/sfxuvi1738171319.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/sc7egw1727586591.png"
         }
       ]
     }
