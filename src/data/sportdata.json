@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-25T19:44:56.698025+00:00",
+  "fetched_at": "2026-06-26T10:14:10.099158+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -589,17 +589,26 @@
       "recent": [
         {
           "date": "2026-05-23",
-          "time": "15:30:00",
+          "time": "14:30:00",
           "home": "Hull City",
-          "away": "Southampton",
+          "away": "Middlesbrough",
           "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/fbqqda1601726113.png",
-          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/ggqtd01621593274.png",
-          "score": null,
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/advjg71780068902.png",
+          "score": "1–0",
           "video": null,
-          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/zg06ti1779518377.jpg"
+          "thumb": "https://r2.thesportsdb.com/images/media/event/thumb/ya62701779518376.jpg"
         }
       ],
-      "upcoming": []
+      "upcoming": [
+        {
+          "date": "2026-08-14",
+          "time": "19:00:00",
+          "home": "Wolverhampton Wanderers",
+          "away": "Blackburn Rovers",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/u9qr031621593327.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/rvryut1448810814.png"
+        }
+      ]
     },
     {
       "id": "4756",
