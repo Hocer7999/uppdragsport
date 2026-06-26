@@ -13,7 +13,7 @@ avbockade. Metrik (volym/KD) är informativ; verifieras vid nästa Ahrefs-refill
 - [x] när börjar allsvenskan
 - [x] innebandy ssl regler
 - [x] friidrott vm grenar
-- [ ] vasaloppet distans och historia
+- [x] vasaloppet distans och historia
 - [ ] hockeyns regler för nybörjare
 - [ ] superettan vägen till allsvenskan
 - [ ] längdskidor världscup förklaring
