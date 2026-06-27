@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-26T10:14:10.099158+00:00",
+  "fetched_at": "2026-06-27T06:13:34.049029+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -296,25 +296,25 @@
       ],
       "recent": [
         {
-          "date": "2026-06-22",
-          "time": "17:05:00",
-          "home": "Örebro",
-          "away": "Sandvikens",
-          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/qrmule1592144711.png",
-          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/4gslrk1579904587.png",
-          "score": "1–1",
+          "date": "2026-06-26",
+          "time": "17:00:00",
+          "home": "Brage",
+          "away": "Falkenberg",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/b5nixj1560591208.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png",
+          "score": "2–4",
           "video": null,
           "thumb": null
         }
       ],
       "upcoming": [
         {
-          "date": "2026-06-26",
-          "time": "17:00:00",
-          "home": "Brage",
-          "away": "Falkenberg",
-          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/b5nixj1560591208.png",
-          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png"
+          "date": "2026-06-27",
+          "time": "13:00:00",
+          "home": "Ljungskile",
+          "away": "Örebro",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/wtqvry1429979320.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/qrmule1592144711.png"
         }
       ]
     },
