@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-27T10:19:54.755206+00:00",
+  "fetched_at": "2026-06-27T14:14:59.795556+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -167,142 +167,142 @@
       "table": [
         {
           "pos": 1,
-          "team": "Varbergs BoIS FC",
-          "played": "12",
-          "gd": "+11",
-          "points": "24",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qsppwu1429976928.png"
+          "team": "Falkenbergs FF",
+          "played": "14",
+          "gd": "+8",
+          "points": "28",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png"
         },
         {
           "pos": 2,
           "team": "IFK Norrköping",
-          "played": "12",
-          "gd": "+12",
-          "points": "23",
+          "played": "13",
+          "gd": "+14",
+          "points": "26",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/87sdp61676027891.png"
         },
         {
           "pos": 3,
-          "team": "Falkenbergs FF",
-          "played": "12",
-          "gd": "+4",
-          "points": "22",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png"
+          "team": "Varbergs BoIS FC",
+          "played": "13",
+          "gd": "+10",
+          "points": "24",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/qsppwu1429976928.png"
         },
         {
           "pos": 4,
-          "team": "Nordic United FC",
-          "played": "12",
-          "gd": "+1",
-          "points": "20",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/657eym1681540770.png"
-        },
-        {
-          "pos": 5,
-          "team": "Östers IF",
-          "played": "12",
-          "gd": "+1",
-          "points": "20",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/8s0ejz1644586526.png"
-        },
-        {
-          "pos": 6,
           "team": "Landskrona BoIS",
-          "played": "12",
-          "gd": "+6",
-          "points": "19",
+          "played": "13",
+          "gd": "+8",
+          "points": "22",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/ekorbs1579903412.png"
         },
         {
-          "pos": 7,
-          "team": "Östersunds",
-          "played": "12",
-          "gd": "+3",
-          "points": "19",
+          "pos": 5,
+          "team": "Nordic United FC",
+          "played": "13",
+          "gd": "+1",
+          "points": "21",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/657eym1681540770.png"
+        },
+        {
+          "pos": 6,
+          "team": "Östers IF",
+          "played": "13",
+          "gd": "+2",
+          "points": "20",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/8s0ejz1644586526.png"
+        },
+        {
+          "pos": 7,
+          "team": "Helsingborgs IF",
+          "played": "13",
+          "gd": "-1",
+          "points": "20",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/xogmss1592144703.png"
         },
         {
           "pos": 8,
           "team": "IK Oddevold",
-          "played": "12",
+          "played": "13",
           "gd": "+5",
-          "points": "18",
+          "points": "19",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/gxj75t1579903800.png"
         },
         {
           "pos": 9,
-          "team": "Helsingborgs IF",
-          "played": "12",
-          "gd": "-4",
-          "points": "17",
-          "badge": "https://r2.thesportsdb.com/images/media/team/badge/xogmss1592144703.png"
+          "team": "Östersunds",
+          "played": "13",
+          "gd": "+1",
+          "points": "19",
+          "badge": "https://r2.thesportsdb.com/images/media/team/badge/8s0ejz1644586526.png"
         },
         {
           "pos": 10,
           "team": "Sandvikens IF",
-          "played": "12",
+          "played": "13",
           "gd": "+2",
-          "points": "15",
+          "points": "16",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/4gslrk1579904587.png"
         },
         {
           "pos": 11,
           "team": "IK Brage",
-          "played": "12",
-          "gd": "-3",
-          "points": "13",
+          "played": "14",
+          "gd": "-1",
+          "points": "16",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/b5nixj1560591208.png"
         },
         {
           "pos": 12,
           "team": "Örebro SK",
-          "played": "12",
+          "played": "13",
           "gd": "-6",
-          "points": "13",
+          "points": "14",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/qrmule1592144711.png"
         },
         {
           "pos": 13,
           "team": "Ljungskile SK",
-          "played": "12",
+          "played": "13",
           "gd": "-1",
-          "points": "12",
+          "points": "13",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/wtqvry1429979320.png"
         },
         {
           "pos": 14,
           "team": "Norrby IF",
-          "played": "12",
+          "played": "13",
           "gd": "-5",
-          "points": "10",
+          "points": "11",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/hxzuyi1511624611.png"
         },
         {
           "pos": 15,
           "team": "IFK Värnamo",
-          "played": "12",
-          "gd": "-11",
+          "played": "13",
+          "gd": "-15",
           "points": "10",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/j1vlpe1639778697.png"
         },
         {
           "pos": 16,
           "team": "GIF Sundsvall",
-          "played": "12",
-          "gd": "-15",
+          "played": "13",
+          "gd": "-18",
           "points": "9",
           "badge": "https://r2.thesportsdb.com/images/media/team/badge/qpvpvy1429902703.png"
         }
       ],
       "recent": [
         {
-          "date": "2026-06-26",
-          "time": "17:00:00",
-          "home": "Brage",
-          "away": "Falkenberg",
-          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/b5nixj1560591208.png",
-          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/qqkdoc1592144686.png",
-          "score": "2–4",
+          "date": "2026-06-27",
+          "time": "13:00:00",
+          "home": "Varberg",
+          "away": "Öster",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/qsppwu1429976928.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/8s0ejz1644586526.png",
+          "score": "0–0",
           "video": null,
           "thumb": null
         }
@@ -310,11 +310,11 @@
       "upcoming": [
         {
           "date": "2026-06-27",
-          "time": "13:00:00",
-          "home": "Ljungskile",
-          "away": "Örebro",
-          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/wtqvry1429979320.png",
-          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/qrmule1592144711.png"
+          "time": "15:00:00",
+          "home": "United Nordic",
+          "away": "Oddevold",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/657eym1681540770.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/gxj75t1579903800.png"
         }
       ]
     },
