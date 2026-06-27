@@ -14,7 +14,7 @@ avbockade. Metrik (volym/KD) är informativ; verifieras vid nästa Ahrefs-refill
 - [x] innebandy ssl regler
 - [x] friidrott vm grenar
 - [x] vasaloppet distans och historia
-- [ ] hockeyns regler för nybörjare
+- [x] hockeyns regler för nybörjare
 - [ ] superettan vägen till allsvenskan
 - [ ] längdskidor världscup förklaring
 - [ ] offside regel fotboll förklaring
