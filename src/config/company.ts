@@ -9,7 +9,7 @@ export const companyConfig = {
     domain: "uppdragsport.se", // no protocol, no trailing slash
     logo: "/logo.png",
     email: "info@uppdragsport.se",
-    description: "Uppdragsport — svensk sport på djupet. Nyheter, analyser och reportage om fotboll, hockey och allt däremellan, dygnet runt.",
+    description: "Uppdragsport: svensk sport på djupet. Nyheter, analyser och reportage om fotboll, hockey och allt däremellan, dygnet runt.",
 
     // --- Address & legal ---------------------------------------------
     // Content-sajt: ingen fysisk adress / org.nr / telefon.
