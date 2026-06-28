@@ -1,6 +1,6 @@
 {
   "ok": true,
-  "fetched_at": "2026-06-27T14:14:59.795556+00:00",
+  "fetched_at": "2026-06-28T10:14:29.942703+00:00",
   "leagues": [
     {
       "id": "4347",
@@ -297,24 +297,24 @@
       "recent": [
         {
           "date": "2026-06-27",
-          "time": "13:00:00",
-          "home": "Varberg",
-          "away": "Öster",
-          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/qsppwu1429976928.png",
-          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/8s0ejz1644586526.png",
-          "score": "0–0",
+          "time": "15:00:00",
+          "home": "Sundsvall",
+          "away": "Östersund",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/qpvpvy1429902703.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/6pvzqm1592144722.png",
+          "score": "0–2",
           "video": null,
           "thumb": null
         }
       ],
       "upcoming": [
         {
-          "date": "2026-06-27",
-          "time": "15:00:00",
-          "home": "United Nordic",
-          "away": "Oddevold",
-          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/657eym1681540770.png",
-          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/gxj75t1579903800.png"
+          "date": "2026-06-28",
+          "time": "13:00:00",
+          "home": "Landskrona",
+          "away": "Värnamo",
+          "homeBadge": "https://r2.thesportsdb.com/images/media/team/badge/ekorbs1579903412.png",
+          "awayBadge": "https://r2.thesportsdb.com/images/media/team/badge/j1vlpe1639778697.png"
         }
       ]
     },
