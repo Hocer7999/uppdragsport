@@ -16,7 +16,7 @@ avbockade. Metrik (volym/KD) är informativ; verifieras vid nästa Ahrefs-refill
 - [x] vasaloppet distans och historia
 - [x] hockeyns regler för nybörjare
 - [x] superettan vägen till allsvenskan
-- [ ] längdskidor världscup förklaring
+- [x] längdskidor världscup förklaring
 - [ ] offside regel fotboll förklaring
 - [ ] handboll em format
 - [ ] poängsystem allsvenskan
