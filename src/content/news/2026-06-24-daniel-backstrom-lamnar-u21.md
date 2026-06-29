@@ -29,11 +29,11 @@ SvFF:s ansvarige Kim Källström betonade att arbetet ändå bidragit till att u
 
 ## Vad händer nu?
 
-Bäckström stannar kvar under höstens kvalmatcher innan han kliver av. SvFF börjar parallellt söka efter hans efterträdare — en ny förbundskapten förväntas ta täten för U21-programmet inför nästa kvalcykel.
+Bäckström stannar kvar under höstens kvalmatcher innan han kliver av. SvFF börjar parallellt söka efter hans efterträdare, och en ny förbundskapten förväntas ta täten för U21-programmet inför nästa kvalcykel.
 
-För svensk fotboll handlar det om mer än ett chefsbyte. U21-landslaget är traditionellt en motor för att förse A-truppen med tävlingsvana spelare. Att missa EM-kvalet innebär att spelarna går miste om dyrbar speltid på hög nivå — tid som annars kunde ha rustat dem för nästa steg mot en A-trupp som just nu är i full gång i VM 2026.
+För svensk fotboll handlar det om mer än ett chefsbyte. U21-landslaget är traditionellt en motor för att förse A-truppen med tävlingsvana spelare. Att missa EM-kvalet innebär att spelarna går miste om dyrbar speltid på hög nivå, tid som annars kunde ha rustat dem för nästa steg mot en A-trupp som just nu är i full gång i VM 2026.
 
-I vår analys om [Landslaget inför kvalet: tre frågor förbundskaptenen måste svara på](/artiklar/landslaget-infor-kvalet-tre-fragor/) belyste vi utmaningarna med att bygga ett sammanhållet spelarsystem — frågor som nu åter hamnar i centrum när U21-programmet söker ny riktning. Hur förbundet agerar under de kommande månaderna kan också påverka bredare frågor om den svenska fotbollens struktur, något som bland annat berörs i vår genomgång av [Allsvenskans formkurvor](/artiklar/allsvenskan-formkurvor-varens-overraskningar/).
+I vår analys [Landslaget inför kvalet: tre frågor förbundskaptenen måste svara på](/artiklar/landslaget-infor-kvalet-tre-fragor/) belyste vi utmaningarna med att bygga ett sammanhållet spelarsystem, frågor som nu åter hamnar i centrum när U21-programmet söker ny riktning.
 
 **Källor:** [SVT Sport](https://www.svt.se/sport/fotboll/u21-landslagets-forbundskapten-daniel-backstrom-lamnar-i-fortid) · [Expressen Sport](https://www.expressen.se/sport/fotboll/landslaget/daniel-backstrom-lamnar-u21-landslaget/)
 

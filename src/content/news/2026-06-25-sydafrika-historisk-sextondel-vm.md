@@ -40,11 +40,9 @@ Broos antydde också att matchen kan vara en av de sista i hans långa tränarka
 
 Sydafrika var visserligen värdland för VM 2010 men avancerade aldrig till slutspelet den gången. Nu, 16 år senare, är det verklighet. Laget – känt för sina passionerade supporters och en spelstil som prioriterar kollektiv disciplin framför individuell stjärnglans – tar steget in på terräng ingen sydafrikansk VM-trupp beträtt förut.
 
-Kontexten är viktig: det här VM-spelet äger rum i Nordamerika (USA, Kanada och Mexiko som värdländer), och för afrikanska lag är turneringen en chans att visa att kontinenten producerar fotboll av absolut världsklass. Sydafrikas avancemang är ett av de mer uppseendeväckande i detta mästerskaps gruppspelets sista omgång.
+Kontexten är viktig: det här VM-spelet äger rum i Nordamerika (USA, Kanada och Mexiko som värdländer), och för afrikanska lag är turneringen en chans att visa att kontinenten producerar fotboll av absolut världsklass. Sydafrikas avancemang hör till de mer uppseendeväckande i mästerskapets sista gruppspelsomgång.
 
-Kommande motståndare i sextondel är Kanada, värdnation och ett lag med hemstöd. Det blir ingen lätt uppgift – men Bafana Bafanas insats mot Sydkorea visar att det är ett lag med mod att stå emot press.
-
-För den som följer VM 2026 och vill ha mer bakgrund om fotbollshistoriens rekordmakare är vår genomgång av [Messis rekord som VM-skyttekung](/artiklar/messi-vm-skyttekung/) och [Ronaldo som märkt historia i sex VM](/artiklar/ronaldo-sex-vm/) läsvärd kontext om vad mästerskapets storscenen kan åstadkomma.
+Kommande motståndare i sextondel är Kanada, värdnation och ett lag med hemstöd. Det blir ingen lätt uppgift, men Bafana Bafanas insats mot Sydkorea visar att det är ett lag med mod att stå emot press.
 
 **Källor:** [SVT Sport](https://www.svt.se/sport/fotboll/sydafrika-vidare-i-fotbolls-vm-efter-tung-seger-mot-sydkorea) · [Fotbollskanalen](https://www.fotbollskanalen.se/artiklar/vm-2026/sydafrika-tog-forsta-segern---klart-for-sextondel)
 

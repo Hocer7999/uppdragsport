@@ -42,15 +42,15 @@ Tävlingsdagen präglades av extrem sommarvärme på Red Bull Ring, och temperat
 
 "Jag är otroligt glad att vara tillbaka på översta steget. Det är länge sedan, så jag kommer definitivt att njuta av detta senare", sa Russell direkt efter loppet.
 
-Segern är den brittiske föraren andra för säsongen och bevisar att Mercedes återigen är ett lag som kan slåss om race-vinster när omständigheterna stämmer.
+Segern är den brittiske förarens andra för säsongen och visar att Mercedes återigen kan slåss om segrar när omständigheterna stämmer.
 
 ## Mästerskapsläge efter Österrike
 
-Med loppet avklarat ser mästarskapsställningen ut så här:
+Med loppet avklarat ser mästerskapsställningen ut så här:
 
-1. Kimi Antonelli (Mercedes) — 171 poäng
-2. George Russell (Mercedes) — 131 poäng
-3. Lewis Hamilton — 125 poäng
+1. Kimi Antonelli (Mercedes), 171 poäng
+2. George Russell (Mercedes), 131 poäng
+3. Lewis Hamilton, 125 poäng
 
 Antonelli behåller sin ledning med 40 poäng till Russell, men med tanke på att två Mercedes-förare delar topplatser kan det bli en intern rivalisering som komplicerar teamets strategibeslut i säsongens andra halva.
 

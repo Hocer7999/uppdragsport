@@ -19,7 +19,7 @@ imageAlt: "Fotbollsspelare i rörelse på en välupplyst arena vid kusten under 
 isBreaking: false
 ---
 
-Hammarby körde över BK Häcken med 4–1 i kvällens träningsmatch på Havsvallen i Smögen. Resultatet ger positiva signaler inför Allsvenskans återstart — men på plats längs sidlinjen stod inte Henrik Rydström, eftersom den nyligen anställde tränaren befann sig på planerad familjeled.
+Hammarby körde över BK Häcken med 4–1 i kvällens träningsmatch på Havsvallen i Smögen. Resultatet ger positiva signaler inför Allsvenskans återstart, men på plats längs sidlinjen stod inte Henrik Rydström, eftersom den nyligen anställde tränaren befann sig på planerad familjeled.
 
 ## Hammarby dominerade från start
 
@@ -29,21 +29,21 @@ I andra halvlek fortsatte Hammarby att kontrollera matchen. I den 87:e minuten s
 
 ## Rydströms debut får vänta
 
-Att Henrik Rydström inte var på plats var känt i förväg. Den nytillträdde tränaren, känd från bland annat Malmö FF, tillträdde officiellt som Hammarbys huvudtränare den 25 juni — en dag efter träningsmatchen i Smögen. Rydström hade i förhand klarat av att familjen skulle få sin tid innan uppdraget tog full fart.
+Att Henrik Rydström inte var på plats var känt i förväg. Den nytillträdde tränaren, känd från bland annat Malmö FF, tillträdde officiellt som Hammarbys huvudtränare den 25 juni, en dag efter träningsmatchen i Smögen. Rydström hade i förhand klarat av att familjen skulle få sin tid innan uppdraget tog full fart.
 
 – Från den 25 juni kommer det att vara hundra procent fokus på Hammarby, men för att det ska kunna vara det behöver familjen få denna tid, förklarade Rydström inför lägret.
 
-Hammarbys sportchef Mikael Hjelmberg bekräftade att klubben var fullt medveten om arrangmanget redan under förhandlingarna och respekterar Rydströms planering.
+Hammarbys sportchef Mikael Hjelmberg bekräftade att klubben var fullt medveten om arrangemanget redan under förhandlingarna och respekterar Rydströms planering.
 
 ## En bra måttstock för båda lagen
 
 Häckens tränare Jens Gustafsson hade inför mötet lyft matchen som en viktig indikator på lagets nivå inför hösten. Resultatet ger Häcken-lägret en del att begrunda.
 
-För Hammarby är det däremot starka signaler. Att tre olika spelare — Eriksson, Kaboré och Vasic — hittar nätet tyder på bredd i anfallet, vilket kan visa sig avgörande under den tätare matchprogramsperiod som väntar när Allsvenskan drar igång på allvar igen. Hur tabellbilden ser ut och vad varje poäng är värd för placeringen kan du läsa mer om i [Allsvenskan tabellförklaring: poängsystem, kolumner och vad platsen avgör](/artiklar/allsvenskan-tabell-forklaring/).
+För Hammarby är det däremot starka signaler. Att tre olika spelare (Eriksson, Kaboré och Vasic) hittar nätet tyder på bredd i anfallet, vilket kan visa sig avgörande under den tätare matchprogramsperiod som väntar när Allsvenskan drar igång på allvar igen. Hur tabellbilden ser ut och vad varje poäng är värd för placeringen kan du läsa mer om i [Allsvenskan tabellförklaring: poängsystem, kolumner och vad platsen avgör](/artiklar/allsvenskan-tabell-forklaring/).
 
 ## Vad händer härnäst?
 
-Henrik Rydström tar officiellt över rodret den 25 juni och påbörjar då sin första fullständiga träningsvecka med truppen. Hur han väljer att forma Hammarby taktiskt — och vilka spelare som platsar i startelvans kärna — är frågorna som lär dominera sommaren i Södermalm-klubbens omgivning.
+Henrik Rydström tar officiellt över rodret den 25 juni och påbörjar då sin första fullständiga träningsvecka med truppen. Hur han väljer att forma Hammarby taktiskt, och vilka spelare som platsar i startelvans kärna, är frågorna som lär dominera sommaren kring Hammarby.
 
 En träningsmatch är inte ett seriespel, men 4–1 mot ett starkt Häcken-lag skickar ändå ett tydligt budskap inför resten av säsongen.
 

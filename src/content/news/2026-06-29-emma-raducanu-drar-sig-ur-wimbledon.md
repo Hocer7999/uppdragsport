@@ -38,7 +38,7 @@ Inför Wimbledon fanns ändå optimism. Hon tog sig nyligen till final i grästu
 
 ## Vad händer nu
 
-Något exakt datum för comeback har inte angetts. Raducanu uppger att fokus nu ligger på behandling tillsammans med teamet. En stressfraktur kräver vila, och hur lång frånvaron blir avgörs av läkningen.
+Något exakt datum för återkomst har inte angetts. Raducanu uppger att fokus nu ligger på behandling tillsammans med teamet. En stressfraktur kräver vila, och hur lång frånvaron blir avgörs av läkningen.
 
 Avhoppet gör att Wimbledon inleds utan sin mest profilerade brittiska spelare i damklassen. För svensk publik som följer en fullspäckad sportsommar är det ännu en påminnelse om hur tunn marginalen är mellan toppform och skada, något som också präglar [de svenska medaljhoppen inför friidrotts-VM](/artiklar/friidrotts-vm-svenska-medaljhoppen/).
 
