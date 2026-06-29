@@ -30,13 +30,9 @@ För förbundskapten Jesse Marsch innebär resultatet att den ena av VM:s tre v�
 
 För Sydafrika tar VM-resan slut i sextondelsfinalen. Bafana Bafana hade redan överträffat förväntningarna genom att över huvud taget nå slutspelet, något laget aldrig tidigare lyckats med, och mötet med en av värdnationerna blev en match på marginaler. Just Kanada pekades ut som motståndare redan när Sydafrika säkrade sin plats, vilket vi skrev om när [Sydafrika tog sig vidare till sin historiska sextondelsfinal](/nyheter/2026-06-25-sydafrika-historisk-sextondel-vm/).
 
-Avancemanget innebär att Kanada nu väntar på besked om motståndare i åttondelsfinalen. Laget ställs mot vinnaren av Marocko–Nederländerna, och nästa match spelas i Houston den 4 juli.
+## Nästa motstånd avgörs i Houston
 
-## Storscenen som avgör
-
-VM-slutspel handlar ofta om enskilda ögonblick, och Eustaquios sena mål är ännu ett exempel på hur tunna marginalerna är när det väl gäller. För den som vill ha mer bakgrund om vad mästerskapets storscen kan åstadkomma är vår genomgång av [Messis rekord som VM-skyttekung](/artiklar/messi-vm-skyttekung/) och [Ronaldo som gjort mål i sex VM](/artiklar/ronaldo-sex-vm/) läsvärd kontext.
-
-Hur långt Kanada kan nå avgörs i Houston, men ett står klart: värdnationen lever fortfarande i sitt eget mästerskap. Med blicken mot framtiden är det också värt att hålla koll på hur det svenska landslaget står sig, något vi gick igenom inför [landslagets kval och de tre stora frågorna](/artiklar/landslaget-infor-kvalet-tre-fragor/).
+I åttondelsfinalen möter Kanada vinnaren av Marocko–Nederländerna. Matchen spelas i Houston den 4 juli, och en av mästerskapets tre värdnationer är därmed fortfarande kvar i sitt eget VM. Eustaquios sena mål blev ännu ett exempel på hur tunna marginalerna är när ett VM-slutspel ska avgöras.
 
 **Källor:** [SVT Sport](https://www.svt.se/sport/fotboll/lagkaptenen-hjalte-i-slutminuterna-nar-kanada-slog-ut-sydafrika) · [NBC Sports](https://www.nbcsports.com/soccer/live/south-africa-vs-canada-live-updates-score-goals-highlights-stats-from-2026-fifa-world-cup)
 
