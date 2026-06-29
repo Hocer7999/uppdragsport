@@ -24,13 +24,13 @@ Thapelo Maseko satte det avgörande målet i den 63:e minuten efter en framspeln
 
 Sydafrika gick in i matchen i ett knivskärpt läge. Med bara en poäng i bagaget – ett 0–0-kryss mot Tjeckien och en 0–3-förlust mot Mexiko – behövde de vinna för att ha en realistisk chans att ta sig vidare.
 
-Sydkorea, å sin sida, satsade hårt på bollinnehav men lyckades sällan skapa riktliga målchanser. Sydafrikas defensiv höll ihop, och i kontrings-situationer var laget farliga. När Maseko tog vara på Moremis framspelning i den 63:e minuten och satte 1–0 slog kedjan.
+Sydkorea, å sin sida, satsade hårt på bollinnehav men lyckades sällan skapa riktiga målchanser. Sydafrikas defensiv höll ihop, och i kontringssituationer var laget farligt. När Maseko tog vara på Moremis framspelning i den 63:e minuten och satte 1–0 var avgörandet ett faktum.
 
-Avancemang rörde sig om mer än bara ett resultat. Det var 20 minuter av sista halvlek där varje minut räknades – svettiga, nervösa och fyllda med engagemang på läktarna.
+Avancemanget handlade om mer än bara ett resultat. Det var 20 minuter av sista halvlek där varje minut räknades – svettiga, nervösa och fyllda med engagemang på läktarna.
 
 ## Tränarens tårar
 
-Tränaren Hugo Broos föll på knä när domaren blåste av. Den 72-årige belgaren, som lett Sydafrika sedan 2021, välte i känslosamt mode inför kameror och publik.
+Tränaren Hugo Broos föll på knä när domaren blåste av. Den 72-årige belgaren, som lett Sydafrika sedan 2021, brast ut i känslor inför kameror och publik.
 
 – Vi spelade en riktigt bra match. Det var väldigt svårt för Sydkorea att hitta ytor och vi försvarade bra. Vi gjorde målet och sedan var det 20 minuter med bultande hjärtan medan vi väntade på slutsignalen, säger Broos till FIFA.
 
@@ -38,9 +38,9 @@ Broos antydde också att matchen kan vara en av de sista i hans långa tränarka
 
 ## En nation firar
 
-Sydafrika var visserligen värdland för VM 2010 men avancerade aldrig till slutspelet den gången. Nu, 16 år senare, är det verklighet. Laget – känt för sina passionerade supporters och en spelstil som prioriterar kollektiv disciplin framför individuell stjärnglans – tar steget in på terräng ingen sydafrikansk VM-trupp beträtt förut.
+Sydafrika var visserligen värdland för VM 2010 men avancerade aldrig till slutspelet den gången. Nu, 16 år senare, är det verklighet. Laget – känt för sina passionerade supporters och en spelstil som prioriterar kollektiv disciplin framför individuell stjärnglans – når längre än någon sydafrikansk VM-trupp gjort förut.
 
-Kontexten är viktig: det här VM-spelet äger rum i Nordamerika (USA, Kanada och Mexiko som värdländer), och för afrikanska lag är turneringen en chans att visa att kontinenten producerar fotboll av absolut världsklass. Sydafrikas avancemang hör till de mer uppseendeväckande i mästerskapets sista gruppspelsomgång.
+Kontexten är viktig: det här mästerskapet spelas i Nordamerika (USA, Kanada och Mexiko som värdländer), och för afrikanska lag är turneringen en chans att visa att kontinenten producerar fotboll av absolut världsklass. Sydafrikas avancemang hör till de mer uppseendeväckande i mästerskapets sista gruppspelsomgång.
 
 Kommande motståndare i sextondel är Kanada, värdnation och ett lag med hemstöd. Det blir ingen lätt uppgift, men Bafana Bafanas insats mot Sydkorea visar att det är ett lag med mod att stå emot press.
 

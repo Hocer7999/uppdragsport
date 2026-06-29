@@ -22,7 +22,7 @@ Isaac Shears, anfallare i Ljungskile SK, har diagnosticerats med en hjärntumör
 
 ## Klubben bekräftar diagnosen
 
-Superettan-laget Ljungskile SK offentliggjorde nyheten i ett kortfattat men tungt uttalande. Diagnosen är ett hårt slag för spelaren, för laget och för alla som följer grönvitt.
+Superettan-laget Ljungskile SK offentliggjorde nyheten i ett kortfattat men tungt uttalande. Diagnosen är ett hårt slag för spelaren, för laget och för alla som följer Ljungskile.
 
 "Isaac kommer att opereras och genomgå erforderlig efterbehandling. Han kommer därför inte att vara aktuell för spel under en tid framöver", skriver klubben.
 
@@ -30,9 +30,9 @@ Ljungskile uppmanar fans och media att visa respekt för situationen. Frågor fr
 
 ## Isaac Shears – karriär och bakgrund
 
-Shears har haft en gedigen resa i den svenska fotbollsstrukturen. Han slog igenom ordentligt hos Vänersborg, där han satte åtta mål under en säsong trots att laget åkte ur Ettan Södra – ett resultat som väckte uppmärksamhet och ledde till ett låneavtal med Falkenberg. Därifrån tog vägen till Ljungskile SK, som spelar i [Superettan – divisionen direkt under Allsvenskan](/artiklar/allsvenskan-tabell-forklaring/) i den svenska fotbollspyramiden.
+Shears har haft en gedigen resa i den svenska fotbollsstrukturen. Han slog igenom ordentligt hos Vänersborg, där han satte åtta mål under en säsong trots att laget åkte ur Ettan Södra – ett resultat som väckte uppmärksamhet och ledde till ett låneavtal med Falkenberg. Därifrån tog vägen till Ljungskile SK, som spelar i Superettan, divisionen direkt under Allsvenskan i den svenska fotbollspyramiden.
 
-Beskrivningarna av Shears som spelare lyfter fram hans löpvilja, fysiska styrka och förmåga att skapa djupled – egenskaper som gjort honom till en viktig kugge i Ljungskiles offensiv.
+Beskrivningarna av Shears som spelare lyfter fram hans löpvilja, fysiska styrka och förmåga att skapa djup i anfallsspelet, egenskaper som gjort honom till en viktig kugge i Ljungskiles offensiv.
 
 ## Stöd från fotbollssverige
 

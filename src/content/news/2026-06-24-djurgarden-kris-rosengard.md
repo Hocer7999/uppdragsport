@@ -35,21 +35,17 @@ I den andra halvleken förvärrades situationen ytterligare för Djurgård. Pabi
 
 Med förlusten är Djurgårdens IF DFF kvar på 13:e plats med 8 poäng – ned i den del av tabellen som innebär direktnedflyttning eller kval. Rosengård klättrar till 11:e plats med 9 poäng.
 
-Säsongen hade inletts med hopp om att Djurgård skulle kunna etablera sig i mitten av tabellen, men ett tufft vårhalvår har ryckt undan mattan. Djurgårds defensiv har gång på gång haft svårt att hantera motståndare som spelar med snabb kombinationsfotboll, precis som Rosengård demonstrerade på ett övertygande sätt på Malmö IP.
+Säsongen hade inletts med hopp om att Djurgård skulle kunna etablera sig i mitten av tabellen, men under ett tufft vårhalvår har det vänt. Djurgårds defensiv har gång på gång haft svårt att hantera motståndare som spelar med snabb kombinationsfotboll, precis som Rosengård demonstrerade på ett övertygande sätt på Malmö IP.
 
 – Det är tufft när man kämpat hårt under hela vårsäsongen. Det gäller att resa sig och fortsätta kämpa, sade Therese Åsland till SVT Sport efter matchen.
 
 Olivia Olenius reflekterade kring varifrån problemen kommer:
 
-– Det är svårt att peka ut en enda sak som inte fungerar. Det är lite av allt – vi tappar dueller och blir slarviga i pasningsspelet, sade hon.
+– Det är svårt att peka ut en enda sak som inte fungerar. Det är lite av allt – vi tappar dueller och blir slarviga i passningsspelet, sade hon.
 
 ## Paus och omstart i slutet av juli
 
 Damallsvenskan tar nu paus och återupptas i slutet av juli. Det ger Djurgårds tränarstab och spelartrupp ett viktigt andrum för att arbeta med de strukturella svagheter som uppenbarade sig i Malmö. Träningstiden fram till serieåterstart kommer att vara avgörande om Djurgård ska ha en chans att klättra bort från nedflyttningsstrecket och rädda sin plats i Damallsvenskan.
-
-Damfotbollen är i övrigt aktiv på transfermarknaden: [Felicia Schröder lämnar för Real Madrid](/nyheter/2026-06-24-felicia-schroder-real-madrid/) illustrerar hur europeiska storklubbar söker just svenska spelare – en rörelse som gör det extra viktigt för svenska lag att hålla ihop sina trupper. För Djurgård handlar det nu om det omvända: stabilitet och att behålla kärnan inför avgörande höstomgångar.
-
-Det svenska seriesystemet med poängräkning och tabellplacering – och vad som faktiskt avgörs av platsen i tabellen – förklaras i vår guide till [hur Allsvenskan-tabellen fungerar](/artiklar/allsvenskan-tabell-forklaring/), vars principer gäller lika väl i Damallsvenskan.
 
 **Källor:** [SVT Sport](https://www.svt.se/sport/fotboll/djurgarden-forlorade-krismotet-pabiahaila-hjalte-for-rosengard) · [Sofascore](https://www.sofascore.com/football/match/rosengard-djurgardens-if-dff/DMsLM#id:15254061)
 

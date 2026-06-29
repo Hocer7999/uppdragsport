@@ -33,8 +33,6 @@ Bäckström stannar kvar under höstens kvalmatcher innan han kliver av. SvFF b�
 
 För svensk fotboll handlar det om mer än ett chefsbyte. U21-landslaget är traditionellt en motor för att förse A-truppen med tävlingsvana spelare. Att missa EM-kvalet innebär att spelarna går miste om dyrbar speltid på hög nivå, tid som annars kunde ha rustat dem för nästa steg mot en A-trupp som just nu är i full gång i VM 2026.
 
-I vår analys [Landslaget inför kvalet: tre frågor förbundskaptenen måste svara på](/artiklar/landslaget-infor-kvalet-tre-fragor/) belyste vi utmaningarna med att bygga ett sammanhållet spelarsystem, frågor som nu åter hamnar i centrum när U21-programmet söker ny riktning.
-
 **Källor:** [SVT Sport](https://www.svt.se/sport/fotboll/u21-landslagets-forbundskapten-daniel-backstrom-lamnar-i-fortid) · [Expressen Sport](https://www.expressen.se/sport/fotboll/landslaget/daniel-backstrom-lamnar-u21-landslaget/)
 
 *Den här nyheten är sammanställd automatiskt av Uppdragsports redaktion. Fakta är kontrollerade mot källorna ovan.*

@@ -26,19 +26,19 @@ Chelsea uppges vara seriöst intresserade av att värva Leeds Uniteds svenske v�
 
 Bakgrunden till intresset är Marc Cucurellas väntade avfärd. Den spanske vänsterbacken uppges ha avtalat med Real Madrid och lämnar Stamford Bridge i sommar, vilket skapar ett akut behov av en ny specialist på vänsterkanten i Chelseas trupp. Ägarkoncernen BlueCo har identifierat Gudmundsson som den attraktivaste lösningen.
 
-Enligt Football365 och The Leeds Press är en övergång till Chelsea en "drömflytt" för 27-åringen. Gudmundsson, som är känd för sin offensiva spelstil och sina störtlopp längs kanten, håller nu ett VM-fönster öppet för ett affärsavslut under pågående slutspelsveckor.
+Enligt Football365 och The Leeds Press vore en övergång till Chelsea en drömflytt för 27-åringen. Gudmundsson, som är känd för sin offensiva spelstil och sina störtlopp längs kanten, syns nu i VM-slutspelet samtidigt som en affär kan ta form.
 
 ## Kontrakt och prislapp – Leeds vill hålla kvar
 
-Det finns dock ett praktiskt hinder: Gudmundsson är kontrakterad med Leeds United fram till 2029. Laget hämtade backen från franska Lille under sommaren 2025 för ungefär 130 miljoner kronor (£10 miljoner), och klubbens ledning uppges inte vara villig att sälja utan en klart högre ersättning.
+Det finns dock ett praktiskt hinder: Gudmundsson är kontrakterad med Leeds United fram till 2029. Laget hämtade backen från franska Lille under sommaren 2025 för ungefär 130 miljoner kronor (cirka 10 miljoner pund), och klubbens ledning uppges inte vara villig att sälja utan en klart högre ersättning.
 
 Chelseas tillträdande tränare – Xabi Alonso, som formellt kliver in den 1 juli – har ännu inte offentligt kommenterat transaktionen. Spanjoren väntas dock vara delaktig i alla stora värvningsbeslut inför sin premiärsäsong.
 
-Gudmundsson noterade 1 mål och 1 assist på 35 matcher i samtliga tävlingar under säsongen 2025/26, vilket föranledde Leeds-tränaren Daniel Farke att lyfta fram honom som en av lagets bästa spelare. Det är ett betyg som uppenbarligen inte undgått de som scouter för det londonska klubbhållet.
+Gudmundsson noterade 1 mål och 1 assist på 35 matcher i samtliga tävlingar under säsongen 2025/26, vilket föranledde Leeds-tränaren Daniel Farke att lyfta fram honom som en av lagets bästa spelare. Det är ett betyg som uppenbarligen inte undgått Chelseas scouter.
 
 ## VM-fönstret – ökad synlighet för backen
 
-Att Gudmundsson befinner sig i ett pågående VM-slutspel är ingen nackdel för potentiella köpare. Varje match spelas inför ett globalt TV-auditorium och starka prestationer kan driva upp en spelares marknadsvärde i realtid. Hur förbundskaptenen resonerar kring truppen och dess nyckelspelare inför kommande avgöranden analyseras i [Landslaget inför kvalet: tre frågor förbundskaptenen måste svara på](/artiklar/landslaget-infor-kvalet-tre-fragor/).
+Att Gudmundsson befinner sig i ett pågående VM-slutspel är ingen nackdel för potentiella köpare. Varje match spelas inför ett globalt TV-auditorium och starka prestationer kan driva upp en spelares marknadsvärde i realtid.
 
 Chelsea sägs också ha ögonen på den mångsidige backen Marco Palestra från Atalanta, men det är Gudmundsson som framhålls som det primära vänsterbacksmålet inför sommarens transferfönster.
 

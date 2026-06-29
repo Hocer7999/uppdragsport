@@ -24,13 +24,13 @@ Malmö FF har officiellt bekräftat värvningen av den spanske anfallaren Diego 
 
 ## Fostrad i Real Madrids akademi – slog igenom i Leganés
 
-García växte upp i Madrid och tog sina första fotbollssteg i Real Madrids ungdomsakademi, en av Europas mest ansedda tränarfabriker. Efter att ha representerat Rayo Vallecanos reservlag tog han klivet till CD Leganés, där han gradvis etablerade sig i förstaeleven.
+García växte upp i Madrid och tog sina första fotbollssteg i Real Madrids ungdomsakademi, en av Europas mest ansedda talangfabriker. Efter att ha representerat Rayo Vallecanos reservlag tog han klivet till CD Leganés, där han gradvis etablerade sig i förstaeleven.
 
-Det stora genombrottet kom säsongen 2023–24, när García stod för 12 mål och spelade en central roll i att lyfta Leganés tillbaka till La Liga – Spaniens högsta serie. Förra säsongen, i det tuffa toppskiktet, bidrog han med 3 mål och 4 assist. När Leganés sedan degraderades tillbaka till andraligan valde García att söka sig vidare, och vägen ledde till Sverige och [Allsvenskan](/artiklar/allsvenskan-tabell-forklaring/).
+Det stora genombrottet kom säsongen 2023–24, när García stod för 12 mål och spelade en central roll i att lyfta Leganés tillbaka till La Liga – Spaniens högsta serie. Förra säsongen, i det tuffa toppskiktet, bidrog han med 3 mål och 4 assist. När Leganés sedan degraderades tillbaka till andraligan valde García att söka sig vidare, och vägen ledde till Sverige och Allsvenskan.
 
 ## Berglund om värvet: "Följt Diego under flera år"
 
-Sportchef Philip Berglund är nöjd med den affär MFF lyckats ro i land. "Vi är enormt glada att knyta till oss en forward som Diego och ser fram emot att få honom i träning här hos oss så fort som möjligt", säger han i en officiell kommentar.
+Sportchef Philip Berglund är nöjd med den affär MFF lyckats ro i land. "Vi är enormt glada att knyta till oss en anfallare som Diego och ser fram emot att få honom i träning här hos oss så fort som möjligt", säger han i en officiell kommentar.
 
 Berglund lyfter särskilt fram García som en anfallare med "smart och solid pressningsspel" och utmärkt positionering i straffområdet – kvaliteter som faller väl in i hur Malmö FF vill spela framöver. Klubben uppges ha följt den spanske anfallaren under ett flertal år innan affären till slut gick i lås.
 
@@ -40,9 +40,9 @@ García själv är tydlig med varför valet föll på MFF. "Jag vet att Malmö F
 
 García tar ett av de mest symboliska tröjnumren i fotbollen – nio, den klassiska mittanfallarnumreringen. Målsättningen är att han ska vara fullt konkurrenskraftig och integrerad i truppen när sommarens transferfönster slår upp dörrarna den 7 juli 2026.
 
-För Malmö FF, som är [ett av Allsvenskans mest resursstarka lag](/artiklar/allsvenskan-formkurvor-varens-overraskningar/), innebär García-värvet en offensiv förstärkning med beprövad europeisk erfarenhet. Med bakgrund i Real Madrids ungdomssystem och meriterna från Spaniens La Liga är spanjoren ett steg upp i kvalitetsnivå för den svenska elitserien.
+För Malmö FF, som är ett av Allsvenskans mest resursstarka lag, innebär García-värvet en offensiv förstärkning med europeisk rutin. Med bakgrund i Real Madrids ungdomssystem och meriterna från Spaniens La Liga är spanjoren ett steg upp i kvalitetsnivå för den svenska elitserien.
 
-Vad García kan tillföra i det dagliga arbetet på träningsanläggningen, och hur snabbt han anpassar sig till svenska fotbollsförhållanden, återstår att se. Men MFF-ledningens förtroende är tydligt – och värvningen signalerar klubbens ambitioner inför hösten i [Allsvenskan](/artiklar/nar-borjar-allsvenskan/).
+Vad García kan tillföra i det dagliga arbetet på träningsanläggningen, och hur snabbt han anpassar sig till svenska fotbollsförhållanden, återstår att se. Men MFF-ledningens förtroende är tydligt, och värvningen signalerar klubbens ambitioner inför hösten i Allsvenskan.
 
 **Källor:** [Malmö FF (officiellt)](https://www.mff.se/nyheter/malmo-ff-varvar-anfallaren-diego-garcia-2026-06-26/) · [Fotbolltransfers.com](https://fotbolltransfers.com/nyheter/officiellt-malmo-ff-varvar-diego-garcia/217901) · [Bollsvenskan](https://bollsvenskan.se/klart-diego-garcia-till-malmo-ff-kontrakt-till-2029-trojnummer-9/)
 

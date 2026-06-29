@@ -26,7 +26,7 @@ BK Häcken och Real Madrid bekräftade på tisdagen att Felicia Schröder, 19 å
 
 ## Rekordet som förändrar damfotbollens transfermarknad
 
-Real Madrid offentliggjorde övergången via ett officiellt pressmeddelande den 23 juni. Schröder, som i höst fyller 20 år, exploderade på europeisk nivå under sin tid i Häcken. Det starka argumentet inför transferdiskussionerna var framför allt det nyinrättade Women's Europa Cup, där hon nätade samtliga fyra Häcken-mål i de två finalomgångarna och hjälpte laget ta det historiska titeln.
+Real Madrid offentliggjorde övergången via ett officiellt pressmeddelande den 23 juni. Schröder, som i höst fyller 20 år, exploderade på europeisk nivå under sin tid i Häcken. Det starka argumentet inför transferdiskussionerna var framför allt det nyinrättade Women's Europa Cup, där hon nätade samtliga fyra Häcken-mål i de två finalomgångarna och hjälpte laget ta den historiska titeln.
 
 Chelsea i den engelska WSL uppges ha legat steget före länge, men Real Madrid valde att gå in med ett bud som sattes rekordhögt. Resultatet är en transfer som krossar det tidigare pristaket för en damspelare och sätter en ny riktlinje för marknaden.
 
@@ -38,9 +38,9 @@ Marklund hade personligen föredragit att se den svenska stjärnan ta steget til
 
 ## Häckens Europa-succé gav utväxling
 
-Häcken har de senaste åren befäst sin plats bland Skandinaviens bästa damklubb. Schröders avgörande Europa Cup-bidrag var det ultimata skyltfönstret – fyra mål i en tvåmatchad final är en prestation som få stjärnor kan matcha. I [vårens formkurvor från Allsvenskan](/artiklar/allsvenskan-formkurvor-varens-overraskningar/) syns hur göteborgarna byggde upp den offensiva rytmen som sedan gav utdelning på europaarenan.
+Häcken har de senaste åren befäst sin plats bland Skandinaviens bästa damklubbar. Schröders avgörande Europa Cup-bidrag var det bästa tänkbara skyltfönstret – fyra mål i en tvåmatchad final är en prestation som få stjärnor kan matcha.
 
-Schröder är även aktuell i det svenska damlandslaget, och flytten till en av Europas mest profilerade klubbar lär höja hennes status ytterligare. Hur förbundskaptenen ser på resurserna i truppen inför kommande kval berörs i vår analys [om landslagets läge inför kvalet](/artiklar/landslaget-infor-kvalet-tre-fragor/).
+Schröder är även aktuell i det svenska damlandslaget, och flytten till en av Europas mest profilerade klubbar lär höja hennes status ytterligare.
 
 ## Nästa steg: dokumentär på SVT Play
 

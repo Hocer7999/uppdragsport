@@ -19,7 +19,7 @@ sources:
 isBreaking: true
 ---
 
-Centerback Isak Hien tvingades lämna planen i den 34:e minuten under Sveriges avgörande gruppspelsmatch mot Japan vid VM i Nordamerika. En inkommande nick resulterade i vad som ser ut att vara en allvarlig lårskada, och förbundskapten Graham Potter var tydlig i sin bedömning direkt efteråt.
+Mittbacken Isak Hien tvingades lämna planen i den 34:e minuten under Sveriges avgörande gruppspelsmatch mot Japan vid VM i Nordamerika. En inkommande nick resulterade i vad som ser ut att vara en allvarlig lårskada, och förbundskapten Graham Potter var tydlig i sin bedömning direkt efteråt.
 
 "Det ser illa ut. Det är förödande för honom", sa Potter i mixad zon efter matchen.
 
@@ -39,11 +39,11 @@ Hiens avgång satte direkt press på resten av försvaret. Lucas Bergvall steg i
 
 Potter tonade ned Lindelöfs bekymmer: "En kramp är en kramp" – och bedömde att han bör vara redo efter vila och massage.
 
-Hien har länge varit en av de mest stabila delarna i [det svenska landslagets defensiv](/artiklar/landslaget-infor-kvalet-tre-fragor/). En längre frånvaro är ett tungt slag för ett lag som hittills hållit tätt i ett av de tuffaste grupperna i årets VM.
+Hien har länge varit en av de mest stabila delarna i [det svenska landslagets defensiv](/artiklar/landslaget-infor-kvalet-tre-fragor/). En längre frånvaro är ett tungt slag för ett lag som hittills hållit tätt i en av de tuffaste grupperna i årets VM.
 
 ## Historisk turnering med en bitter skugga
 
-[VM 2026 i Nordamerika har redan levererat stormatch efter stormatch](/artiklar/messi-vm-skyttekung/), men för Sverige är glädjen av avancemang nu oundvikligen blandad med djup oro. Jacob Widell Zetterström, Blågults målvakt, stod för en avgörande räddning under matchen och var en av kvällens hjältar – men det är Hiens hälsa som nu dominerar samtalen i det svenska lägret.
+VM 2026 i Nordamerika har redan bjudit på stormatch efter stormatch, men för Sverige är glädjen över avancemanget nu oundvikligen blandad med djup oro. Jacob Widell Zetterström, Blågults målvakt, stod för en avgörande räddning under matchen och var en av kvällens hjältar – men det är Hiens hälsa som nu dominerar samtalen i det svenska lägret.
 
 Potter och hela truppen inväntar torsdagens medicinska besked med blandade känslor: glada över att ha tagit sig förbi gruppspelet, men djupt bekymrade över en av sina nyckelpjäser.
 

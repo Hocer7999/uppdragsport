@@ -39,7 +39,7 @@ Hammarbys sportchef Mikael Hjelmberg bekräftade att klubben var fullt medveten 
 
 Häckens tränare Jens Gustafsson hade inför mötet lyft matchen som en viktig indikator på lagets nivå inför hösten. Resultatet ger Häcken-lägret en del att begrunda.
 
-För Hammarby är det däremot starka signaler. Att tre olika spelare (Eriksson, Kaboré och Vasic) hittar nätet tyder på bredd i anfallet, vilket kan visa sig avgörande under den tätare matchprogramsperiod som väntar när Allsvenskan drar igång på allvar igen. Hur tabellbilden ser ut och vad varje poäng är värd för placeringen kan du läsa mer om i [Allsvenskan tabellförklaring: poängsystem, kolumner och vad platsen avgör](/artiklar/allsvenskan-tabell-forklaring/).
+För Hammarby är det däremot starka signaler. Att tre olika spelare (Eriksson, Kaboré och Vasic) hittar nätet tyder på bredd i anfallet, vilket kan visa sig avgörande under den tätare matchprogramsperiod som väntar när Allsvenskan drar igång på allvar igen.
 
 ## Vad händer härnäst?
 

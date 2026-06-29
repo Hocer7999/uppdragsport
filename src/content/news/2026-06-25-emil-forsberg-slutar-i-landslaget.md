@@ -1,5 +1,5 @@
 ---
-title: "Emil Forsberg avslutar landslagskarriären – 92 matcher och ett VM-kvartsfinal"
+title: "Emil Forsberg avslutar landslagskarriären – 92 matcher och en VM-kvartsfinal"
 description: "34-åringen Emil Forsberg meddelar i Fotbollsmorgons sändning att han är klar med det svenska herrlandslaget efter 92 kamper och 21 mål."
 publishDate: "2026-06-25T12:00:00+00:00"
 sport: "fotboll"
@@ -45,9 +45,9 @@ Om Potter skulle ringa och kalla in honom är svaret redan bestämt:
 
 Forsberg har ännu inte formellt meddelat Svenska Fotbollförbundet om sitt beslut. Han planerar att göra det officiellt efter att VM 2026 avslutas – ett mästerskap som pågår i Nordamerika med USA, Kanada och Mexiko som värdländer.
 
-Sverige befinner sig just nu i slutskedet av VM:s gruppskedet. Forsberg, som aldrig fick chansen att vara en del av Potters projekt, väljer att stänga dörren till landslaget – på egna villkor.
+Sverige befinner sig just nu i slutskedet av VM:s gruppskede. Forsberg, som aldrig fick chansen att vara en del av Potters projekt, väljer att stänga dörren till landslaget – på egna villkor.
 
-Vill du sätta Forsbergs landslagsgärning i ett större VM-historiskt sammanhang erbjuder våra genomgångar av [Messi som VM-skyttekung](/artiklar/messi-vm-skyttekung/) och [Ronaldo som märkt historia i sex VM](/artiklar/ronaldo-sex-vm/) relevant läsning. Landslagets situation inför turneringen analyseras i [vår förhandsanalys inför VM-kvalet](/artiklar/landslaget-infor-kvalet-tre-fragor/).
+Landslagets situation inför turneringen analyseras i [vår förhandsanalys inför VM-kvalet](/artiklar/landslaget-infor-kvalet-tre-fragor/).
 
 **Källor:** [Fotbolldirekt](https://fotbolldirekt.se/vm-fotboll/emil-forsberg-lagger-av-i-landslaget-det-ar-klart/) · [Expressen](https://www.expressen.se/sport/fotboll/landslaget/emil-forsberg-slutar-i-landslaget/)
 

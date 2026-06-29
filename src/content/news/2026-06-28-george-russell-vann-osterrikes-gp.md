@@ -1,7 +1,7 @@
 ---
 title: "George Russell vann Österrikes grand prix i extremhettan"
 metaTitle: "George Russell vann Österrikes grand prix 2026 | Uppdragsport"
-description: "George Russell körde hem Österrikes grand prix för Mercedes och höll Max Verstappen borta med 1.611 sekunder. Kimi Antonelli trea."
+description: "George Russell körde hem Österrikes grand prix för Mercedes och höll Max Verstappen borta med 1,611 sekunder. Kimi Antonelli trea."
 publishDate: "2026-06-28T17:30:00Z"
 sport: "motorsport"
 primaryEntity: "George Russell"
@@ -20,23 +20,23 @@ image: "/images/news/2026-06-28-george-russell-vann-osterrikes-gp.webp"
 imageAlt: "Formel 1-tävling med publik på läktarna i sommarsolsken"
 ---
 
-George Russell körde till seger i Österrikes grand prix på Red Bull Ring i Spielberg på söndagen, med Max Verstappen tvåa (+1.611 sekunder) och Kimi Antonelli trea (+1.986 sekunder). Det var Russells sjunde karriärseger i Formel 1 och hans första sedan säsongsöppnaren i Australien.
+George Russell körde till seger i Österrikes grand prix på Red Bull Ring i Spielberg på söndagen, med Max Verstappen tvåa (+1,611 sekunder) och Kimi Antonelli trea (+1,986 sekunder). Det var Russells sjunde karriärseger i Formel 1 och hans första sedan säsongsöppnaren i Australien.
 
 ## Russell kontrollerade från pole
 
 Britten startade från pole position och höll ledningen i princip hela loppet utan att utmanas på allvar. Den taktiska nyckeln kom på varv 44 då Mercedes hemkallade Russell för ett byte till nya hårda däck. Han återvände till banan med ett försprång på drygt tio sekunder till Verstappen, och det gapet krympte aldrig ner till ett läge där Red Bull hade en realistisk chans att utmana.
 
-Verstappen hade kraschad i lördagens kvali och startade längre bak i startfältet, men kämpade sig upp till andraplats. Dettarna gjorde att han till slut inte hade nog med tid att hota Russell mot mål.
+Verstappen hade kraschat i lördagens kvali och startade längre bak i startfältet, men kämpade sig upp till andraplats. Det gjorde att han till slut inte hade nog med tid att hota Russell mot mål.
 
 ## Antonelli tidigt i trubbel, återhämtade sig
 
-Kimi Antonelli körde ut från banan vid både kurva ett och kurva tre under de inledande varven, vilket satte hans race i gungning. Men den unge Mercedes-föraren rätade upp sig och tog till slut en värdefull tredjeplacering som bekräftade att han fortfarande har kontroll i mästerskapet.
+Kimi Antonelli körde ut från banan vid både kurva ett och kurva tre under de inledande varven, vilket äventyrade hans lopp. Men den unge Mercedes-föraren rätade upp sig och tog till slut en värdefull tredjeplacering som bekräftade att han fortfarande leder mästerskapet.
 
-Det är en prestanda som understryker Antonellis mognad. Att hålla ihop ett race efter tidig turbulens och ändå rida in på pallen är precis den typ av poängharvande Antonelli behöver göra för att hålla Russell och Hamilton på avstånd.
+Det är en prestanda som understryker Antonellis mognad. Att hålla ihop ett race efter tidig turbulens och ändå ta sig upp på pallen är precis den typ av poängplockning Antonelli behöver göra för att hålla Russell och Hamilton på avstånd.
 
 ## Hettan slog till mot flera bilar
 
-Tävlingsdagen präglades av extrem sommarvärme på Red Bull Ring, och temperaturen krävde sitt offer. Lance Stroll pensionerade sig med ett misstänkt ERS-problem. Cadillac-teamets båda förare, Sergio Pérez och Valtteri Bottas, drog sig ur med överhettade bromsar. En virtuell säkerhetsbil utlöstes när Carlos Sainz stannade på huvudrakan med vad som verkade vara ett elektriskt fel.
+Tävlingsdagen präglades av extrem sommarvärme på Red Bull Ring, och temperaturen krävde sitt offer. Lance Stroll bröt med ett misstänkt ERS-problem. Cadillac-teamets båda förare, Sergio Pérez och Valtteri Bottas, bröt loppet med överhettade bromsar. En virtuell säkerhetsbil utlöstes när Carlos Sainz stannade på huvudrakan med vad som verkade vara ett elektriskt fel.
 
 ## Russells reaktion
 

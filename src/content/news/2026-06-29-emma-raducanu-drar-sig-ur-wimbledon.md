@@ -1,7 +1,7 @@
 ---
 title: "Emma Raducanu drar sig ur Wimbledon efter stressfraktur"
 metaTitle: "Raducanu ur Wimbledon 2026 – stressfraktur i benet"
-description: "Emma Raducanu drar sig ur Wimbledon 2026 efter att en sista röntgen visat en stressfraktur i högra benet. Brittiska ettan missar sin hemmaslam för andra gången."
+description: "Emma Raducanu drar sig ur Wimbledon 2026 efter att en sista röntgen visat en stressfraktur i högra benet. Den brittiska ettan missar sin hemma-Grand Slam för andra gången."
 publishDate: "2026-06-29T07:40:00Z"
 sport: "tennis"
 primaryEntity: "Emma Raducanu"
@@ -30,17 +30,17 @@ I ett inlägg på Instagram skrev hon att hon gjort allt för att kunna stå på
 
 ## Andra gången på fyra år
 
-För Raducanu innebär beskedet att hon missar sin hemmaslam för andra gången på fyra år. 2023 stod hon över Wimbledon efter operationer i både handled och fotled. Att tvingas bort från just Wimbledon väger tungt för en spelare som beskrivit turneringen som allt för henne.
+För Raducanu innebär beskedet att hon missar sin hemma-Grand Slam för andra gången på fyra år. 2023 stod hon över Wimbledon efter operationer i både handled och fotled. Att tvingas bort från just Wimbledon väger tungt för en spelare som sagt att turneringen betyder allt för henne.
 
 Karriären har präglats av både sensation och motgång. Som 18-årig kvalspelare vann hon US Open 2021, en av tennishistoriens mest oväntade Grand Slam-triumfer. Sedan dess har hon inte vunnit någon turnering på touren, och återkommande skador har bromsat henne gång på gång.
 
-Inför Wimbledon fanns ändå optimism. Hon tog sig nyligen till final i grästurneringen vid Queen's Club, ett tecken på att formen var på väg åt rätt håll innan benet sa ifrån.
+Inför Wimbledon fanns ändå optimism. Hon tog sig nyligen till final i grästurneringen vid Queen's Club, ett tecken på att formen var på väg åt rätt håll innan skadan satte stopp.
 
 ## Vad händer nu
 
 Något exakt datum för återkomst har inte angetts. Raducanu uppger att fokus nu ligger på behandling tillsammans med teamet. En stressfraktur kräver vila, och hur lång frånvaron blir avgörs av läkningen.
 
-Avhoppet gör att Wimbledon inleds utan sin mest profilerade brittiska spelare i damklassen. För svensk publik som följer en fullspäckad sportsommar är det ännu en påminnelse om hur tunn marginalen är mellan toppform och skada, något som också präglar [de svenska medaljhoppen inför friidrotts-VM](/artiklar/friidrotts-vm-svenska-medaljhoppen/).
+Avhoppet gör att Wimbledon inleds utan sin mest profilerade brittiska spelare i damklassen. För svensk publik som följer en fullspäckad sportsommar är det ännu en påminnelse om hur tunn marginalen är mellan toppform och skada.
 
 **Källor:** [ESPN](https://www.espn.com/tennis/story/_/id/49209975/wimbledon-british-no-1-emma-raducanu-withdraws-wimbledon-due-injury) · [The Washington Times](https://www.washingtontimes.com/news/2026/jun/28/emma-raducanu-withdraws-wimbledon-eve-opening-match-stress-fracture/)
 
